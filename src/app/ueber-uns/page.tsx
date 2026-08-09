@@ -208,7 +208,7 @@ export default function UeberUnsPage() {
             </p>
             <a
               href={site.emailHref}
-              className="group mt-8 inline-flex items-center gap-2.5 rounded-md bg-ink px-7 py-4 text-[14.5px] font-medium text-ink-foreground transition-colors hover:bg-brand"
+              className="group mt-8 inline-flex items-center gap-2.5 rounded-md bg-brand px-7 py-4 text-[14.5px] font-medium text-white transition-colors hover:bg-brand-ink"
             >
               Initiativ bewerben
               <ArrowRight

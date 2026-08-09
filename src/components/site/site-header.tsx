@@ -125,7 +125,7 @@ export function SiteHeader() {
               "hidden rounded-md px-5 py-2.5 text-[13.5px] font-medium transition-colors sm:inline-flex",
               onDark
                 ? "bg-white text-brand-ink hover:bg-white/90"
-                : "bg-ink text-ink-foreground hover:bg-brand",
+                : "bg-brand text-white hover:bg-brand-ink",
             )}
           >
             Termin vereinbaren
@@ -163,7 +163,7 @@ export function SiteHeader() {
           <div className="mx-auto flex max-w-[1240px] flex-col gap-2 px-6 pb-6 pt-2">
             <Link
               href="/kontakt"
-              className="flex items-center justify-center rounded-md bg-ink px-5 py-3.5 text-[14px] font-medium text-ink-foreground"
+              className="flex items-center justify-center rounded-md bg-brand px-5 py-3.5 text-[14px] font-medium text-white"
             >
               Termin vereinbaren
             </Link>

@@ -91,7 +91,7 @@ export default function HomePage() {
               );
 
               const cls =
-                "group flex flex-col bg-background px-7 py-9 transition-colors hover:bg-muted";
+                "group flex flex-col bg-background px-7 py-9 transition-colors hover:bg-accent";
 
               return "internal" in s && s.internal ? (
                 <a key={s.title} href={s.href} className={cls}>
@@ -120,6 +120,7 @@ export default function HomePage() {
             <p className="eyebrow lg:pt-3">Unsere Haltung</p>
             <ScrollTextHighlight
               text="Wir verkaufen keine Policen. Wir sorgen dafür, dass Sie im Ernstfall nicht allein dastehen – mit ehrlicher Beratung, festen Ansprechpartnern und einem Team, das Sie beim Namen kennt."
+              highlightColor="var(--brand)"
               className="display max-w-[46rem] text-[clamp(1.6rem,3vw,2.35rem)]"
             />
           </div>
@@ -161,7 +162,7 @@ export default function HomePage() {
               href="https://cal.com/tim-haupt"
               target="_blank"
               rel="noopener noreferrer"
-              className="group mt-9 inline-flex items-center gap-2.5 rounded-md bg-ink px-6 py-3.5 text-[14px] font-medium text-ink-foreground transition-colors hover:bg-brand"
+              className="group mt-9 inline-flex items-center gap-2.5 rounded-md bg-brand px-6 py-3.5 text-[14px] font-medium text-white transition-colors hover:bg-brand-ink"
             >
               Termin bei Tim Haupt buchen
               <ArrowRight
@@ -213,7 +214,7 @@ export default function HomePage() {
               <Link
                 key={s.slug}
                 href={`/leistungen#${s.slug}`}
-                className="group flex flex-col bg-background px-8 py-10 transition-colors hover:bg-muted"
+                className="group flex flex-col bg-background px-8 py-10 transition-colors hover:bg-accent"
               >
                 <span className="mb-7 inline-flex text-brand-bright">
                   <Icon className="h-6 w-6" strokeWidth={1.4} />
@@ -451,7 +452,7 @@ export default function HomePage() {
 
           <div className="border-t border-border pt-8 lg:border-l lg:border-t-0 lg:pl-16 lg:pt-0">
             <p className="eyebrow">ProvenExpert</p>
-            <p className="display mt-5 text-[clamp(2rem,3.4vw,2.8rem)] text-foreground tabular-nums">
+            <p className="display mt-5 text-[clamp(2rem,3.4vw,2.8rem)] text-brand tabular-nums">
               {provenExpert.rating.toLocaleString("de-DE", {
                 minimumFractionDigits: 2,
               })}
@@ -532,17 +533,19 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* ── Abschluss ──────────────────────────────────── */}
-      <Section tone="dark">
+      {/* ── Abschluss: gruene CI-Flaeche wie auf den Angebotsunterlagen ── */}
+      <section className="relative overflow-hidden bg-[linear-gradient(140deg,#16281a_0%,#2d5e29_46%,#3d7a3a_76%,#4c8f42_110%)] text-white">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_82%_18%,rgba(104,160,64,0.38),transparent_55%)]" />
+        <div className="relative mx-auto max-w-[1240px] px-6 py-24 sm:py-32 lg:px-10">
         <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr] lg:items-end">
           <div>
-            <p className="eyebrow text-brand-bright">Ihr nächster Schritt</p>
+            <p className="eyebrow text-white/65">Ihr nächster Schritt</p>
             <h2 className="display mt-5 text-[clamp(2rem,4vw,3.2rem)] text-white">
               Reden wir über das,
               <br />
               was Ihnen wichtig ist.
             </h2>
-            <p className="mt-6 max-w-[32rem] text-[16.5px] leading-[1.75] text-white/55">
+            <p className="mt-6 max-w-[32rem] text-[16.5px] leading-[1.75] text-white/75">
               Das Erstgespräch ist kostenlos und unverbindlich – vor Ort in{" "}
               {site.city}, telefonisch oder per Videocall.
             </p>
@@ -561,14 +564,15 @@ export default function HomePage() {
             </Link>
             <a
               href={site.phoneHref}
-              className="inline-flex items-center gap-2.5 rounded-md border border-white/25 px-7 py-4 text-[14.5px] font-medium text-white tabular-nums transition-colors hover:border-white/60"
+              className="inline-flex items-center gap-2.5 rounded-md border border-white/40 px-7 py-4 text-[14.5px] font-medium text-white tabular-nums transition-colors hover:border-white"
             >
               <Phone className="h-4 w-4" strokeWidth={1.8} />
               {site.phone}
             </a>
           </div>
         </div>
-      </Section>
+        </div>
+      </section>
     </>
   );
 }

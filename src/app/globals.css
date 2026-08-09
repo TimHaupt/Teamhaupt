@@ -34,14 +34,14 @@
   --ink: #14171a;
   --ink-foreground: #ffffff;
 
-  --secondary: #eceee6;
+  --secondary: #e9eee3;
   --secondary-foreground: #14171a;
 
   /* Deutlich genug abgesetzt, damit die Zonen bewusst wirken */
-  --muted: #eceee6;
+  --muted: #e9eee3;
   --muted-foreground: #666d64;
 
-  --accent: #eef2ea;
+  --accent: #e3eeda;
   --accent-foreground: #2d5e29;
 
   --destructive: #e00818;

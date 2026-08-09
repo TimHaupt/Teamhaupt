@@ -49,6 +49,7 @@ export function Hero() {
             geaendert, muessen sie mitwandern. */}
         <div className="absolute inset-0 bg-[linear-gradient(100deg,var(--brand-ink)_0%,var(--brand-ink)_34%,rgba(13,20,16,0.86)_46%,rgba(13,20,16,0.42)_62%,rgba(13,20,16,0.08)_82%,rgba(13,20,16,0)_100%)]" />
         <div className="absolute inset-x-0 bottom-0 h-40 bg-[linear-gradient(to_top,var(--brand-ink),transparent)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_16%_30%,rgba(104,160,64,0.15),transparent_52%)]" />
       </div>
 
       <div className="relative mx-auto max-w-[1240px] px-6 pb-20 pt-40 sm:pb-24 sm:pt-44 lg:px-10 lg:pb-28 lg:pt-52">
