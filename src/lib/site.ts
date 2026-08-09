@@ -236,6 +236,9 @@ export const selfservice = [
 export type Member = {
   name: string;
   role: string;
+  /** Schwerpunkt, auf der Teamseite hinter dem Pipe-Zeichen gefuehrt */
+  focus?: string;
+  photo: string;
   booking?: string;
   email?: string;
   phone?: string;
@@ -244,19 +247,58 @@ export type Member = {
 export const team: Member[] = [
   {
     name: "Tim Haupt",
-    role: "Inhaber & Generalvertreter",
+    role: "Inhaber",
+    focus: "Firmen und Freiberufler",
+    photo: "/img/team/tim-haupt.jpg",
     booking: "https://cal.com/tim-haupt",
   },
   {
     name: "Swenja-Elisè Möller",
-    role: "Persönliche Schadenmanagerin",
+    role: "Schadenmanagerin",
+    focus: "Kundenservice",
+    photo: "/img/team/swenja-moeller.jpg",
     email: "Swenja.Moeller@hdi.de",
     phone: "0361 56 53 665",
   },
-  { name: "Kathrin Letsch", role: "Kundenbetreuung", booking: "https://cal.com/kathrin-letsch" },
-  { name: "Lisa Lübke", role: "Kundenbetreuung", booking: "https://cal.com/Lisa.Luebke" },
-  { name: "Amanuel Tekeste", role: "Kundenbetreuung", booking: "https://cal.com/amanueltekeste" },
-  { name: "Frederic Loll", role: "Kundenbetreuung", booking: "https://cal.com/frederic.loll" },
+  {
+    name: "Nancy Richter",
+    role: "Büroleitung",
+    photo: "/img/team/nancy-richter.jpg",
+  },
+  {
+    name: "Kathrin Letsch",
+    role: "Kundenberaterin",
+    focus: "Privatversicherungen und Heilberufe",
+    photo: "/img/team/kathrin-letsch.jpg",
+    booking: "https://cal.com/kathrin-letsch",
+  },
+  {
+    name: "Lisa Lübke",
+    role: "Kundenberaterin",
+    focus: "Vorsorge & Privatversicherungen",
+    photo: "/img/team/lisa-luebke.jpg",
+    booking: "https://cal.com/Lisa.Luebke",
+  },
+  {
+    name: "Frederic Loll",
+    role: "Kundenberater",
+    focus: "Vorsorge & Privatversicherungen",
+    photo: "/img/team/frederic-loll.jpg",
+    booking: "https://cal.com/frederic.loll",
+  },
+  {
+    name: "Amanuel Tekeste",
+    role: "Kundenberater",
+    focus: "Privatversicherungen und Firmen",
+    photo: "/img/team/amanuel-tekeste.jpg",
+    booking: "https://cal.com/amanueltekeste",
+  },
+  {
+    name: "Philip Schmidt",
+    role: "Kundenberater",
+    focus: "Privatversicherungen",
+    photo: "/img/team/philip-schmidt.jpg",
+  },
 ];
 
 /**

@@ -227,10 +227,10 @@ export default function HomePage() {
           <div className="order-1 lg:order-2">
             <div className="mx-auto max-w-[26rem] lg:mx-0 lg:ml-auto">
               <Image
-                src="/img/tim-portrait.png"
+                src="/img/team/tim-haupt.jpg"
                 alt="Tim Haupt, Inhaber der HDI Generalvertretung Erfurt"
-                width={340}
-                height={425}
+                width={520}
+                height={650}
                 sizes="(max-width: 1024px) 80vw, 26rem"
                 className="w-full rounded-lg"
               />
@@ -401,45 +401,50 @@ export default function HomePage() {
 
         <div className="mt-14 grid grid-cols-1 gap-px bg-border sm:grid-cols-2 lg:grid-cols-3">
           {team.map((m) => (
-            <div key={m.name} className="flex flex-col bg-background px-8 py-9">
-              <span className="display grid h-14 w-14 place-items-center rounded-full bg-brand text-[17px] text-white">
-                {m.name
-                  .split(/[\s-]/)
-                  .filter(Boolean)
-                  .slice(0, 2)
-                  .map((p) => p[0])
-                  .join("")}
-              </span>
-              <h3 className="mt-6 text-[16.5px] font-medium text-foreground">
-                {m.name}
-              </h3>
-              <p className="mt-1.5 flex-1 text-[14px] text-muted-foreground">
-                {m.role}
-              </p>
+            <div key={m.name} className="flex flex-col bg-background">
+              <Image
+                src={m.photo}
+                alt={`${m.name}, ${m.role}`}
+                width={520}
+                height={650}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                className="w-full object-cover"
+              />
+              <div className="flex flex-1 flex-col px-7 py-7">
+                <h3 className="text-[16.5px] font-medium text-foreground">
+                  {m.name}
+                </h3>
+                <p className="mt-1.5 text-[14px] text-brand">{m.role}</p>
+                {m.focus && (
+                  <p className="mt-1 flex-1 text-[13.5px] leading-snug text-muted-foreground">
+                    {m.focus}
+                  </p>
+                )}
 
-              <div className="mt-6 flex flex-col gap-2">
-                {m.booking && (
-                  <a
-                    href={m.booking}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group inline-flex items-center gap-1.5 text-[13.5px] text-brand"
-                  >
-                    Termin buchen
-                    <ArrowUpRight
-                      className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                      strokeWidth={1.8}
-                    />
-                  </a>
-                )}
-                {m.phone && (
-                  <a
-                    href={`tel:${m.phone.replace(/\s/g, "")}`}
-                    className="text-[13.5px] text-brand tabular-nums"
-                  >
-                    {m.phone}
-                  </a>
-                )}
+                <div className="mt-5 flex flex-col gap-1.5">
+                  {m.booking && (
+                    <a
+                      href={m.booking}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group inline-flex items-center gap-1.5 text-[13.5px] text-foreground"
+                    >
+                      Termin buchen
+                      <ArrowUpRight
+                        className="h-3.5 w-3.5 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                        strokeWidth={1.8}
+                      />
+                    </a>
+                  )}
+                  {m.phone && (
+                    <a
+                      href={`tel:${m.phone.replace(/\s/g, "")}`}
+                      className="text-[13.5px] text-foreground tabular-nums"
+                    >
+                      {m.phone}
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
           ))}
