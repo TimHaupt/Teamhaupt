@@ -421,16 +421,28 @@ export default function HomePage() {
           ))}
         </div>
 
-        <Link
-          href="/leistungen#kanzleien"
-          className="group mt-12 inline-flex items-center gap-2 text-[14.5px] text-brand"
-        >
-          Mehr für Kanzleien
-          <ArrowRight
-            className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
-            strokeWidth={1.8}
-          />
-        </Link>
+        <div className="mt-10 flex flex-wrap gap-x-10 gap-y-3">
+          <Link
+            href="/kanzleien"
+            className="group inline-flex items-center gap-2 text-[14.5px] text-brand"
+          >
+            Mehr für Kanzleien – inkl. Case Study
+            <ArrowRight
+              className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
+              strokeWidth={1.8}
+            />
+          </Link>
+          <Link
+            href="/heilberufe"
+            className="group inline-flex items-center gap-2 text-[14.5px] text-brand"
+          >
+            Auch spezialisiert: Heilberufe
+            <ArrowRight
+              className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
+              strokeWidth={1.8}
+            />
+          </Link>
+        </div>
       </Section>
 
       {/* ── Vertrauen: Kundenstimme + ProvenExpert ─────── */}

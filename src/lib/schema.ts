@@ -174,6 +174,41 @@ export function faqSchema() {
   };
 }
 
+/** Zielgruppenseite als eigenständige Dienstleistung auszeichnen. */
+export function serviceSchema(opts: {
+  name: string;
+  description: string;
+  path: string;
+  audience: string;
+}) {
+  return {
+    "@type": "Service",
+    "@id": `${BASE}${opts.path}#service`,
+    name: opts.name,
+    description: opts.description,
+    url: `${BASE}${opts.path}`,
+    provider: { "@id": ids.agency },
+    areaServed: [
+      { "@type": "City", name: "Erfurt" },
+      { "@type": "State", name: "Thüringen" },
+      { "@type": "Country", name: "Deutschland" },
+    ],
+    audience: { "@type": "Audience", audienceType: opts.audience },
+  };
+}
+
+/** FAQ-Auszeichnung für seitenspezifische Fragenlisten. */
+export function faqListSchema(list: { q: string; a: string }[]) {
+  return {
+    "@type": "FAQPage",
+    mainEntity: list.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+}
+
 export function breadcrumbSchema(trail: { name: string; path: string }[]) {
   return {
     "@type": "BreadcrumbList",

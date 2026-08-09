@@ -11,6 +11,7 @@ const themen = [
   "Kfz-Versicherung",
   "Gesundheit & Zähne",
   "Steuerberater / Rechtsanwalt",
+  "Heilberufe / Praxis",
   "Etwas anderes",
 ];
 

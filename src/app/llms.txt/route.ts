@@ -69,6 +69,8 @@ export function GET() {
     "",
     `- [Startseite](${BASE}/)`,
     `- [Leistungen](${BASE}/leistungen)`,
+    `- [Für Kanzleien: Steuerberater und Rechtsanwälte](${BASE}/kanzleien)`,
+    `- [Für Heilberufe: Ärzte, Praxen, Therapeuten](${BASE}/heilberufe)`,
     `- [Über uns und Team](${BASE}/ueber-uns)`,
     `- [Kontakt, Terminbuchung, Schadenmeldung](${BASE}/kontakt)`,
     "",

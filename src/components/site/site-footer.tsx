@@ -69,6 +69,22 @@ export function SiteFooter() {
                   </Link>
                 </li>
               ))}
+              <li className="pt-2">
+                <Link
+                  href="/kanzleien"
+                  className="text-[14.5px] font-medium text-foreground transition-colors hover:text-brand"
+                >
+                  Für Kanzleien
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/heilberufe"
+                  className="text-[14.5px] font-medium text-foreground transition-colors hover:text-brand"
+                >
+                  Für Heilberufe
+                </Link>
+              </li>
             </ul>
           </div>
 

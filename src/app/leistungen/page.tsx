@@ -138,10 +138,10 @@ export default function LeistungenPage() {
             persönliche berufliche Existenz treffen.
           </p>
           <Link
-            href="/kontakt"
+            href="/kanzleien"
             className="group mt-8 inline-flex items-center gap-2.5 rounded-md bg-white px-7 py-4 text-[14.5px] font-medium text-brand-ink transition-colors hover:bg-white/90"
           >
-            Kanzlei-Beratung anfragen
+            Zur Kanzleiseite mit Case Study
             <ArrowRight
               className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
               strokeWidth={1.8}
