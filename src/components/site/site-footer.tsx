@@ -43,6 +43,15 @@ export function SiteFooter() {
                 sizes="170px"
                 className="h-auto w-[170px]"
               />
+              <span className="h-9 w-px shrink-0 bg-border" />
+              <Image
+                src="/img/hdi-logo-gruen.png"
+                alt="HDI"
+                width={799}
+                height={316}
+                sizes="88px"
+                className="h-auto w-[88px] opacity-70"
+              />
             </div>
           </div>
 
@@ -101,7 +110,7 @@ export function SiteFooter() {
             <h3 className="eyebrow">Kontakt</h3>
             <ul className="mt-6 space-y-4">
               <li className="flex gap-3">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand" strokeWidth={1.6} />
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-bright" strokeWidth={1.6} />
                 <span className="text-[14.5px] leading-relaxed text-muted-foreground">
                   {site.street}
                   <br />
@@ -109,7 +118,7 @@ export function SiteFooter() {
                 </span>
               </li>
               <li className="flex gap-3">
-                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-brand" strokeWidth={1.6} />
+                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-brand-bright" strokeWidth={1.6} />
                 <a
                   href={site.phoneHref}
                   className="text-[14.5px] text-muted-foreground tabular-nums transition-colors hover:text-brand"
@@ -118,7 +127,7 @@ export function SiteFooter() {
                 </a>
               </li>
               <li className="flex gap-3">
-                <Mail className="mt-0.5 h-4 w-4 shrink-0 text-brand" strokeWidth={1.6} />
+                <Mail className="mt-0.5 h-4 w-4 shrink-0 text-brand-bright" strokeWidth={1.6} />
                 <a
                   href={site.emailHref}
                   className="break-all text-[14.5px] text-muted-foreground transition-colors hover:text-brand"

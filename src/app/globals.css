@@ -93,6 +93,8 @@
   --color-brand-ink: var(--brand-ink);
 
   --font-sans: var(--font-titillium);
+  /* Titillium hat keinen 500er-Schnitt; font-medium fiele sonst auf 400 zurueck */
+  --font-weight-medium: 600;
 
   /* Kleine Radien – klare Kanten lesen sich seriös */
   --radius-sm: 0.25rem;
@@ -118,28 +120,33 @@ body {
   font-feature-settings: "kern", "liga";
 }
 
-/* Display: Titillium im leichten Schnitt. Der alte Auftritt nutzte 800 –
-   genau das liess ihn laut wirken. Grösse statt Fettung. */
-.display {
-  font-family: var(--font-titillium), system-ui, sans-serif;
-  font-weight: 300;
-  letter-spacing: -0.022em;
-  line-height: 1.1;
-}
+/* Eigene Klassen in der components-Layer: Tailwind-Utilities (Layer
+   `utilities`) muessen sie ueberschreiben koennen – unlayered CSS wuerde
+   sonst jede text-*-Utility auf diesen Elementen stumm schlagen. */
+@layer components {
+  /* Display: Titillium im leichten Schnitt. Der alte Auftritt nutzte 800 –
+     genau das liess ihn laut wirken. Grösse statt Fettung. */
+  .display {
+    font-family: var(--font-titillium), system-ui, sans-serif;
+    font-weight: 300;
+    letter-spacing: -0.022em;
+    line-height: 1.1;
+  }
 
-/* Kleines Label über Überschriften */
-.eyebrow {
-  font-size: 0.6875rem;
-  font-weight: 500;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--muted-foreground);
-}
+  /* Kleines Label über Überschriften */
+  .eyebrow {
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted-foreground);
+  }
 
-/* Haarlinie */
-.rule {
-  height: 1px;
-  background: var(--border);
+  /* Haarlinie */
+  .rule {
+    height: 1px;
+    background: var(--border);
+  }
 }
 
 ::selection {
@@ -159,6 +166,27 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--brand);
+}
+
+/* Feine CI-Linie am oberen Seitenrand – Wiedererkennung wie ein Briefkopf */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: var(--brand-bright);
+  z-index: 60;
+  pointer-events: none;
+}
+
+/* Sichtbarer Tastatur-Fokus; auf dunklen Flächen übernimmt das helle CI-Grün */
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+.bg-brand-ink :focus-visible,
+.bg-brand-ink:focus-visible {
+  outline-color: var(--brand-bright);
 }
 
 @media (prefers-reduced-motion: reduce) {

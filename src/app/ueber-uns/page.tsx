@@ -122,7 +122,7 @@ export default function UeberUnsPage() {
         lead="Unser Team am Standort Erfurt berät Sie in unterschiedlichen Themengebieten. Buchen Sie direkt im Kalender Ihres Ansprechpartners."
       >
         <Image
-          src="/img/team-banner.png"
+          src="/img/team-banner.jpg"
           alt="Das Team der HDI Generalvertretung Tim Haupt in Erfurt"
           width={1794}
           height={700}

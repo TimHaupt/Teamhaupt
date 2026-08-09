@@ -1,7 +1,6 @@
 export const site = {
   name: "Tim Haupt",
   legalName: "HDI Generalvertretung Tim Haupt",
-  tagline: "Versicherung mit echtem Ansprechpartner.",
   street: "Johannesstr. 62–64",
   zip: "99084",
   city: "Erfurt",
@@ -198,6 +197,8 @@ export const steps = [
 export const provenExpert = {
   rating: 4.89,
   count: 207,
+  /** Anteil der Kunden, die weiterempfehlen – gleiche Pflegepflicht wie rating/count. */
+  recommendationRate: 99,
   profileUrl:
     "https://www.provenexpert.com/de-de/hdi-generalvertretung-tim-haupt/",
 } as const;

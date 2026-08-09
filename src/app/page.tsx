@@ -30,6 +30,7 @@ import {
 import {
   advantages,
   faqs,
+  provenExpert,
   schadenMelden,
   schadenmanagerin,
   selfservice,
@@ -71,7 +72,7 @@ export default function HomePage() {
               const Icon = icons[s.icon as IconName];
               const inner = (
                 <>
-                  <span className="mb-6 inline-flex text-brand">
+                  <span className="mb-6 inline-flex text-brand-bright">
                     <Icon className="h-[22px] w-[22px]" strokeWidth={1.5} />
                   </span>
                   <span className="flex items-start justify-between gap-3">
@@ -214,7 +215,7 @@ export default function HomePage() {
                 href={`/leistungen#${s.slug}`}
                 className="group flex flex-col bg-background px-8 py-10 transition-colors hover:bg-muted"
               >
-                <span className="mb-7 inline-flex text-brand">
+                <span className="mb-7 inline-flex text-brand-bright">
                   <Icon className="h-6 w-6" strokeWidth={1.4} />
                 </span>
                 <h3 className="text-[17px] font-medium text-foreground">
@@ -245,7 +246,7 @@ export default function HomePage() {
         <div className="mt-16 grid gap-x-14 gap-y-12 sm:grid-cols-2">
           {advantages.map((a, i) => (
             <div key={a.title} className="border-t border-border pt-7">
-              <span className="display text-[15px] text-brand tabular-nums">
+              <span className="display text-[15px] text-brand-bright tabular-nums">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <h3 className="mt-4 text-[17px] font-medium text-foreground">
@@ -263,7 +264,7 @@ export default function HomePage() {
       <Section id="schaden" tone="dark">
         <div className="grid gap-14 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
           <div>
-            <p className="eyebrow text-white/45">Im Schadensfall</p>
+            <p className="eyebrow text-brand-bright">Im Schadensfall</p>
             <h2 className="display mt-5 text-[clamp(1.9rem,3.6vw,2.9rem)] text-white">
               Eine Ansprechpartnerin,
               <br />
@@ -303,7 +304,7 @@ export default function HomePage() {
 
           {/* Schaden direkt melden */}
           <div className="border-t border-white/12 pt-9 lg:border-l lg:border-t-0 lg:pl-16 lg:pt-0">
-            <p className="eyebrow text-white/45">Schaden online melden</p>
+            <p className="eyebrow text-brand-bright">Schaden online melden</p>
             <p className="mt-4 text-[15px] leading-relaxed text-white/50">
               Rund um die Uhr, ohne Anmeldung. Wählen Sie die passende Sparte:
             </p>
@@ -329,7 +330,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* ── Team ───────────────────────────────────────── */}
+      {/* ── Team (kompakt – volle Ansicht auf /ueber-uns) ── */}
       <Section
         id="team"
         eyebrow="Das Team"
@@ -337,7 +338,7 @@ export default function HomePage() {
         lead="Buchen Sie direkt einen Termin im Kalender Ihres Ansprechpartners – ohne Rückruf-Warterei."
       >
         <Image
-          src="/img/team-banner.png"
+          src="/img/team-banner.jpg"
           alt="Das Team der HDI Generalvertretung Tim Haupt in Erfurt"
           width={1794}
           height={700}
@@ -345,95 +346,60 @@ export default function HomePage() {
           className="mt-14 w-full rounded-lg bg-muted"
         />
 
-        <div className="mt-14 grid grid-cols-1 gap-px bg-border sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-12">
           {team.map((m) => (
-            <div key={m.name} className="flex flex-col bg-background">
-              <div className="relative">
-                <Image
-                  src={m.photo}
-                  alt={
-                    m.digital
-                      ? `${m.name} – ${m.role} (computergeneriertes Bild)`
-                      : `${m.name}, ${m.role}`
-                  }
-                  width={520}
-                  height={650}
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="w-full object-cover"
-                />
-                {m.digital && (
-                  <span className="absolute bottom-3 left-3 rounded bg-brand-ink/85 px-2.5 py-1 text-[10.5px] font-medium uppercase tracking-[0.12em] text-white backdrop-blur">
-                    KI · kein Mensch
-                  </span>
-                )}
-              </div>
-              <div className="flex flex-1 flex-col px-7 py-7">
-                <h3 className="text-[16.5px] font-medium text-foreground">
-                  {m.name}
-                </h3>
-                <p className="mt-1.5 text-[14px] text-brand">{m.role}</p>
-                {m.focus && (
-                  <p className="mt-1 flex-1 text-[13.5px] leading-snug text-muted-foreground">
-                    {m.focus}
-                  </p>
-                )}
-
-                <div className="mt-5 flex flex-col gap-1.5">
-                  {m.booking && (
-                    <a
-                      href={m.booking}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group inline-flex items-center gap-1.5 text-[13.5px] text-foreground"
-                    >
-                      Termin buchen
-                      <ArrowUpRight
-                        className="h-3.5 w-3.5 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                        strokeWidth={1.8}
-                      />
-                    </a>
-                  )}
-                  {m.phone && (
-                    <a
-                      href={`tel:${m.phone.replace(/\s/g, "")}`}
-                      className="text-[13.5px] text-foreground tabular-nums"
-                    >
-                      {m.phone}
-                    </a>
-                  )}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-      </Section>
-
-      {/* ── Ablauf ─────────────────────────────────────── */}
-      <Section
-        tone="paper"
-        eyebrow="In drei Schritten"
-        title="So einfach kommen Sie zu Ihrem Schutz"
-      >
-        <div className="mt-16 grid gap-x-14 gap-y-12 md:grid-cols-3">
-          {steps.map((s) => (
-            <div key={s.n} className="border-t border-border pt-7">
-              <span className="display text-[15px] text-brand tabular-nums">
-                {s.n}
+            <li
+              key={m.name}
+              className="flex flex-col gap-1.5 border-b border-border py-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6"
+            >
+              <span className="text-[15.5px]">
+                <span className="font-medium text-foreground">{m.name}</span>
+                <span className="text-muted-foreground">
+                  {" "}
+                  · {m.role}
+                  {m.focus ? ` – ${m.focus}` : ""}
+                </span>
               </span>
-              <h3 className="mt-4 text-[17px] font-medium text-foreground">
-                {s.title}
-              </h3>
-              <p className="mt-3 text-[15px] leading-[1.75] text-muted-foreground">
-                {s.text}
-              </p>
-            </div>
+              {m.booking ? (
+                <a
+                  href={m.booking}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex shrink-0 items-center gap-1.5 text-[13.5px] text-brand"
+                >
+                  Termin buchen
+                  <ArrowUpRight
+                    className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                    strokeWidth={1.8}
+                  />
+                </a>
+              ) : m.phone ? (
+                <a
+                  href={`tel:${m.phone.replace(/\s/g, "")}`}
+                  className="shrink-0 text-[13.5px] text-brand tabular-nums"
+                >
+                  {m.phone}
+                </a>
+              ) : null}
+            </li>
           ))}
-        </div>
+        </ul>
+
+        <Link
+          href="/ueber-uns#team"
+          className="group mt-8 inline-flex items-center gap-2 text-[14.5px] text-brand"
+        >
+          Das ganze Team mit Fotos ansehen
+          <ArrowRight
+            className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
+            strokeWidth={1.8}
+          />
+        </Link>
       </Section>
 
       {/* ── Kanzleien ──────────────────────────────────── */}
       <Section
+        tone="paper"
         eyebrow="Spezialgebiet"
         title="Für Steuerberater und Rechtsanwälte"
         lead="Kanzleien haben Haftungsrisiken, die man wirklich verstehen muss. Mitglieder von DAV und StbV erhalten bei uns zusätzlich Sonderkonditionen."
@@ -466,29 +432,86 @@ export default function HomePage() {
         </Link>
       </Section>
 
-      {/* ── Kundenstimmen ──────────────────────────────── */}
-      {testimonials.length > 0 && (
-        <Section tone="paper" eyebrow="Kundenstimmen" title="Was Kunden sagen">
-          <div className="mt-16 grid gap-x-14 gap-y-12 md:grid-cols-3">
-            {testimonials.map((t) => (
-              <figure key={t.name} className="border-t border-border pt-7">
-                <blockquote className="text-[15.5px] leading-[1.75] text-foreground">
-                  {t.quote}
-                </blockquote>
-                <figcaption className="mt-5 text-[13.5px] text-muted-foreground">
-                  <span className="block font-medium text-foreground">
-                    {t.name}
-                  </span>
-                  {t.role}
-                </figcaption>
-              </figure>
-            ))}
+      {/* ── Vertrauen: Kundenstimme + ProvenExpert ─────── */}
+      <Section eyebrow="Vertrauen" title="Was Kunden sagen">
+        <div className="mt-14 grid gap-12 lg:grid-cols-[1.15fr_1fr] lg:gap-20">
+          {testimonials[0] && (
+            <figure>
+              <blockquote className="display text-[clamp(1.35rem,2.4vw,1.9rem)] leading-[1.5] text-foreground">
+                „{testimonials[0].quote}"
+              </blockquote>
+              <figcaption className="mt-6 text-[14px] text-muted-foreground">
+                <span className="block font-medium text-foreground">
+                  {testimonials[0].name}
+                </span>
+                {testimonials[0].role}
+              </figcaption>
+            </figure>
+          )}
+
+          <div className="border-t border-border pt-8 lg:border-l lg:border-t-0 lg:pl-16 lg:pt-0">
+            <p className="eyebrow">ProvenExpert</p>
+            <p className="display mt-5 text-[clamp(2rem,3.4vw,2.8rem)] text-foreground tabular-nums">
+              {provenExpert.rating.toLocaleString("de-DE", {
+                minimumFractionDigits: 2,
+              })}
+              <span className="text-[0.55em] text-muted-foreground"> / 5</span>
+            </p>
+            <dl className="mt-6 space-y-2.5">
+              <div className="flex justify-between gap-6 border-b border-border pb-2.5 text-[14.5px]">
+                <dt className="text-muted-foreground">Bewertungen</dt>
+                <dd className="text-foreground tabular-nums">
+                  {provenExpert.count}
+                </dd>
+              </div>
+              <div className="flex justify-between gap-6 border-b border-border pb-2.5 text-[14.5px]">
+                <dt className="text-muted-foreground">Empfehlungsquote</dt>
+                <dd className="text-foreground tabular-nums">
+                  {provenExpert.recommendationRate} %
+                </dd>
+              </div>
+            </dl>
+            <a
+              href={provenExpert.profileUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group mt-7 inline-flex items-center gap-1.5 text-[14px] text-brand"
+            >
+              Profil auf ProvenExpert ansehen
+              <ArrowUpRight
+                className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                strokeWidth={1.8}
+              />
+            </a>
           </div>
-        </Section>
-      )}
+        </div>
+      </Section>
+
+      {/* ── Ablauf ─────────────────────────────────────── */}
+      <Section
+        tone="paper"
+        eyebrow="In drei Schritten"
+        title="So einfach kommen Sie zu Ihrem Schutz"
+      >
+        <div className="mt-16 grid gap-x-14 gap-y-12 md:grid-cols-3">
+          {steps.map((s) => (
+            <div key={s.n} className="border-t border-border pt-7">
+              <span className="display text-[15px] text-brand-bright tabular-nums">
+                {s.n}
+              </span>
+              <h3 className="mt-4 text-[17px] font-medium text-foreground">
+                {s.title}
+              </h3>
+              <p className="mt-3 text-[15px] leading-[1.75] text-muted-foreground">
+                {s.text}
+              </p>
+            </div>
+          ))}
+        </div>
+      </Section>
 
       {/* ── FAQ ────────────────────────────────────────── */}
-      <Section tone="paper" eyebrow="Häufige Fragen" title="Das fragen uns Kunden am häufigsten">
+      <Section eyebrow="Häufige Fragen" title="Das fragen uns Kunden am häufigsten">
         <div className="mt-12 max-w-[52rem]">
           <Accordion type="single" collapsible>
             {faqs.map((f, i) => (
@@ -513,7 +536,7 @@ export default function HomePage() {
       <Section tone="dark">
         <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr] lg:items-end">
           <div>
-            <p className="eyebrow text-white/45">Ihr nächster Schritt</p>
+            <p className="eyebrow text-brand-bright">Ihr nächster Schritt</p>
             <h2 className="display mt-5 text-[clamp(2rem,4vw,3.2rem)] text-white">
               Reden wir über das,
               <br />

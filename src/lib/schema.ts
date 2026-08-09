@@ -52,7 +52,7 @@ export function agencySchema() {
     alternateName: "Tim Haupt Versicherung Erfurt",
     url: BASE,
     logo: `${BASE}/img/logo-gruen.png`,
-    image: `${BASE}/img/team-banner.png`,
+    image: `${BASE}/img/team-banner.jpg`,
     telephone: "+49 361 5653660",
     email: site.email,
     address: {
@@ -149,6 +149,17 @@ export function ownerSchema() {
       "Versicherungen für Firmen und Freiberufler",
       "Kanzleiabsicherung für Steuerberater und Rechtsanwälte",
     ],
+  };
+}
+
+export function websiteSchema() {
+  return {
+    "@type": "WebSite",
+    "@id": ids.website,
+    url: BASE,
+    name: site.legalName,
+    inLanguage: "de",
+    publisher: { "@id": ids.agency },
   };
 }
 

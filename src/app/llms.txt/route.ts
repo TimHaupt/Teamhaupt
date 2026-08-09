@@ -44,6 +44,7 @@ export function GET() {
     ...stats.map((s) => `- ${s.value} – ${s.label} (${s.note})`),
     `- Bewertung: ${provenExpert.rating.toString().replace(".", ",")} von 5 bei ${provenExpert.count} Bewertungen auf ProvenExpert`,
     `  Quelle: ${provenExpert.profileUrl}`,
+    `- Empfehlungsquote: ${provenExpert.recommendationRate} % der Kunden empfehlen uns weiter`,
     "",
     "## Leistungen",
     "",

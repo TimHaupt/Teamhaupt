@@ -35,7 +35,7 @@ export function Hero() {
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute inset-y-0 right-0 w-full lg:w-[64%]">
           <Image
-            src="/img/team-dunkel.png"
+            src="/img/team-dunkel.jpg"
             alt=""
             aria-hidden
             fill
@@ -53,7 +53,7 @@ export function Hero() {
 
       <div className="relative mx-auto max-w-[1240px] px-6 pb-20 pt-40 sm:pb-24 sm:pt-44 lg:px-10 lg:pb-28 lg:pt-52">
         <div className="max-w-[38rem]">
-          <p className={cn("eyebrow text-white/50", rise("delay-0"))}>
+          <p className={cn("eyebrow text-brand-bright", rise("delay-0"))}>
             HDI Generalvertretung · Erfurt
           </p>
 
@@ -84,10 +84,9 @@ export function Hero() {
               rise("delay-200"),
             )}
           >
-            Acht IHK-geprüfte Köpfe in Erfurt betreuen über 5.000 Privat- und
-            Firmenkunden. Im Schadensfall erreichen Sie eine feste
-            Ansprechpartnerin unter ihrer eigenen Durchwahl – nicht über eine
-            Hotline.
+            Im Schadensfall erreichen Sie bei uns keine Hotline, sondern eine
+            feste Ansprechpartnerin mit eigener Durchwahl – und ein Team, das
+            Sie beim Namen kennt.
           </p>
 
           <div className={cn("mt-10 flex flex-wrap items-center gap-3", rise("delay-300"))}>
@@ -129,7 +128,7 @@ export function Hero() {
               </dd>
               <dt className="mt-2 text-[13.5px] leading-snug text-white/50">
                 {s.label}
-                <span className="block text-white/35">{s.note}</span>
+                <span className="block text-white/45">{s.note}</span>
               </dt>
             </div>
           ))}

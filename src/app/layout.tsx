@@ -3,8 +3,9 @@ import { Titillium_Web } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/site/site-header";
 import { SiteFooter } from "@/components/site/site-footer";
+import { MobileCta } from "@/components/site/mobile-cta";
 import { JsonLd } from "@/components/site/json-ld";
-import { agencySchema, graph, ownerSchema } from "@/lib/schema";
+import { agencySchema, graph, ownerSchema, websiteSchema } from "@/lib/schema";
 
 /**
  * Titillium Web – die Hausschrift der HDI und der bisherigen Agenturseite.
@@ -49,9 +50,9 @@ export const metadata: Metadata = {
       "Persönliche Beratung, ein festes IHK-geprüftes Team und schnelle Schadenhilfe – für Privat, Unternehmen und Kanzleien.",
     images: [
       {
-        url: "/img/team-banner.png",
-        width: 1794,
-        height: 700,
+        url: "/img/og.jpg",
+        width: 1200,
+        height: 630,
         alt: "Das Team der HDI Generalvertretung Tim Haupt in Erfurt",
       },
     ],
@@ -61,7 +62,7 @@ export const metadata: Metadata = {
     title: "HDI Generalvertretung Tim Haupt | Versicherung in Erfurt",
     description:
       "Persönliche Beratung, ein festes IHK-geprüftes Team und schnelle Schadenhilfe.",
-    images: ["/img/team-banner.png"],
+    images: ["/img/og.jpg"],
   },
   robots: {
     index: true,
@@ -84,12 +85,19 @@ export default function RootLayout({
   return (
     <html lang="de" className={titillium.variable}>
       <body className="font-sans antialiased">
+        <a
+          href="#main"
+          className="fixed left-4 top-4 z-[100] -translate-y-24 rounded-md bg-ink px-4 py-2.5 text-[13.5px] font-medium text-ink-foreground transition-transform focus-visible:translate-y-0"
+        >
+          Zum Inhalt springen
+        </a>
         {/* Agentur und Inhaber als Entitaeten – auf jeder Seite, damit die
             Zuordnung unabhaengig vom Einstiegspunkt eindeutig ist. */}
-        <JsonLd data={graph(agencySchema(), ownerSchema())} />
+        <JsonLd data={graph(agencySchema(), ownerSchema(), websiteSchema())} />
         <SiteHeader />
-        <main>{children}</main>
+        <main id="main">{children}</main>
         <SiteFooter />
+        <MobileCta />
       </body>
     </html>
   );

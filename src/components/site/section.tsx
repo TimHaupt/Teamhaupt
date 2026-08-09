@@ -33,7 +33,7 @@ export function Section({
         {(eyebrow || title || lead) && (
           <div className="max-w-[42rem]">
             {eyebrow && (
-              <p className={cn("eyebrow", dark && "text-white/45")}>{eyebrow}</p>
+              <p className={cn("eyebrow", dark && "text-brand-bright")}>{eyebrow}</p>
             )}
             {title && (
               <h2
@@ -79,7 +79,7 @@ export function PageHero({
     <section className="relative overflow-hidden bg-brand-ink">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_75%_25%,rgba(61,122,58,0.22),transparent_60%)]" />
       <div className="relative mx-auto max-w-[1240px] px-6 pb-20 pt-36 sm:pb-24 sm:pt-40 lg:px-10">
-        <p className="eyebrow text-white/45">{eyebrow}</p>
+        <p className="eyebrow text-brand-bright">{eyebrow}</p>
         <h1 className="display mt-6 max-w-[24ch] text-[clamp(2.2rem,5vw,3.8rem)] text-white">
           {title}
         </h1>

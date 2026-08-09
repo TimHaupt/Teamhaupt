@@ -97,7 +97,7 @@ export function SiteHeader() {
                   <span
                     className={cn(
                       "absolute -bottom-0.5 left-0 h-px w-full",
-                      onDark ? "bg-white/70" : "bg-brand",
+                      onDark ? "bg-brand-bright" : "bg-brand",
                     )}
                   />
                 )}

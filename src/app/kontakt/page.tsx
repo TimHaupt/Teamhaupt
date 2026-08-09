@@ -148,7 +148,7 @@ export default function KontaktPage() {
           </ul>
 
           <div className="border-t border-white/12 pt-8 lg:border-l lg:border-t-0 lg:pl-16 lg:pt-0">
-            <p className="eyebrow text-white/45">Lieber persönlich?</p>
+            <p className="eyebrow text-brand-bright">Lieber persönlich?</p>
             <p className="mt-4 text-[15.5px] font-medium text-white">
               {schadenmanagerin.name}
             </p>
