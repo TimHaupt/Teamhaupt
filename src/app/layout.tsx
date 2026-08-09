@@ -1,21 +1,18 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, Inter } from "next/font/google";
+import { Titillium_Web } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/site/site-header";
 import { SiteFooter } from "@/components/site/site-footer";
 
-const inter = Inter({
-  variable: "--font-inter",
+/**
+ * Titillium Web – die Hausschrift der HDI und der bisherigen Agenturseite.
+ * Bewusst nur bis 600: Die schweren Schnitte (800/900) waren es, die den
+ * alten Auftritt laut wirken liessen. Groesse schafft hier die Hierarchie.
+ */
+const titillium = Titillium_Web({
+  variable: "--font-titillium",
   subsets: ["latin"],
-  display: "swap",
-});
-
-/** Display-Serif für Überschriften – gibt der Agentur Gewicht und Ruhe. */
-const serif = Instrument_Serif({
-  variable: "--font-serif",
-  subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
+  weight: ["300", "400", "600", "700"],
   display: "swap",
 });
 
@@ -56,7 +53,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="de" className={`${inter.variable} ${serif.variable}`}>
+    <html lang="de" className={titillium.variable}>
       <body className="font-sans antialiased">
         <SiteHeader />
         <main>{children}</main>

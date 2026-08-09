@@ -5,6 +5,8 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { ArrowRight, Phone } from "lucide-react";
 import { cn } from "@/components/lib/utils";
+import FocusReveal from "@/components/originkit/focus-reveal";
+import { ProvenExpertBadge } from "@/components/site/proven-expert";
 import { site, stats } from "@/lib/site";
 
 /**
@@ -42,31 +44,43 @@ export function Hero() {
             className="object-cover object-[62%_center] opacity-70 lg:opacity-90"
           />
         </div>
-        {/* Verlauf, der die Textseite freistellt */}
-        <div className="absolute inset-0 bg-[linear-gradient(100deg,var(--brand-ink)_0%,var(--brand-ink)_36%,rgba(13,20,16,0.82)_54%,rgba(13,20,16,0.35)_78%,rgba(13,20,16,0.15)_100%)]" />
+        {/* Verlauf: deckt die Textspalte ab, gibt die Gesichter rechts frei.
+            Die Stopps sind auf die Textbreite (38rem) abgestimmt – wird sie
+            geaendert, muessen sie mitwandern. */}
+        <div className="absolute inset-0 bg-[linear-gradient(100deg,var(--brand-ink)_0%,var(--brand-ink)_34%,rgba(13,20,16,0.86)_46%,rgba(13,20,16,0.42)_62%,rgba(13,20,16,0.08)_82%,rgba(13,20,16,0)_100%)]" />
         <div className="absolute inset-x-0 bottom-0 h-40 bg-[linear-gradient(to_top,var(--brand-ink),transparent)]" />
       </div>
 
       <div className="relative mx-auto max-w-[1240px] px-6 pb-20 pt-40 sm:pb-24 sm:pt-44 lg:px-10 lg:pb-28 lg:pt-52">
-        <div className="max-w-[46rem]">
+        <div className="max-w-[38rem]">
           <p className={cn("eyebrow text-white/50", rise("delay-0"))}>
             HDI Generalvertretung · Erfurt
           </p>
 
-          <h1
-            className={cn(
-              "display mt-6 text-[clamp(2.6rem,6vw,4.6rem)] text-white",
-              rise("delay-100"),
-            )}
-          >
-            Versicherung ist
-            <br />
-            Vertrauenssache.
-          </h1>
+          {/* Zeichen schaerfen sich aus weichem Blur in den Fokus.
+              FocusReveal blendet den Text notfalls per Timeout ein, falls die
+              Animation nicht anlaeuft – die Ueberschrift darf nie unsichtbar
+              bleiben. */}
+          <div className="mt-6 text-[clamp(2.6rem,6vw,4.6rem)]">
+            <FocusReveal
+              as="h1"
+              text="Versicherung ist"
+              className="display text-white"
+              blur={16}
+              transition={{ duration: 0.55, delay: 0.2, staggerChildren: 0.03 }}
+            />
+            <FocusReveal
+              as="span"
+              text="Vertrauenssache."
+              className="display block text-white"
+              blur={16}
+              transition={{ duration: 0.55, delay: 0.68, staggerChildren: 0.03 }}
+            />
+          </div>
 
           <p
             className={cn(
-              "mt-7 max-w-[34rem] text-[17px] leading-[1.75] text-white/65",
+              "mt-7 max-w-[31rem] text-[17px] leading-[1.75] text-white/65",
               rise("delay-200"),
             )}
           >
@@ -95,13 +109,17 @@ export function Hero() {
               {site.phone}
             </a>
           </div>
+
+          <div className={cn("mt-10", rise("delay-500"))}>
+            <ProvenExpertBadge tone="dark" />
+          </div>
         </div>
 
         {/* Kennzahlen als ruhige Zeile statt bunter Kacheln */}
         <dl
           className={cn(
-            "mt-20 grid max-w-[54rem] grid-cols-1 gap-px border-t border-white/12 sm:grid-cols-3",
-            rise("delay-500"),
+            "mt-16 grid max-w-[54rem] grid-cols-1 gap-px border-t border-white/12 sm:grid-cols-3",
+            rise("delay-700"),
           )}
         >
           {stats.map((s) => (

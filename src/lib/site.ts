@@ -188,6 +188,21 @@ export const steps = [
 ] as const;
 
 /**
+ * Bewertungen bei ProvenExpert.
+ *
+ * ACHTUNG: Diese Werte sind eine Momentaufnahme (abgerufen am 09.08.2026) und
+ * aktualisieren sich nicht von selbst. Bei neuen Bewertungen hier nachziehen,
+ * sonst steht auf der Seite eine veraltete Zahl – das faellt Kunden auf, die
+ * dem Link folgen. Quelle: das verlinkte Profil.
+ */
+export const provenExpert = {
+  rating: 4.89,
+  count: 207,
+  profileUrl:
+    "https://www.provenexpert.com/de-de/hdi-generalvertretung-tim-haupt/",
+} as const;
+
+/**
  * Selfservice – Links aus dem Linktree der Agentur, hier bewusst direkt
  * eingebunden statt über den Umweg einer Fremdplattform.
  * Die Flixcheck-Widget-URLs koennen sich aendern; bei Aenderung hier pflegen.
@@ -242,6 +257,12 @@ export type Member = {
   booking?: string;
   email?: string;
   phone?: string;
+  /**
+   * Kein Mensch. Wird auf der Karte deutlich ausgewiesen, damit niemand
+   * glaubt, hier einen Menschen zu erreichen – und weil das Portraet
+   * KI-generiert ist.
+   */
+  digital?: boolean;
 };
 
 export const team: Member[] = [
@@ -298,6 +319,13 @@ export const team: Member[] = [
     role: "Kundenberater",
     focus: "Privatversicherungen",
     photo: "/img/team/philip-schmidt.jpg",
+  },
+  {
+    name: "Mira",
+    role: "Digitale KI-Assistentin",
+    focus: "Beantwortet Standardfragen rund um die Uhr",
+    photo: "/img/team/mira.jpg",
+    digital: true,
   },
 ];
 

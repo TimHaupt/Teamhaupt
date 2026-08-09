@@ -402,14 +402,25 @@ export default function HomePage() {
         <div className="mt-14 grid grid-cols-1 gap-px bg-border sm:grid-cols-2 lg:grid-cols-3">
           {team.map((m) => (
             <div key={m.name} className="flex flex-col bg-background">
-              <Image
-                src={m.photo}
-                alt={`${m.name}, ${m.role}`}
-                width={520}
-                height={650}
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                className="w-full object-cover"
-              />
+              <div className="relative">
+                <Image
+                  src={m.photo}
+                  alt={
+                    m.digital
+                      ? `${m.name} – ${m.role} (computergeneriertes Bild)`
+                      : `${m.name}, ${m.role}`
+                  }
+                  width={520}
+                  height={650}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="w-full object-cover"
+                />
+                {m.digital && (
+                  <span className="absolute bottom-3 left-3 rounded bg-brand-ink/85 px-2.5 py-1 text-[10.5px] font-medium uppercase tracking-[0.12em] text-white backdrop-blur">
+                    KI · kein Mensch
+                  </span>
+                )}
+              </div>
               <div className="flex flex-1 flex-col px-7 py-7">
                 <h3 className="text-[16.5px] font-medium text-foreground">
                   {m.name}

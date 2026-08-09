@@ -92,8 +92,7 @@
   --color-brand-deep: var(--brand-deep);
   --color-brand-ink: var(--brand-ink);
 
-  --font-sans: var(--font-inter);
-  --font-serif: var(--font-serif);
+  --font-sans: var(--font-titillium);
 
   /* Kleine Radien – klare Kanten lesen sich seriös */
   --radius-sm: 0.25rem;
@@ -119,12 +118,13 @@ body {
   font-feature-settings: "kern", "liga";
 }
 
-/* Display-Serif: ruhig, nie fett – Größe schafft die Hierarchie */
+/* Display: Titillium im leichten Schnitt. Der alte Auftritt nutzte 800 –
+   genau das liess ihn laut wirken. Grösse statt Fettung. */
 .display {
-  font-family: var(--font-serif), Georgia, serif;
-  font-weight: 400;
-  letter-spacing: -0.015em;
-  line-height: 1.08;
+  font-family: var(--font-titillium), system-ui, sans-serif;
+  font-weight: 300;
+  letter-spacing: -0.022em;
+  line-height: 1.1;
 }
 
 /* Kleines Label über Überschriften */
