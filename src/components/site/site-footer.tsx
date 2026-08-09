@@ -11,9 +11,14 @@ export function SiteFooter() {
           {/* Marke */}
           <div>
             <div className="mb-5 flex items-center gap-3">
-              <span className="relative grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br from-brand to-brand-dark text-[15px] font-extrabold tracking-tight text-white shadow-lg shadow-brand/25">
-                TH
-              </span>
+              <Image
+                src="/img/logo-weiss.png"
+                alt="Logo der HDI Generalvertretung Tim Haupt"
+                width={645}
+                height={645}
+                sizes="44px"
+                className="h-11 w-11"
+              />
               <span className="flex flex-col leading-tight">
                 <span className="text-[15px] font-bold text-white">{site.name}</span>
                 <span className="text-[10px] font-medium uppercase tracking-[0.14em] text-white/50">

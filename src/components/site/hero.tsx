@@ -102,9 +102,9 @@ export function Hero() {
               rise(mounted),
             )}
           >
-            Schluss mit Warteschleifen und Lösungen von der Stange. Bei uns betreut
-            Sie ein festes, IHK-geprüftes Team – persönlich, ehrlich und immer
-            erreichbar.
+            Acht IHK-geprüfte Köpfe in Erfurt, über 5.000 betreute Privat- und
+            Firmenkunden – und im Schadensfall eine feste Ansprechpartnerin mit
+            eigener Durchwahl statt einer Hotline.
           </p>
 
           <div className={cn("mt-9 flex flex-wrap gap-3 delay-200", rise(mounted))}>

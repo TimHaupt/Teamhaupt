@@ -9,7 +9,9 @@ import {
   Compass,
   HeartPulse,
   Home,
+  Mail,
   MapPin,
+  Phone,
   Quote,
   Scale,
   ShieldCheck,
@@ -28,7 +30,16 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/lightswind/accordion";
-import { advantages, faqs, services, site, steps, testimonials } from "@/lib/site";
+import {
+  advantages,
+  faqs,
+  schadenmanagerin,
+  services,
+  site,
+  stats,
+  steps,
+  testimonials,
+} from "@/lib/site";
 
 const iconMap = {
   Home,
@@ -75,6 +86,34 @@ export default function HomePage() {
               <span className="text-sm font-medium text-foreground/80">{label}</span>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* ── Kennzahlen ─────────────────────────────────── */}
+      <section className="relative overflow-hidden bg-[#0a0d0a] py-20 text-white sm:py-24">
+        <div className="pointer-events-none absolute left-1/2 top-0 h-[320px] w-[720px] -translate-x-1/2 rounded-full bg-primary/10 blur-[120px]" />
+        <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
+          <p className="mb-12 max-w-2xl text-[15px] leading-relaxed text-white/45">
+            Zahlen sagen mehr als Versprechen. Ein Auszug aus unserer Arbeit:
+          </p>
+
+          <dl className="grid gap-px overflow-hidden rounded-2xl bg-white/10 sm:grid-cols-3">
+            {stats.map((s) => (
+              <div key={s.label} className="bg-[#0a0d0a] px-7 py-9">
+                <dt className="mb-4 text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">
+                  {s.note}
+                </dt>
+                <dd>
+                  <span className="block text-[clamp(2rem,3.6vw,2.9rem)] font-extrabold leading-none tracking-[-0.035em] text-white tabular-nums">
+                    {s.value}
+                  </span>
+                  <span className="mt-3 block text-[14px] leading-snug text-white/50">
+                    {s.label}
+                  </span>
+                </dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
 
@@ -320,20 +359,40 @@ export default function HomePage() {
               <span className="mb-6 grid h-20 w-20 place-items-center rounded-full bg-gradient-to-br from-brand to-brand-dark text-3xl font-bold text-white shadow-lg">
                 S
               </span>
-              <h3 className="text-[19px] font-bold text-foreground">Swenja</h3>
+              <h3 className="text-[19px] font-bold text-foreground">
+                {schadenmanagerin.name}
+              </h3>
               <p className="mt-1 text-[12px] font-semibold uppercase tracking-[0.1em] text-primary">
-                Persönliche Schadenmanagerin
+                {schadenmanagerin.role}
               </p>
               <Quote className="mt-6 h-7 w-7 text-primary/25" />
               <p className="mt-2 border-l-[3px] border-primary pl-5 text-[15px] italic leading-[1.75] text-foreground/80">
                 „Ich begleite Sie persönlich durch jeden Schadensfall – von der ersten
                 Meldung bis zur Lösung. Ohne Warteschleife, ohne Bürokratie."
               </p>
+
+              {/* Direkte Durchwahl statt Zentrale – der eigentliche Beweis */}
+              <div className="mt-7 grid gap-2 border-t border-border pt-6 sm:grid-cols-2">
+                <a
+                  href={schadenmanagerin.phoneHref}
+                  className="flex items-center gap-2.5 rounded-xl bg-muted px-4 py-3 text-[14px] font-semibold text-foreground transition-colors hover:bg-accent"
+                >
+                  <Phone className="h-4 w-4 shrink-0 text-primary" />
+                  {schadenmanagerin.phone}
+                </a>
+                <a
+                  href={schadenmanagerin.emailHref}
+                  className="flex items-center gap-2.5 rounded-xl bg-muted px-4 py-3 text-[13px] font-semibold text-foreground transition-colors hover:bg-accent"
+                >
+                  <Mail className="h-4 w-4 shrink-0 text-primary" />
+                  <span className="truncate">Direkt schreiben</span>
+                </a>
+              </div>
             </div>
             <span className="absolute -right-3 -top-3 rounded-full bg-primary px-4 py-2 text-center text-[12px] font-bold leading-tight text-primary-foreground shadow-xl">
-              Persönlich
+              Eigene
               <br />
-              für Sie da
+              Durchwahl
             </span>
           </div>
 
@@ -345,23 +404,23 @@ export default function HomePage() {
 
             <div className="mt-6 space-y-4 text-[16px] leading-[1.8] text-muted-foreground">
               <p>
-                Ein Schaden ist stressig genug. Deshalb haben Sie bei uns mit Swenja
-                eine feste Schadenmanagerin, die Ihren Vertrag kennt, Ihre Situation
-                versteht und direkt handelt.
+                Wasserschaden in der Wohnung, Auffahrunfall auf dem Weg zur Arbeit:
+                Situationen, in denen niemand Lust auf Formulare und Warteschleifen
+                hat. Genau dafür gibt es bei uns eine feste Schadenmanagerin.
               </p>
               <p>
-                Kein anonymes Hotline-System, keine ewigen Warteschleifen: Sie werden
-                persönlich betreut und bleiben jederzeit auf dem Laufenden – bis Ihr
-                Fall gelöst ist.
+                Swenja-Elisè Möller nimmt Ihren Fall auf, kennt Ihren Vertrag und
+                bleibt Ihre Ansprechpartnerin, bis alles geklärt ist. Sie erreichen
+                sie unter ihrer eigenen Durchwahl – nicht über die Zentrale.
               </p>
             </div>
 
             <ul className="mt-8 space-y-3.5">
               {[
-                "Eine feste Ansprechpartnerin, die Ihren Fall persönlich kennt",
-                "Schnelle, unkomplizierte Bearbeitung – ohne Behördendeutsch",
-                "Sie werden Schritt für Schritt auf dem Laufenden gehalten",
-                "Erreichbar während unserer Öffnungszeiten – persönlich & per E-Mail",
+                "Schadenmeldung per Telefon, E-Mail oder WhatsApp",
+                "Eigene Durchwahl – kein Weiterverbinden über die Zentrale",
+                "Sie erfahren von uns, wie der Stand ist, nicht umgekehrt",
+                "Über 1,1 Mio. € Schäden allein 2025 für unsere Kunden reguliert",
               ].map((t) => (
                 <li key={t} className="flex items-start gap-3 text-[15px] text-foreground/80">
                   <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-primary/12">

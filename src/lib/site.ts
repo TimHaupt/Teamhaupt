@@ -20,9 +20,42 @@ export const nav = [
 ] as const;
 
 export const openingHours = [
-  { day: "Montag – Donnerstag", time: "08:30 – 17:00 Uhr" },
-  { day: "Freitag", time: "08:30 – 15:00 Uhr" },
+  { day: "Montag – Donnerstag", time: "09:00 – 18:00 Uhr" },
+  { day: "Freitag", time: "09:00 – 16:00 Uhr" },
   { day: "Samstag – Sonntag", time: "Geschlossen" },
+] as const;
+
+/** Persönliche Schadenmanagerin – Durchwahl abweichend von der Zentrale. */
+export const schadenmanagerin = {
+  name: "Swenja-Elisè Möller",
+  role: "Ihre persönliche Schadenmanagerin",
+  phone: "0361 56 53 665",
+  phoneHref: "tel:+493615653665",
+  email: "Swenja.Moeller@hdi.de",
+  emailHref: "mailto:Swenja.Moeller@hdi.de",
+} as const;
+
+/**
+ * Kennzahlen von tim-haupt.de übernommen (Stand: Startseite der Altsite).
+ * Bei Aktualisierung bitte auch das Bezugsjahr mitpflegen – Zahlen ohne
+ * Zeitbezug sind werblich angreifbar.
+ */
+export const stats = [
+  {
+    value: "1.193.144 €",
+    label: "Schäden für unsere Kunden reguliert",
+    note: "im Jahr 2025",
+  },
+  {
+    value: "5.000+",
+    label: "Privat- und Firmenkunden",
+    note: "vertrauen uns",
+  },
+  {
+    value: "8",
+    label: "Köpfe im Team",
+    note: "IHK-geprüft",
+  },
 ] as const;
 
 export type Service = {
@@ -116,23 +149,23 @@ export const services: Service[] = [
 export const advantages = [
   {
     icon: "Smile",
-    title: "Ein Gesicht statt Hotline",
-    text: "Sie sprechen immer mit Menschen, die Sie und Ihre Verträge kennen. Keine Warteschleife, keine wechselnden Berater.",
+    title: "Ein Name, keine Ticketnummer",
+    text: "Sie rufen an und sprechen mit jemandem, der Ihre Verträge bereits kennt. Kein Erklären von vorn, kein Weiterverbinden.",
   },
   {
     icon: "Compass",
-    title: "Ehrlich statt aufdringlich",
-    text: "Wir analysieren Ihren echten Bedarf und empfehlen nur, was wirklich zu Ihnen passt – auch wenn das manchmal weniger ist.",
+    title: "Beratung, die auch abrät",
+    text: "Wir prüfen, was Sie wirklich brauchen. Wenn ein bestehender Vertrag gut ist, sagen wir das – auch wenn wir daran nichts verdienen.",
   },
   {
     icon: "Zap",
-    title: "Schnell im Ernstfall",
-    text: "Wenn etwas passiert, kümmert sich Ihre persönliche Schadenmanagerin sofort und unkompliziert um Ihren Fall.",
+    title: "Im Schadensfall an Ihrer Seite",
+    text: "Eine feste Schadenmanagerin mit eigener Durchwahl übernimmt Ihren Fall und bleibt dran, bis er geklärt ist.",
   },
   {
     icon: "ShieldCheck",
-    title: "Stark im Rücken",
-    text: "Die Sicherheit eines der größten Versicherer Europas – kombiniert mit dem Service Ihrer Agentur vor Ort.",
+    title: "Konzernstärke, Agenturservice",
+    text: "Im Hintergrund die Leistungsfähigkeit der HDI, im Vordergrund acht Menschen in Erfurt, die Sie beim Namen kennen.",
   },
 ] as const;
 

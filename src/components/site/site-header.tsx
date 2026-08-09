@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -46,17 +47,15 @@ export function SiteHeader() {
       >
         {/* Logo */}
         <Link href="/" className="flex shrink-0 items-center gap-2.5">
-          <span
-            className={cn(
-              "relative grid h-9 w-9 shrink-0 place-items-center overflow-hidden rounded-[10px] text-[13px] font-extrabold tracking-tight transition-colors",
-              dark
-                ? "bg-white text-brand-dark"
-                : "bg-gradient-to-br from-brand to-brand-dark text-white shadow-md shadow-brand/25",
-            )}
-          >
-            TH
-            <span className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_22%,rgba(255,255,255,0.35),transparent_55%)]" />
-          </span>
+          <Image
+            src={dark ? "/img/logo-weiss.png" : "/img/logo-gruen.png"}
+            alt="Logo der HDI Generalvertretung Tim Haupt"
+            width={645}
+            height={645}
+            priority
+            sizes="40px"
+            className="h-10 w-10 shrink-0"
+          />
           <span className="flex flex-col leading-tight">
             <span
               className={cn(
