@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { PageHero, Section } from "@/components/site/section";
+import { JsonLd } from "@/components/site/json-ld";
+import { breadcrumbSchema, graph } from "@/lib/schema";
 import { ProvenExpertBadge } from "@/components/site/proven-expert";
 import { openingHours, site, stats, team } from "@/lib/site";
 
@@ -10,6 +12,7 @@ export const metadata: Metadata = {
   title: "Über uns",
   description:
     "Acht IHK-geprüfte Köpfe in Erfurt: Das Team der HDI Generalvertretung Tim Haupt, unsere Haltung und wie wir arbeiten.",
+  alternates: { canonical: "/ueber-uns" },
 };
 
 /** Die vier Gründe – Haltung der Agentur, übernommen von tim-haupt.de. */
@@ -35,6 +38,14 @@ const gruende = [
 export default function UeberUnsPage() {
   return (
     <>
+      <JsonLd
+        data={graph(
+          breadcrumbSchema([
+            { name: "Start", path: "/" },
+            { name: "Über uns", path: "/ueber-uns" },
+          ]),
+        )}
+      />
       <PageHero
         eyebrow="Über uns"
         title="Ihr HDI Team in Erfurt."

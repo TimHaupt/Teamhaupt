@@ -7,6 +7,8 @@ import {
   Phone,
 } from "lucide-react";
 import { PageHero, Section } from "@/components/site/section";
+import { JsonLd } from "@/components/site/json-ld";
+import { breadcrumbSchema, graph } from "@/lib/schema";
 import { ContactForm } from "@/components/site/contact-form";
 import {
   openingHours,
@@ -20,6 +22,7 @@ export const metadata: Metadata = {
   title: "Kontakt",
   description:
     "HDI Generalvertretung Tim Haupt, Johannesstr. 62–64, 99084 Erfurt. Telefon 0361 56 53 660. Termin direkt online buchen oder Schaden melden.",
+  alternates: { canonical: "/kontakt" },
 };
 
 export default function KontaktPage() {
@@ -27,6 +30,14 @@ export default function KontaktPage() {
 
   return (
     <>
+      <JsonLd
+        data={graph(
+          breadcrumbSchema([
+            { name: "Start", path: "/" },
+            { name: "Kontakt", path: "/kontakt" },
+          ]),
+        )}
+      />
       <PageHero
         eyebrow="Kontakt"
         title="Reden wir."

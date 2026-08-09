@@ -18,6 +18,8 @@ import {
 } from "lucide-react";
 import { Hero } from "@/components/site/hero";
 import { Section } from "@/components/site/section";
+import { JsonLd } from "@/components/site/json-ld";
+import { faqSchema, graph } from "@/lib/schema";
 import ScrollTextHighlight from "@/components/originkit/scroll-text-highlight";
 import {
   Accordion,
@@ -56,6 +58,9 @@ type IconName = keyof typeof icons;
 export default function HomePage() {
   return (
     <>
+      {/* Fragen und Antworten maschinenlesbar – Grundlage fuer FAQ-Rich-Results
+          und fuer Zitate durch KI-Assistenten. */}
+      <JsonLd data={graph(faqSchema())} />
       <Hero />
 
       {/* ── Selfservice ────────────────────────────────── */}

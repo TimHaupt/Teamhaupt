@@ -11,6 +11,8 @@ import {
   TrendingUp,
 } from "lucide-react";
 import { PageHero, Section } from "@/components/site/section";
+import { JsonLd } from "@/components/site/json-ld";
+import { breadcrumbSchema, graph } from "@/lib/schema";
 import {
   kanzleiBausteine,
   services,
@@ -22,6 +24,7 @@ export const metadata: Metadata = {
   title: "Leistungen",
   description:
     "Privatschutz, Firmenschutz, Vorsorge, Kfz, Gesundheit und die Komplettabsicherung für Kanzleien – die Leistungen der HDI Generalvertretung Tim Haupt in Erfurt.",
+  alternates: { canonical: "/leistungen" },
 };
 
 const icons = { Home, Building2, TrendingUp, Car, HeartPulse, Scale } as const;
@@ -29,6 +32,14 @@ const icons = { Home, Building2, TrendingUp, Car, HeartPulse, Scale } as const;
 export default function LeistungenPage() {
   return (
     <>
+      <JsonLd
+        data={graph(
+          breadcrumbSchema([
+            { name: "Start", path: "/" },
+            { name: "Leistungen", path: "/leistungen" },
+          ]),
+        )}
+      />
       <PageHero
         eyebrow="Leistungen"
         title="Ein breites Portfolio, ein Ansprechpartner."
