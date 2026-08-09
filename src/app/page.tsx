@@ -121,7 +121,7 @@ export default function HomePage() {
             <ScrollTextHighlight
               text="Wir verkaufen keine Policen. Wir sorgen dafür, dass Sie im Ernstfall nicht allein dastehen – mit ehrlicher Beratung, festen Ansprechpartnern und einem Team, das Sie beim Namen kennt."
               highlightColor="var(--brand)"
-              className="display max-w-[46rem] text-[clamp(1.6rem,3vw,2.35rem)]"
+              className="display max-w-[46rem] text-[clamp(1.45rem,2.6vw,2rem)]"
             />
           </div>
         </div>
@@ -132,7 +132,7 @@ export default function HomePage() {
         <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
           <div className="order-2 lg:order-1">
             <p className="eyebrow">Ihr Ansprechpartner</p>
-            <h2 className="display mt-5 text-[clamp(1.9rem,3.6vw,2.9rem)] text-foreground">
+            <h2 className="display mt-5 text-[clamp(1.65rem,2.9vw,2.35rem)] text-foreground">
               Tim Haupt
             </h2>
             <p className="mt-2 text-[14px] text-muted-foreground">
@@ -266,7 +266,7 @@ export default function HomePage() {
         <div className="grid gap-14 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
           <div>
             <p className="eyebrow text-brand-bright">Im Schadensfall</p>
-            <h2 className="display mt-5 text-[clamp(1.9rem,3.6vw,2.9rem)] text-white">
+            <h2 className="display mt-5 text-[clamp(1.65rem,2.9vw,2.35rem)] text-white">
               Eine Ansprechpartnerin,
               <br />
               die Sie kennt
@@ -438,7 +438,7 @@ export default function HomePage() {
         <div className="mt-14 grid gap-12 lg:grid-cols-[1.15fr_1fr] lg:gap-20">
           {testimonials[0] && (
             <figure>
-              <blockquote className="display text-[clamp(1.35rem,2.4vw,1.9rem)] leading-[1.5] text-foreground">
+              <blockquote className="display text-[clamp(1.25rem,2vw,1.6rem)] leading-[1.5] text-foreground">
                 „{testimonials[0].quote}"
               </blockquote>
               <figcaption className="mt-6 text-[14px] text-muted-foreground">
@@ -452,7 +452,7 @@ export default function HomePage() {
 
           <div className="border-t border-border pt-8 lg:border-l lg:border-t-0 lg:pl-16 lg:pt-0">
             <p className="eyebrow">ProvenExpert</p>
-            <p className="display mt-5 text-[clamp(2rem,3.4vw,2.8rem)] text-brand tabular-nums">
+            <p className="display mt-5 text-[clamp(1.7rem,2.7vw,2.2rem)] text-brand tabular-nums">
               {provenExpert.rating.toLocaleString("de-DE", {
                 minimumFractionDigits: 2,
               })}
@@ -536,11 +536,11 @@ export default function HomePage() {
       {/* ── Abschluss: gruene CI-Flaeche wie auf den Angebotsunterlagen ── */}
       <section className="relative overflow-hidden bg-[linear-gradient(140deg,#16281a_0%,#2d5e29_46%,#3d7a3a_76%,#4c8f42_110%)] text-white">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_82%_18%,rgba(104,160,64,0.38),transparent_55%)]" />
-        <div className="relative mx-auto max-w-[1240px] px-6 py-24 sm:py-32 lg:px-10">
+        <div className="relative mx-auto max-w-[1240px] px-6 py-20 sm:py-24 lg:px-10">
         <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr] lg:items-end">
           <div>
             <p className="eyebrow text-white/65">Ihr nächster Schritt</p>
-            <h2 className="display mt-5 text-[clamp(2rem,4vw,3.2rem)] text-white">
+            <h2 className="display mt-5 text-[clamp(1.8rem,3.3vw,2.65rem)] text-white">
               Reden wir über das,
               <br />
               was Ihnen wichtig ist.

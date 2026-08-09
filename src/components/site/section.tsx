@@ -29,7 +29,7 @@ export function Section({
 
   return (
     <section id={id} className={cn(toneClass[tone], className)}>
-      <div className="mx-auto max-w-[1240px] px-6 py-24 sm:py-32 lg:px-10">
+      <div className="mx-auto max-w-[1240px] px-6 py-20 sm:py-24 lg:px-10">
         {(eyebrow || title || lead) && (
           <div className="max-w-[42rem]">
             {eyebrow && (
@@ -38,7 +38,7 @@ export function Section({
             {title && (
               <h2
                 className={cn(
-                  "display mt-5 text-[clamp(1.9rem,3.6vw,2.9rem)]",
+                  "display mt-5 text-[clamp(1.65rem,2.9vw,2.35rem)]",
                   dark ? "text-white" : "text-foreground",
                 )}
               >
@@ -78,9 +78,9 @@ export function PageHero({
   return (
     <section className="relative overflow-hidden bg-brand-ink">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_75%_25%,rgba(61,122,58,0.22),transparent_60%)]" />
-      <div className="relative mx-auto max-w-[1240px] px-6 pb-20 pt-36 sm:pb-24 sm:pt-40 lg:px-10">
+      <div className="relative mx-auto max-w-[1240px] px-6 pb-16 pt-32 sm:pb-20 sm:pt-36 lg:px-10">
         <p className="eyebrow text-brand-bright">{eyebrow}</p>
-        <h1 className="display mt-6 max-w-[24ch] text-[clamp(2.2rem,5vw,3.8rem)] text-white">
+        <h1 className="display mt-6 max-w-[24ch] text-[clamp(2rem,4.2vw,3.2rem)] text-white">
           {title}
         </h1>
         {lead && (

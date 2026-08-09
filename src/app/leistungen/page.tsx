@@ -64,7 +64,7 @@ export default function LeistungenPage() {
                     <Icon className="h-7 w-7" strokeWidth={1.3} />
                   </span>
                   <p className="eyebrow mt-6">{s.tag}</p>
-                  <h2 className="display mt-4 text-[clamp(1.7rem,3vw,2.4rem)] text-foreground">
+                  <h2 className="display mt-4 text-[clamp(1.55rem,2.6vw,2.05rem)] text-foreground">
                     {s.title}
                   </h2>
                 </div>
@@ -177,7 +177,7 @@ export default function LeistungenPage() {
         <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-end">
           <div>
             <p className="eyebrow">Erstgespräch</p>
-            <h2 className="display mt-5 text-[clamp(1.9rem,3.6vw,2.9rem)] text-foreground">
+            <h2 className="display mt-5 text-[clamp(1.65rem,2.9vw,2.35rem)] text-foreground">
               Kostenlos und unverbindlich.
             </h2>
             <p className="mt-6 max-w-[34rem] text-[16.5px] leading-[1.75] text-muted-foreground">

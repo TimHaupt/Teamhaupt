@@ -52,7 +52,7 @@ export function Hero() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_16%_30%,rgba(104,160,64,0.15),transparent_52%)]" />
       </div>
 
-      <div className="relative mx-auto max-w-[1240px] px-6 pb-20 pt-40 sm:pb-24 sm:pt-44 lg:px-10 lg:pb-28 lg:pt-52">
+      <div className="relative mx-auto max-w-[1240px] px-6 pb-16 pt-36 sm:pb-20 sm:pt-40 lg:px-10 lg:pb-24 lg:pt-44">
         <div className="max-w-[38rem]">
           <p className={cn("eyebrow text-brand-bright", rise("delay-0"))}>
             HDI Generalvertretung · Erfurt
@@ -62,7 +62,7 @@ export function Hero() {
               FocusReveal blendet den Text notfalls per Timeout ein, falls die
               Animation nicht anlaeuft – die Ueberschrift darf nie unsichtbar
               bleiben. */}
-          <div className="mt-6 text-[clamp(2.6rem,6vw,4.6rem)]">
+          <div className="mt-6 text-[clamp(2.3rem,5vw,3.8rem)]">
             <FocusReveal
               as="h1"
               text="Versicherung ist"
@@ -118,13 +118,13 @@ export function Hero() {
         {/* Kennzahlen als ruhige Zeile statt bunter Kacheln */}
         <dl
           className={cn(
-            "mt-16 grid max-w-[54rem] grid-cols-1 gap-px border-t border-white/12 sm:grid-cols-3",
+            "mt-14 grid max-w-[54rem] grid-cols-1 gap-px border-t border-white/12 sm:grid-cols-3",
             rise("delay-700"),
           )}
         >
           {stats.map((s) => (
             <div key={s.label} className="pt-7 sm:pr-8">
-              <dd className="display text-[clamp(1.8rem,3vw,2.4rem)] text-white tabular-nums">
+              <dd className="display text-[clamp(1.6rem,2.6vw,2.1rem)] text-white tabular-nums">
                 {s.value}
               </dd>
               <dt className="mt-2 text-[13.5px] leading-snug text-white/50">

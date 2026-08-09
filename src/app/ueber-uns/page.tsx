@@ -62,7 +62,7 @@ export default function UeberUnsPage() {
           <dl className="grid grid-cols-1 gap-px bg-border sm:grid-cols-3">
             {stats.map((s) => (
               <div key={s.label} className="bg-background px-7 py-10">
-                <dd className="display text-[clamp(1.8rem,3vw,2.4rem)] text-foreground tabular-nums">
+                <dd className="display text-[clamp(1.6rem,2.6vw,2.1rem)] text-foreground tabular-nums">
                   {s.value}
                 </dd>
                 <dt className="mt-3 text-[14px] leading-snug text-muted-foreground">
@@ -198,7 +198,7 @@ export default function UeberUnsPage() {
         <div className="grid gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-20">
           <div>
             <p className="eyebrow">Karriere</p>
-            <h2 className="display mt-5 text-[clamp(1.9rem,3.6vw,2.9rem)] text-foreground">
+            <h2 className="display mt-5 text-[clamp(1.65rem,2.9vw,2.35rem)] text-foreground">
               Wir suchen Sie
             </h2>
             <p className="mt-6 max-w-[34rem] text-[16.5px] leading-[1.8] text-muted-foreground">
