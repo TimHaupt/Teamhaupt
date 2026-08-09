@@ -342,13 +342,73 @@ export type Testimonial = {
 };
 
 export const testimonials: Testimonial[] = [
-  // Beispielaufbau — bitte durch echte, freigegebene Zitate ersetzen:
-  // {
-  //   quote: "…",
-  //   name: "Vorname Nachname",
-  //   role: "Geschäftsführer, Musterfirma GmbH",
-  // },
+  {
+    quote:
+      "Tim Haupt erklärt alles wirklich super verständlich! Sogar für Leute, die nicht so viel mit Versicherungen am Hut haben.",
+    name: "Tino Mangner",
+    role: "Geschäftsführer, Cineblock Verkehrssicherung Hessen GmbH",
+  },
 ];
+
+/** Bausteine der Kanzleiabsicherung – von der Seite „Steuerberater und Rechtsanwälte". */
+export type Baustein = { title: string; text: string; highlight?: string };
+
+export const kanzleiBausteine: Baustein[] = [
+  {
+    title: "Berufshaftpflicht",
+    text: "Ihre Expertise und das Vertrauen Ihrer Mandanten sind das Fundament der Kanzlei. Wir sichern es ab – mit Sonderkonditionen über unsere Kooperationen.",
+    highlight: "Sonderkonditionen DAV & StbV",
+  },
+  {
+    title: "Cybersecurity",
+    text: "Mandantendaten sind das sensibelste Gut einer Kanzlei. Inklusive Präventionspaket und DSGVO-Schulungen für Ihr Team.",
+  },
+  {
+    title: "Kanzlei-Inhaltsversicherung",
+    text: "Schutz für Kanzleiräume, Einrichtung, Akten und entgangene Honorare – branchenspezifisch statt von der Stange.",
+  },
+  {
+    title: "Rechtsschutz",
+    text: "Umfassender Rechtsschutz für den Kanzleibetrieb – mit exklusivem Steuerberaterrechtsschutz inklusive Strafrechtsschutz.",
+  },
+  {
+    title: "Betriebshaftpflicht",
+    text: "Schutz vor Ansprüchen, die den Kanzleibetrieb und im Ernstfall auch Ihre persönliche Existenz gefährden können.",
+  },
+  {
+    title: "Vorsorge fürs Team",
+    text: "Betriebliche Altersvorsorge und Zusatzversicherungen binden qualifizierte Mitarbeitende langfristig an Ihre Kanzlei.",
+  },
+];
+
+/** Weitere Leistungen jenseits der sechs Hauptbereiche. */
+export const weitereLeistungen = [
+  "Rechtsschutzversicherung – privat und gewerblich (Privat, Beruf, Verkehr, Immobilien)",
+  "Fondsanlagen",
+  "Krankenzusatzversicherungen – stationär und ambulant, z. B. Brillenversicherung",
+  "Pflege- und Sterbegeldversicherung",
+  "Rundum-Versicherungscheck bestehender Verträge",
+] as const;
+
+/** Pflichtangaben – übernommen aus dem Impressum der bisherigen Seite. */
+export const legal = {
+  vermittlerNr: "D-DU96-AJJ6T-38",
+  finanzanlagenNr: "D-W-145-EXTG-13",
+  erlaubnisbehoerde: [
+    "Stadtverwaltung Erfurt",
+    "Bürgermeister-Wagner-Str. 1",
+    "99084 Erfurt",
+  ],
+  registerbehoerde: [
+    "Industrie- und Handelskammer Erfurt",
+    "Arnstädter Str. 34",
+    "99096 Erfurt",
+  ],
+  vertretene:
+    "HDI Versicherung AG, HDI Global SE, HDI Global Specialty SE, HDI Lebensversicherung AG, HDI Pensionsfonds AG, HDI Pensionskasse AG sowie die Kooperationspartner ROLAND Rechtsschutz-Versicherungs-AG, ROLAND Schutzbrief-Versicherung AG, Atradius Kreditversicherung, DKV Deutsche Krankenversicherung AG und IDEAL Lebensversicherung a.G.",
+  finanzanlagenHinweis:
+    "Im Bereich der Finanzanlagen werden ausschließlich Vermittlungs- oder Beratungsleistungen für Produkte der Ampega Investment GmbH erbracht.",
+} as const;
 
 export const faqs = [
   {

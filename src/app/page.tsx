@@ -17,6 +17,7 @@ import {
   TrendingUp,
 } from "lucide-react";
 import { Hero } from "@/components/site/hero";
+import { Section } from "@/components/site/section";
 import ScrollTextHighlight from "@/components/originkit/scroll-text-highlight";
 import {
   Accordion,
@@ -51,66 +52,6 @@ const icons = {
 } as const;
 
 type IconName = keyof typeof icons;
-
-function Section({
-  eyebrow,
-  title,
-  lead,
-  children,
-  className = "",
-  tone = "light",
-  id,
-}: {
-  eyebrow?: string;
-  title?: string;
-  lead?: string;
-  children: React.ReactNode;
-  className?: string;
-  tone?: "light" | "paper" | "dark";
-  id?: string;
-}) {
-  const toneClass =
-    tone === "dark"
-      ? "bg-brand-ink text-white"
-      : tone === "paper"
-        ? "bg-muted"
-        : "bg-background";
-
-  return (
-    <section id={id} className={`${toneClass} ${className}`}>
-      <div className="mx-auto max-w-[1240px] px-6 py-24 sm:py-32 lg:px-10">
-        {(eyebrow || title) && (
-          <div className="max-w-[42rem]">
-            {eyebrow && (
-              <p className={`eyebrow ${tone === "dark" ? "text-white/45" : ""}`}>
-                {eyebrow}
-              </p>
-            )}
-            {title && (
-              <h2
-                className={`display mt-5 text-[clamp(1.9rem,3.6vw,2.9rem)] ${
-                  tone === "dark" ? "text-white" : "text-foreground"
-                }`}
-              >
-                {title}
-              </h2>
-            )}
-            {lead && (
-              <p
-                className={`mt-5 text-[16.5px] leading-[1.75] ${
-                  tone === "dark" ? "text-white/55" : "text-muted-foreground"
-                }`}
-              >
-                {lead}
-              </p>
-            )}
-          </div>
-        )}
-        {children}
-      </div>
-    </section>
-  );
-}
 
 export default function HomePage() {
   return (
