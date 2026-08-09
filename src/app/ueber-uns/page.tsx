@@ -61,7 +61,7 @@ export default function UeberUnsPage() {
         <div className="mx-auto max-w-[1240px] px-6 lg:px-10">
           <dl className="grid grid-cols-1 gap-px bg-border sm:grid-cols-3">
             {stats.map((s) => (
-              <div key={s.label} className="bg-background px-7 py-10">
+              <div key={s.label} className="bg-background px-7 py-8">
                 <dd className="display text-[clamp(1.6rem,2.6vw,2.1rem)] text-foreground tabular-nums">
                   {s.value}
                 </dd>

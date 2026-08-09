@@ -50,10 +50,10 @@ export default function KontaktPage() {
           <div className="grid grid-cols-1 gap-px bg-border sm:grid-cols-3">
             <a
               href={site.phoneHref}
-              className="group flex flex-col bg-background px-7 py-9 transition-colors hover:bg-muted"
+              className="group flex flex-col bg-background px-7 py-7 transition-colors hover:bg-muted"
             >
               <Phone className="h-[22px] w-[22px] text-brand" strokeWidth={1.5} />
-              <span className="mt-6 text-[16px] font-medium text-foreground tabular-nums">
+              <span className="mt-4 text-[16px] font-medium text-foreground tabular-nums">
                 {site.phone}
               </span>
               <span className="mt-2 text-[14px] text-muted-foreground">
@@ -63,10 +63,10 @@ export default function KontaktPage() {
 
             <a
               href={site.emailHref}
-              className="group flex flex-col bg-background px-7 py-9 transition-colors hover:bg-muted"
+              className="group flex flex-col bg-background px-7 py-7 transition-colors hover:bg-muted"
             >
               <Mail className="h-[22px] w-[22px] text-brand" strokeWidth={1.5} />
-              <span className="mt-6 break-all text-[16px] font-medium text-foreground">
+              <span className="mt-4 break-all text-[16px] font-medium text-foreground">
                 {site.email}
               </span>
               <span className="mt-2 text-[14px] text-muted-foreground">
@@ -74,9 +74,9 @@ export default function KontaktPage() {
               </span>
             </a>
 
-            <div className="flex flex-col bg-background px-7 py-9">
+            <div className="flex flex-col bg-background px-7 py-7">
               <MapPin className="h-[22px] w-[22px] text-brand" strokeWidth={1.5} />
-              <span className="mt-6 text-[16px] font-medium text-foreground">
+              <span className="mt-4 text-[16px] font-medium text-foreground">
                 {site.street}
               </span>
               <span className="mt-2 text-[14px] text-muted-foreground">

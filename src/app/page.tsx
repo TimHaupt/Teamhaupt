@@ -72,7 +72,7 @@ export default function HomePage() {
               const Icon = icons[s.icon as IconName];
               const inner = (
                 <>
-                  <span className="mb-6 inline-flex text-brand-bright">
+                  <span className="mb-4 inline-flex text-brand-bright">
                     <Icon className="h-[22px] w-[22px]" strokeWidth={1.5} />
                   </span>
                   <span className="flex items-start justify-between gap-3">
@@ -91,7 +91,7 @@ export default function HomePage() {
               );
 
               const cls =
-                "group flex flex-col bg-background px-7 py-9 transition-colors hover:bg-accent";
+                "group flex flex-col bg-background px-7 py-7 transition-colors hover:bg-accent";
 
               return "internal" in s && s.internal ? (
                 <a key={s.title} href={s.href} className={cls}>
@@ -214,18 +214,18 @@ export default function HomePage() {
               <Link
                 key={s.slug}
                 href={`/leistungen#${s.slug}`}
-                className="group flex flex-col bg-background px-8 py-10 transition-colors hover:bg-accent"
+                className="group flex flex-col bg-background px-7 py-7 transition-colors hover:bg-accent"
               >
-                <span className="mb-7 inline-flex text-brand-bright">
+                <span className="mb-5 inline-flex text-brand-bright">
                   <Icon className="h-6 w-6" strokeWidth={1.4} />
                 </span>
                 <h3 className="text-[17px] font-medium text-foreground">
                   {s.title}
                 </h3>
-                <p className="mt-3 flex-1 text-[14.5px] leading-[1.7] text-muted-foreground">
+                <p className="mt-2 flex-1 text-[14.5px] leading-[1.7] text-muted-foreground">
                   {s.teaser}
                 </p>
-                <span className="mt-7 inline-flex items-center gap-1.5 text-[13.5px] text-brand">
+                <span className="mt-5 inline-flex items-center gap-1.5 text-[13.5px] text-brand">
                   Mehr erfahren
                   <ArrowRight
                     className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5"
