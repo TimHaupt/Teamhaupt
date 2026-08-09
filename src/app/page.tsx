@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -18,6 +19,7 @@ import {
   Zap,
 } from "lucide-react";
 import { Hero } from "@/components/site/hero";
+import ScrollTextHighlight from "@/components/originkit/scroll-text-highlight";
 import { GlowingCards, GlowingCard } from "@/components/lightswind/glowing-cards";
 import { BorderBeam } from "@/components/lightswind/border-beam";
 import {
@@ -26,7 +28,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/lightswind/accordion";
-import { advantages, faqs, services, site, steps } from "@/lib/site";
+import { advantages, faqs, services, site, steps, testimonials } from "@/lib/site";
 
 const iconMap = {
   Home,
@@ -76,36 +78,44 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── Haltung (Originkit ScrollTextHighlight) ────── */}
+      <section className="py-28 sm:py-36">
+        <div className="mx-auto max-w-4xl px-5 sm:px-8">
+          <SectionLabel>Unsere Haltung</SectionLabel>
+          <ScrollTextHighlight
+            text="Versicherung ist Vertrauenssache. Deshalb setzen wir auf das, was wirklich zählt: zuhören, ehrlich beraten und im Ernstfall sofort da sein – mit festen Ansprechpartnern, die Sie beim Namen kennen."
+            className="mt-4 text-[clamp(1.5rem,3.4vw,2.6rem)] font-bold leading-[1.32] tracking-[-0.02em] text-foreground"
+          />
+        </div>
+      </section>
+
       {/* ── Inhaber ─────────────────────────────────────── */}
       <section className="relative overflow-hidden py-24 sm:py-28">
         <div className="pointer-events-none absolute right-0 top-0 h-96 w-96 rounded-full bg-primary/5 blur-3xl" />
         <div className="mx-auto grid max-w-7xl items-center gap-16 px-5 sm:px-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
           <div className="relative">
-            <div className="absolute inset-x-0 inset-y-0 translate-x-5 translate-y-5 rounded-3xl border-2 border-primary/30" />
-            <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-[linear-gradient(160deg,#2d5e29_0%,#3d7a3a_55%,#68a040_100%)] shadow-2xl">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.16),transparent_55%)]" />
-              <div className="relative flex h-full flex-col items-center justify-center text-white">
-                <span className="text-[5.5rem] font-extrabold leading-none tracking-[-0.05em] drop-shadow-lg">
-                  TH
-                </span>
-                <span className="mt-4 text-[15px] font-semibold">Tim Haupt</span>
-                <span className="absolute bottom-5 text-[10px] uppercase tracking-[0.16em] text-white/55">
-                  Portraitfoto folgt
-                </span>
-              </div>
+            <div className="absolute inset-0 translate-x-5 translate-y-5 rounded-3xl border-2 border-primary/30" />
+            <div className="relative overflow-hidden rounded-3xl shadow-2xl">
+              <Image
+                src="/img/team.png"
+                alt="Das Team der HDI Generalvertretung Tim Haupt in Erfurt"
+                width={1800}
+                height={980}
+                priority
+                sizes="(max-width: 1024px) 100vw, 45vw"
+                className="w-full"
+              />
             </div>
-            <div className="absolute -right-4 bottom-8 flex items-center gap-3 rounded-2xl bg-background p-4 shadow-2xl ring-1 ring-border">
-              <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-brand to-brand-dark text-white">
-                <ShieldCheck className="h-5 w-5" />
-              </span>
-              <span className="leading-tight">
-                <span className="block text-[13px] font-bold text-foreground">
-                  HDI Generalvertretung
-                </span>
-                <span className="text-[11px] text-muted-foreground">
-                  Offiziell &amp; IHK-geprüft
-                </span>
-              </span>
+            {/* Echtes Gütesiegel der Initiative „gut beraten" */}
+            <div className="absolute -bottom-7 -right-3 rounded-2xl bg-background p-3 shadow-2xl ring-1 ring-border sm:-right-6">
+              <Image
+                src="/img/siegel.png"
+                alt="Gütesiegel gut beraten – ausgezeichnet für engagierte Weiterbildung"
+                width={626}
+                height={204}
+                sizes="220px"
+                className="h-auto w-[190px] sm:w-[220px]"
+              />
             </div>
           </div>
 
@@ -190,8 +200,12 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="mx-auto mb-14 max-w-2xl text-center">
             <SectionLabel>Für jede Lebenslage</SectionLabel>
-            <h2 className="text-[clamp(1.9rem,3.4vw,2.7rem)] font-extrabold tracking-[-0.025em] text-foreground">
-              Alles aus einer Hand
+            <span className="mx-auto mb-2 block bg-gradient-to-b from-brand to-brand-dark bg-clip-text text-[clamp(3.4rem,7vw,5.4rem)] font-extrabold leading-none tracking-[-0.05em] text-transparent">
+              {services.length}
+            </span>
+            <h2 className="text-[clamp(1.9rem,3.4vw,2.7rem)] font-extrabold leading-[1.18] tracking-[-0.025em] text-foreground">
+              Bereiche, in denen wir Sie
+              <br className="hidden sm:block" /> unterstützen
             </h2>
             <p className="mt-4 text-[16px] leading-relaxed text-muted-foreground">
               Ob privat, geschäftlich oder für Ihre Zukunft – wir haben die passende
@@ -290,7 +304,7 @@ export default function HomePage() {
               href="/kontakt"
               className="group inline-flex items-center gap-2 rounded-full bg-primary px-8 py-3.5 text-sm font-bold text-primary-foreground shadow-xl shadow-brand/25 transition-all hover:-translate-y-0.5 hover:bg-brand-dark"
             >
-              Jetzt Gespräch vereinbaren
+              Gespräch vereinbaren
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
@@ -427,6 +441,41 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── Kundenstimmen (nur wenn echte vorhanden) ───── */}
+      {testimonials.length > 0 && (
+        <section className="bg-muted/50 py-24 sm:py-28">
+          <div className="mx-auto max-w-7xl px-5 sm:px-8">
+            <div className="mx-auto mb-14 max-w-2xl text-center">
+              <SectionLabel>Was Kunden sagen</SectionLabel>
+              <h2 className="text-[clamp(1.9rem,3.4vw,2.7rem)] font-extrabold tracking-[-0.025em] text-foreground">
+                Vertrauen, das gewachsen ist
+              </h2>
+              <div className="mx-auto mt-5 h-1 w-12 rounded-full bg-primary" />
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-3">
+              {testimonials.map((t) => (
+                <figure
+                  key={t.name}
+                  className="flex flex-col rounded-2xl border border-border bg-background p-7 shadow-sm"
+                >
+                  <Quote className="mb-4 h-7 w-7 shrink-0 text-primary/25" />
+                  <blockquote className="flex-1 text-[15px] leading-[1.75] text-foreground/80">
+                    {t.quote}
+                  </blockquote>
+                  <figcaption className="mt-6 border-t border-border pt-5">
+                    <span className="block text-[14px] font-bold text-foreground">
+                      {t.name}
+                    </span>
+                    <span className="text-[13px] text-muted-foreground">{t.role}</span>
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* ── FAQ (Lightswind Accordion) ─────────────────── */}
       <section className="py-24 sm:py-28">
         <div className="mx-auto max-w-3xl px-5 sm:px-8">
@@ -476,7 +525,7 @@ export default function HomePage() {
               href="/kontakt"
               className="group inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 text-sm font-bold text-brand-dark shadow-xl shadow-black/20 transition-all hover:-translate-y-0.5"
             >
-              Termin vereinbaren
+              Gespräch vereinbaren
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
             <a

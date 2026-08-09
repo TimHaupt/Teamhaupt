@@ -154,6 +154,27 @@ export const steps = [
   },
 ] as const;
 
+/**
+ * ECHTE Kundenstimmen hier eintragen — erfundene Referenzen sind rechtlich
+ * angreifbar (UWG) und zerstören genau das Vertrauen, das sie schaffen sollen.
+ * Solange `quote` leer ist, blendet die Startseite die Sektion automatisch aus.
+ * Für die Veröffentlichung braucht es die schriftliche Freigabe der genannten Person.
+ */
+export type Testimonial = {
+  quote: string;
+  name: string;
+  role: string;
+};
+
+export const testimonials: Testimonial[] = [
+  // Beispielaufbau — bitte durch echte, freigegebene Zitate ersetzen:
+  // {
+  //   quote: "…",
+  //   name: "Vorname Nachname",
+  //   role: "Geschäftsführer, Musterfirma GmbH",
+  // },
+];
+
 export const faqs = [
   {
     q: "Was kostet eine Beratung bei Ihnen?",

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { nav, openingHours, services, site } from "@/lib/site";
@@ -24,6 +25,26 @@ export function SiteFooter() {
               Ihr persönlicher Versicherungspartner in {site.city}. IHK-geprüft,
               ehrlich beraten, schnell im Ernstfall.
             </p>
+
+            <div className="mt-7 flex items-center gap-5">
+              <Image
+                src="/img/hdi-logo-weiss.png"
+                alt="HDI"
+                width={799}
+                height={316}
+                sizes="110px"
+                className="h-auto w-[110px] opacity-80"
+              />
+              <span className="h-9 w-px bg-white/10" />
+              <Image
+                src="/img/siegel.png"
+                alt="Gütesiegel gut beraten"
+                width={626}
+                height={204}
+                sizes="150px"
+                className="h-auto w-[150px] rounded-md bg-white/95 p-1"
+              />
+            </div>
           </div>
 
           {/* Leistungen */}
