@@ -5,64 +5,56 @@ import { nav, openingHours, services, site } from "@/lib/site";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-white/5 bg-[#0a0d0a] text-white/70">
-      <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1.3fr]">
+    <footer className="border-t border-border bg-background">
+      <div className="mx-auto max-w-[1240px] px-6 py-20 lg:px-10">
+        <div className="grid gap-14 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1.2fr]">
           {/* Marke */}
           <div>
-            <div className="mb-5 flex items-center gap-3">
+            <div className="flex items-center gap-3">
               <Image
-                src="/img/logo-weiss.png"
-                alt="Logo der HDI Generalvertretung Tim Haupt"
+                src="/img/logo-gruen.png"
+                alt="HDI Generalvertretung Tim Haupt"
                 width={645}
                 height={645}
-                sizes="44px"
-                className="h-11 w-11"
+                sizes="38px"
+                className="h-[38px] w-[38px]"
               />
-              <span className="flex flex-col leading-tight">
-                <span className="text-[15px] font-bold text-white">{site.name}</span>
-                <span className="text-[10px] font-medium uppercase tracking-[0.14em] text-white/50">
+              <span className="flex flex-col leading-none">
+                <span className="text-[15px] font-medium text-foreground">
+                  Tim Haupt
+                </span>
+                <span className="mt-1 text-[9.5px] font-medium uppercase tracking-[0.16em] text-muted-foreground">
                   HDI Generalvertretung
                 </span>
               </span>
             </div>
-            <p className="max-w-xs text-sm leading-relaxed text-white/50">
-              Ihr persönlicher Versicherungspartner in {site.city}. IHK-geprüft,
-              ehrlich beraten, schnell im Ernstfall.
+
+            <p className="mt-6 max-w-[24rem] text-[14.5px] leading-[1.7] text-muted-foreground">
+              Ihre Versicherungsagentur in {site.city}. Acht IHK-geprüfte Köpfe,
+              über 5.000 betreute Privat- und Firmenkunden.
             </p>
 
-            <div className="mt-7 flex items-center gap-5">
-              <Image
-                src="/img/hdi-logo-weiss.png"
-                alt="HDI"
-                width={799}
-                height={316}
-                sizes="110px"
-                className="h-auto w-[110px] opacity-80"
-              />
-              <span className="h-9 w-px bg-white/10" />
+            <div className="mt-8 flex items-center gap-6">
               <Image
                 src="/img/siegel.png"
                 alt="Gütesiegel gut beraten"
                 width={626}
                 height={204}
-                sizes="150px"
-                className="h-auto w-[150px] rounded-md bg-white/95 p-1"
+                sizes="170px"
+                className="h-auto w-[170px]"
               />
             </div>
           </div>
 
           {/* Leistungen */}
           <div>
-            <h3 className="mb-5 text-[11px] font-semibold uppercase tracking-[0.16em] text-white">
-              Leistungen
-            </h3>
-            <ul className="space-y-2.5">
+            <h3 className="eyebrow">Leistungen</h3>
+            <ul className="mt-6 space-y-3">
               {services.map((s) => (
                 <li key={s.slug}>
                   <Link
                     href={`/leistungen#${s.slug}`}
-                    className="text-sm text-white/50 transition-colors hover:text-brand"
+                    className="text-[14.5px] text-muted-foreground transition-colors hover:text-brand"
                   >
                     {s.title}
                   </Link>
@@ -73,15 +65,13 @@ export function SiteFooter() {
 
           {/* Navigation */}
           <div>
-            <h3 className="mb-5 text-[11px] font-semibold uppercase tracking-[0.16em] text-white">
-              Navigation
-            </h3>
-            <ul className="space-y-2.5">
+            <h3 className="eyebrow">Navigation</h3>
+            <ul className="mt-6 space-y-3">
               {nav.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-white/50 transition-colors hover:text-brand"
+                    className="text-[14.5px] text-muted-foreground transition-colors hover:text-brand"
                   >
                     {item.label}
                   </Link>
@@ -90,7 +80,7 @@ export function SiteFooter() {
               <li>
                 <Link
                   href="/impressum"
-                  className="text-sm text-white/50 transition-colors hover:text-brand"
+                  className="text-[14.5px] text-muted-foreground transition-colors hover:text-brand"
                 >
                   Impressum
                 </Link>
@@ -98,7 +88,7 @@ export function SiteFooter() {
               <li>
                 <Link
                   href="/datenschutz"
-                  className="text-sm text-white/50 transition-colors hover:text-brand"
+                  className="text-[14.5px] text-muted-foreground transition-colors hover:text-brand"
                 >
                   Datenschutz
                 </Link>
@@ -108,59 +98,55 @@ export function SiteFooter() {
 
           {/* Kontakt */}
           <div>
-            <h3 className="mb-5 text-[11px] font-semibold uppercase tracking-[0.16em] text-white">
-              Kontakt
-            </h3>
-            <ul className="space-y-4">
+            <h3 className="eyebrow">Kontakt</h3>
+            <ul className="mt-6 space-y-4">
               <li className="flex gap-3">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
-                <span className="text-sm text-white/50">
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand" strokeWidth={1.6} />
+                <span className="text-[14.5px] leading-relaxed text-muted-foreground">
                   {site.street}
                   <br />
                   {site.zip} {site.city}
                 </span>
               </li>
               <li className="flex gap-3">
-                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
+                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-brand" strokeWidth={1.6} />
                 <a
                   href={site.phoneHref}
-                  className="text-sm text-white/50 transition-colors hover:text-brand"
+                  className="text-[14.5px] text-muted-foreground tabular-nums transition-colors hover:text-brand"
                 >
                   {site.phone}
                 </a>
               </li>
               <li className="flex gap-3">
-                <Mail className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
+                <Mail className="mt-0.5 h-4 w-4 shrink-0 text-brand" strokeWidth={1.6} />
                 <a
                   href={site.emailHref}
-                  className="break-all text-sm text-white/50 transition-colors hover:text-brand"
+                  className="break-all text-[14.5px] text-muted-foreground transition-colors hover:text-brand"
                 >
                   {site.email}
                 </a>
               </li>
             </ul>
 
-            <div className="mt-6 rounded-xl border border-white/5 bg-white/[0.03] p-4">
-              <h4 className="mb-3 text-[10px] font-semibold uppercase tracking-[0.14em] text-white/70">
-                Öffnungszeiten
-              </h4>
-              <ul className="space-y-1.5">
+            <dl className="mt-8 border-t border-border pt-6">
+              <dt className="eyebrow">Öffnungszeiten</dt>
+              <dd className="mt-4 space-y-2">
                 {openingHours.map((o) => (
-                  <li key={o.day} className="flex justify-between gap-3 text-xs">
-                    <span className="text-white/45">{o.day}</span>
-                    <span className="shrink-0 font-medium text-brand">{o.time}</span>
-                  </li>
+                  <span key={o.day} className="flex justify-between gap-4 text-[13.5px]">
+                    <span className="text-muted-foreground">{o.day}</span>
+                    <span className="shrink-0 text-foreground tabular-nums">{o.time}</span>
+                  </span>
                 ))}
-              </ul>
-            </div>
+              </dd>
+            </dl>
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 text-xs text-white/35 sm:flex-row">
+        <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-border pt-8 text-[13px] text-muted-foreground sm:flex-row sm:items-center">
           <span>
             © {new Date().getFullYear()} {site.legalName} · {site.city}
           </span>
-          <div className="flex gap-6">
+          <div className="flex gap-7">
             <Link href="/impressum" className="transition-colors hover:text-brand">
               Impressum
             </Link>

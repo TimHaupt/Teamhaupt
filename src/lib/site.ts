@@ -188,6 +188,78 @@ export const steps = [
 ] as const;
 
 /**
+ * Selfservice – Links aus dem Linktree der Agentur, hier bewusst direkt
+ * eingebunden statt über den Umweg einer Fremdplattform.
+ * Die Flixcheck-Widget-URLs koennen sich aendern; bei Aenderung hier pflegen.
+ */
+export const schadenMelden = [
+  { label: "Kfz-Schaden", href: "https://api.flixcheck.com/api/v1/widget/KKdvlJLRHCuCWtcIZjpNzdIzcRCohIAf/transactions/redirect" },
+  { label: "Privathaftpflicht", href: "https://api.flixcheck.com/api/v1/widget/VBejyOUQPyxETpLEizlLIjvuEsTpfhRp/transactions/redirect" },
+  { label: "Hausrat", href: "https://api.flixcheck.com/api/v1/widget/VrtwApdaTKQLMsCPgwCtDgUtYruKCWNE/transactions/redirect" },
+  { label: "Wohngebäude", href: "https://api.flixcheck.com/api/v1/widget/FlOLmDBjLHgEeostwaTprvNKajnzXoBI/transactions/redirect" },
+  { label: "Sonstiger Schaden", href: "https://api.flixcheck.com/api/v1/widget/HOsoegHQjiHUYOqANRvYftbjwzWBBYvk/transactions/redirect" },
+] as const;
+
+export const selfservice = [
+  {
+    icon: "FileWarning",
+    title: "Schaden melden",
+    text: "Formular für Kfz, Hausrat, Haftpflicht und Gebäude – rund um die Uhr.",
+    href: "#schaden",
+    internal: true,
+  },
+  {
+    icon: "PencilLine",
+    title: "Daten ändern",
+    text: "Neue Bankverbindung oder Anschrift in zwei Minuten mitteilen.",
+    href: "https://api.flixcheck.com/api/v1/widget/qwxjBtbxUsKJKafbTaFVlRyxCjJfvRzv/transactions/redirect",
+  },
+  {
+    icon: "CalendarCheck",
+    title: "Termin buchen",
+    text: "Direkt im Kalender Ihres Ansprechpartners – ohne Rückruf-Warterei.",
+    href: "#team",
+    internal: true,
+  },
+  {
+    icon: "LayoutDashboard",
+    title: "Mein HDI",
+    text: "Ihre Verträge und Dokumente im Kundenportal der HDI.",
+    href: "https://www.hdi.de/mein-hdi/login",
+  },
+] as const;
+
+/**
+ * Team – Namen und Buchungslinks aus cal.com. Fotos und Rollen bitte
+ * ergaenzen; bis dahin werden Initialen angezeigt.
+ */
+export type Member = {
+  name: string;
+  role: string;
+  booking?: string;
+  email?: string;
+  phone?: string;
+};
+
+export const team: Member[] = [
+  {
+    name: "Tim Haupt",
+    role: "Inhaber & Generalvertreter",
+    booking: "https://cal.com/tim-haupt",
+  },
+  {
+    name: "Swenja-Elisè Möller",
+    role: "Persönliche Schadenmanagerin",
+    email: "Swenja.Moeller@hdi.de",
+    phone: "0361 56 53 665",
+  },
+  { name: "Kathrin Letsch", role: "Kundenbetreuung", booking: "https://cal.com/kathrin-letsch" },
+  { name: "Lisa Lübke", role: "Kundenbetreuung", booking: "https://cal.com/Lisa.Luebke" },
+  { name: "Amanuel Tekeste", role: "Kundenbetreuung", booking: "https://cal.com/amanueltekeste" },
+  { name: "Frederic Loll", role: "Kundenbetreuung", booking: "https://cal.com/frederic.loll" },
+];
+
+/**
  * ECHTE Kundenstimmen hier eintragen — erfundene Referenzen sind rechtlich
  * angreifbar (UWG) und zerstören genau das Vertrauen, das sie schaffen sollen.
  * Solange `quote` leer ist, blendet die Startseite die Sektion automatisch aus.

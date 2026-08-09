@@ -2,28 +2,22 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
-  Award,
+  ArrowUpRight,
   Building2,
+  CalendarCheck,
   Car,
-  Check,
-  Compass,
+  FileWarning,
   HeartPulse,
   Home,
+  LayoutDashboard,
   Mail,
-  MapPin,
+  PencilLine,
   Phone,
-  Quote,
   Scale,
-  ShieldCheck,
-  Smile,
   TrendingUp,
-  Users,
-  Zap,
 } from "lucide-react";
 import { Hero } from "@/components/site/hero";
 import ScrollTextHighlight from "@/components/originkit/scroll-text-highlight";
-import { GlowingCards, GlowingCard } from "@/components/lightswind/glowing-cards";
-import { BorderBeam } from "@/components/lightswind/border-beam";
 import {
   Accordion,
   AccordionContent,
@@ -33,40 +27,88 @@ import {
 import {
   advantages,
   faqs,
+  schadenMelden,
   schadenmanagerin,
+  selfservice,
   services,
   site,
-  stats,
   steps,
+  team,
   testimonials,
 } from "@/lib/site";
 
-const iconMap = {
+const icons = {
   Home,
   Building2,
   TrendingUp,
   Car,
   HeartPulse,
   Scale,
-  Smile,
-  Compass,
-  Zap,
-  ShieldCheck,
+  FileWarning,
+  PencilLine,
+  CalendarCheck,
+  LayoutDashboard,
 } as const;
 
-const trustItems = [
-  { icon: Users, label: "Persönlicher Ansprechpartner" },
-  { icon: Zap, label: "Schnelle Schadenhilfe" },
-  { icon: Award, label: "IHK-geprüftes Team" },
-  { icon: Scale, label: "Spezialist für Kanzleien" },
-  { icon: MapPin, label: `Mitten in ${site.city}` },
-];
+type IconName = keyof typeof icons;
 
-function SectionLabel({ children }: { children: React.ReactNode }) {
+function Section({
+  eyebrow,
+  title,
+  lead,
+  children,
+  className = "",
+  tone = "light",
+  id,
+}: {
+  eyebrow?: string;
+  title?: string;
+  lead?: string;
+  children: React.ReactNode;
+  className?: string;
+  tone?: "light" | "paper" | "dark";
+  id?: string;
+}) {
+  const toneClass =
+    tone === "dark"
+      ? "bg-brand-ink text-white"
+      : tone === "paper"
+        ? "bg-muted"
+        : "bg-background";
+
   return (
-    <span className="mb-3 inline-block text-[11px] font-semibold uppercase tracking-[0.16em] text-primary">
-      {children}
-    </span>
+    <section id={id} className={`${toneClass} ${className}`}>
+      <div className="mx-auto max-w-[1240px] px-6 py-24 sm:py-32 lg:px-10">
+        {(eyebrow || title) && (
+          <div className="max-w-[42rem]">
+            {eyebrow && (
+              <p className={`eyebrow ${tone === "dark" ? "text-white/45" : ""}`}>
+                {eyebrow}
+              </p>
+            )}
+            {title && (
+              <h2
+                className={`display mt-5 text-[clamp(1.9rem,3.6vw,2.9rem)] ${
+                  tone === "dark" ? "text-white" : "text-foreground"
+                }`}
+              >
+                {title}
+              </h2>
+            )}
+            {lead && (
+              <p
+                className={`mt-5 text-[16.5px] leading-[1.75] ${
+                  tone === "dark" ? "text-white/55" : "text-muted-foreground"
+                }`}
+              >
+                {lead}
+              </p>
+            )}
+          </div>
+        )}
+        {children}
+      </div>
+    </section>
   );
 }
 
@@ -75,527 +117,464 @@ export default function HomePage() {
     <>
       <Hero />
 
-      {/* ── Vertrauensleiste ───────────────────────────── */}
-      <section className="border-y border-border bg-muted/60">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-6 px-5 py-7 sm:px-8">
-          {trustItems.map(({ icon: Icon, label }) => (
-            <div key={label} className="flex items-center gap-3">
-              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-primary text-primary-foreground">
-                <Icon className="h-4 w-4" strokeWidth={2} />
-              </span>
-              <span className="text-sm font-medium text-foreground/80">{label}</span>
-            </div>
-          ))}
+      {/* ── Selfservice ────────────────────────────────── */}
+      <section className="border-b border-border bg-background">
+        <div className="mx-auto max-w-[1240px] px-6 lg:px-10">
+          <div className="grid grid-cols-1 gap-px bg-border sm:grid-cols-2 lg:grid-cols-4">
+            {selfservice.map((s) => {
+              const Icon = icons[s.icon as IconName];
+              const inner = (
+                <>
+                  <span className="mb-6 inline-flex text-brand">
+                    <Icon className="h-[22px] w-[22px]" strokeWidth={1.5} />
+                  </span>
+                  <span className="flex items-start justify-between gap-3">
+                    <span className="text-[16px] font-medium text-foreground">
+                      {s.title}
+                    </span>
+                    <ArrowUpRight
+                      className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                      strokeWidth={1.6}
+                    />
+                  </span>
+                  <span className="mt-2 block text-[14px] leading-relaxed text-muted-foreground">
+                    {s.text}
+                  </span>
+                </>
+              );
+
+              const cls =
+                "group flex flex-col bg-background px-7 py-9 transition-colors hover:bg-muted";
+
+              return "internal" in s && s.internal ? (
+                <a key={s.title} href={s.href} className={cls}>
+                  {inner}
+                </a>
+              ) : (
+                <a
+                  key={s.title}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cls}
+                >
+                  {inner}
+                </a>
+              );
+            })}
+          </div>
         </div>
       </section>
 
-      {/* ── Kennzahlen ─────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-[#0a0d0a] py-20 text-white sm:py-24">
-        <div className="pointer-events-none absolute left-1/2 top-0 h-[320px] w-[720px] -translate-x-1/2 rounded-full bg-primary/10 blur-[120px]" />
-        <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
-          <p className="mb-12 max-w-2xl text-[15px] leading-relaxed text-white/45">
-            Zahlen sagen mehr als Versprechen. Ein Auszug aus unserer Arbeit:
-          </p>
-
-          <dl className="grid gap-px overflow-hidden rounded-2xl bg-white/10 sm:grid-cols-3">
-            {stats.map((s) => (
-              <div key={s.label} className="bg-[#0a0d0a] px-7 py-9">
-                <dt className="mb-4 text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">
-                  {s.note}
-                </dt>
-                <dd>
-                  <span className="block text-[clamp(2rem,3.6vw,2.9rem)] font-extrabold leading-none tracking-[-0.035em] text-white tabular-nums">
-                    {s.value}
-                  </span>
-                  <span className="mt-3 block text-[14px] leading-snug text-white/50">
-                    {s.label}
-                  </span>
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-      </section>
-
-      {/* ── Haltung (Originkit ScrollTextHighlight) ────── */}
-      <section className="py-28 sm:py-36">
-        <div className="mx-auto max-w-4xl px-5 sm:px-8">
-          <SectionLabel>Unsere Haltung</SectionLabel>
+      {/* ── Haltung ────────────────────────────────────── */}
+      <Section>
+        <div className="max-w-[52rem]">
+          <p className="eyebrow">Unsere Haltung</p>
           <ScrollTextHighlight
-            text="Versicherung ist Vertrauenssache. Deshalb setzen wir auf das, was wirklich zählt: zuhören, ehrlich beraten und im Ernstfall sofort da sein – mit festen Ansprechpartnern, die Sie beim Namen kennen."
-            className="mt-4 text-[clamp(1.5rem,3.4vw,2.6rem)] font-bold leading-[1.32] tracking-[-0.02em] text-foreground"
+            text="Wir verkaufen keine Policen. Wir sorgen dafür, dass Sie im Ernstfall nicht allein dastehen – mit ehrlicher Beratung, festen Ansprechpartnern und einem Team, das Sie beim Namen kennt."
+            className="display mt-7 text-[clamp(1.7rem,3.4vw,2.6rem)]"
           />
         </div>
-      </section>
+      </Section>
 
-      {/* ── Inhaber ─────────────────────────────────────── */}
-      <section className="relative overflow-hidden py-24 sm:py-28">
-        <div className="pointer-events-none absolute right-0 top-0 h-96 w-96 rounded-full bg-primary/5 blur-3xl" />
-        <div className="mx-auto grid max-w-7xl items-center gap-16 px-5 sm:px-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
-          <div className="relative">
-            <div className="absolute inset-0 translate-x-5 translate-y-5 rounded-3xl border-2 border-primary/30" />
-            <div className="relative overflow-hidden rounded-3xl shadow-2xl">
-              <Image
-                src="/img/team.png"
-                alt="Das Team der HDI Generalvertretung Tim Haupt in Erfurt"
-                width={1800}
-                height={980}
-                priority
-                sizes="(max-width: 1024px) 100vw, 45vw"
-                className="w-full"
-              />
+      {/* ── Inhaber ────────────────────────────────────── */}
+      <Section tone="paper">
+        <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
+          <div className="order-2 lg:order-1">
+            <p className="eyebrow">Ihr Ansprechpartner</p>
+            <h2 className="display mt-5 text-[clamp(1.9rem,3.6vw,2.9rem)] text-foreground">
+              Tim Haupt
+            </h2>
+            <p className="mt-2 text-[14px] text-muted-foreground">
+              Inhaber der HDI Generalvertretung · {site.city}
+            </p>
+
+            <div className="mt-8 space-y-5 text-[16.5px] leading-[1.8] text-muted-foreground">
+              <p>
+                Versicherung ist für mich Vertrauenssache. Als ich diese Agentur
+                gegründet habe, hatte ich ein klares Ziel: Beratung, die ehrlich
+                ist, Entscheidungen, die schnell fallen – und Menschen, die man
+                beim Namen kennt.
+              </p>
+              <p>
+                Genau dafür stehen mein Team und ich, jeden Tag hier in{" "}
+                {site.city}. Kein anonymer Konzern-Service, sondern feste
+                Ansprechpartner, die bleiben.
+              </p>
             </div>
-            {/* Echtes Gütesiegel der Initiative „gut beraten" */}
-            <div className="absolute -bottom-7 -right-3 rounded-2xl bg-background p-3 shadow-2xl ring-1 ring-border sm:-right-6">
+
+            <blockquote className="display mt-9 border-l border-brand pl-6 text-[clamp(1.15rem,1.8vw,1.4rem)] italic text-foreground">
+              Bei mir sind Sie keine Vertragsnummer. Sie sind mein Kunde – und
+              das spüren Sie in jedem Gespräch.
+            </blockquote>
+
+            <Link
+              href="https://cal.com/tim-haupt"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group mt-9 inline-flex items-center gap-2.5 rounded-md bg-ink px-6 py-3.5 text-[14px] font-medium text-ink-foreground transition-colors hover:bg-brand"
+            >
+              Termin bei Tim Haupt buchen
+              <ArrowRight
+                className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
+                strokeWidth={1.8}
+              />
+            </Link>
+          </div>
+
+          <div className="order-1 lg:order-2">
+            <Image
+              src="/img/team.png"
+              alt="Das Team der HDI Generalvertretung Tim Haupt in Erfurt"
+              width={1800}
+              height={980}
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="w-full rounded-lg"
+            />
+            <div className="mt-6 flex items-center gap-5 border-t border-border pt-6">
               <Image
                 src="/img/siegel.png"
                 alt="Gütesiegel gut beraten – ausgezeichnet für engagierte Weiterbildung"
                 width={626}
                 height={204}
-                sizes="220px"
-                className="h-auto w-[190px] sm:w-[220px]"
+                sizes="200px"
+                className="h-auto w-[200px]"
               />
-            </div>
-          </div>
-
-          <div>
-            <SectionLabel>Ihr persönlicher Ansprechpartner</SectionLabel>
-            <h2 className="text-[clamp(1.9rem,3.4vw,2.7rem)] font-extrabold tracking-[-0.025em] text-foreground">
-              Tim Haupt
-            </h2>
-            <p className="mt-1.5 text-sm font-semibold uppercase tracking-[0.08em] text-primary">
-              Inhaber der HDI Generalvertretung · {site.city}
-            </p>
-
-            <div className="mt-7 space-y-4 text-[16px] leading-[1.8] text-muted-foreground">
-              <p>
-                Versicherung ist für mich Vertrauenssache. Als ich diese Agentur
-                gegründet habe, hatte ich ein klares Ziel: Beratung, die ehrlich ist,
-                Entscheidungen, die schnell fallen – und Menschen, die man beim Namen
-                kennt.
-              </p>
-              <p>
-                Genau dafür stehen mein Team und ich – jeden Tag, hier in {site.city}.
-                Kein anonymer Konzern-Service, sondern ein fester Ansprechpartner, der
-                bleibt.
+              <p className="text-[13px] leading-snug text-muted-foreground">
+                Ausgezeichnet für engagierte Weiterbildung – eine Initiative der
+                deutschen Versicherungswirtschaft.
               </p>
             </div>
-
-            <blockquote className="mt-7 border-l-[3px] border-primary py-1.5 pl-5 text-[17px] italic leading-relaxed text-foreground/85">
-              „Bei mir sind Sie keine Vertragsnummer. Sie sind mein Kunde – und das
-              spüren Sie in jedem Gespräch."
-            </blockquote>
           </div>
         </div>
-      </section>
+      </Section>
 
-      {/* ── Vorteile (Lightswind GlowingCards) ─────────── */}
-      <section className="bg-muted/50 py-24 sm:py-28">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <div className="mx-auto mb-14 max-w-2xl text-center">
-            <SectionLabel>Der Unterschied</SectionLabel>
-            <h2 className="text-[clamp(1.9rem,3.4vw,2.7rem)] font-extrabold tracking-[-0.025em] text-foreground">
-              Warum Kunden zu uns wechseln
-            </h2>
-            <p className="mt-4 text-[16px] leading-relaxed text-muted-foreground">
-              Wir machen Versicherung so, wie sie sein sollte: verständlich,
-              persönlich und ohne Kleingedrucktes.
-            </p>
-            <div className="mx-auto mt-5 h-1 w-12 rounded-full bg-primary" />
-          </div>
-
-          <GlowingCards
-            enableGlow
-            glowRadius={22}
-            glowOpacity={0.55}
-            enableHover
-            gap="1.5rem"
-            maxWidth="100%"
-            padding="0"
-            backgroundColor="transparent"
-          >
-            {advantages.map((a) => {
-              const Icon = iconMap[a.icon as keyof typeof iconMap];
-              return (
-                <GlowingCard
-                  key={a.title}
-                  glowColor="#68a040"
-                  className="rounded-2xl border border-border bg-background p-7"
-                >
-                  <span className="mb-5 grid h-14 w-14 place-items-center rounded-2xl bg-primary/12 text-brand-dark">
-                    <Icon className="h-6 w-6" strokeWidth={1.9} />
-                  </span>
-                  <h3 className="mb-2 text-[17px] font-bold text-foreground">{a.title}</h3>
-                  <p className="text-[14px] leading-relaxed text-muted-foreground">{a.text}</p>
-                </GlowingCard>
-              );
-            })}
-          </GlowingCards>
-        </div>
-      </section>
-
-      {/* ── Leistungen ──────────────────────────────────── */}
-      <section className="py-24 sm:py-28">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <div className="mx-auto mb-14 max-w-2xl text-center">
-            <SectionLabel>Für jede Lebenslage</SectionLabel>
-            <span className="mx-auto mb-2 block bg-gradient-to-b from-brand to-brand-dark bg-clip-text text-[clamp(3.4rem,7vw,5.4rem)] font-extrabold leading-none tracking-[-0.05em] text-transparent">
-              {services.length}
-            </span>
-            <h2 className="text-[clamp(1.9rem,3.4vw,2.7rem)] font-extrabold leading-[1.18] tracking-[-0.025em] text-foreground">
-              Bereiche, in denen wir Sie
-              <br className="hidden sm:block" /> unterstützen
-            </h2>
-            <p className="mt-4 text-[16px] leading-relaxed text-muted-foreground">
-              Ob privat, geschäftlich oder für Ihre Zukunft – wir haben die passende
-              Lösung und erklären sie verständlich.
-            </p>
-            <div className="mx-auto mt-5 h-1 w-12 rounded-full bg-primary" />
-          </div>
-
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((s) => {
-              const Icon = iconMap[s.icon as keyof typeof iconMap];
-              return (
-                <Link
-                  key={s.slug}
-                  href={`/leistungen#${s.slug}`}
-                  className={`group relative overflow-hidden rounded-2xl border p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl ${
-                    s.featured
-                      ? "border-primary/40 bg-gradient-to-br from-accent to-muted"
-                      : "border-border bg-background hover:border-primary/40"
-                  }`}
-                >
-                  {s.featured && <BorderBeam size={220} duration={9} />}
-
-                  <span
-                    className={`mb-5 grid h-14 w-14 place-items-center rounded-2xl transition-colors ${
-                      s.featured
-                        ? "bg-primary text-primary-foreground"
-                        : "bg-muted text-brand-dark group-hover:bg-primary/12"
-                    }`}
-                  >
-                    <Icon className="h-6 w-6" strokeWidth={1.9} />
-                  </span>
-
-                  <h3 className="mb-2 text-[17px] font-bold text-foreground">{s.title}</h3>
-                  <p className="mb-5 text-[14px] leading-relaxed text-muted-foreground">
-                    {s.teaser}
-                  </p>
-
-                  <ul className="mb-6 space-y-2">
-                    {s.bullets.map((b) => (
-                      <li
-                        key={b}
-                        className="flex items-center gap-2.5 text-[13px] text-foreground/70"
-                      >
-                        <Check className="h-3.5 w-3.5 shrink-0 text-primary" strokeWidth={3} />
-                        {b}
-                      </li>
-                    ))}
-                  </ul>
-
-                  <span className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-primary">
-                    Mehr erfahren
-                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
-                  </span>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Ablauf ──────────────────────────────────────── */}
-      <section className="bg-muted/50 py-24 sm:py-28">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <div className="mx-auto mb-16 max-w-2xl text-center">
-            <SectionLabel>In drei Schritten</SectionLabel>
-            <h2 className="text-[clamp(1.9rem,3.4vw,2.7rem)] font-extrabold tracking-[-0.025em] text-foreground">
-              So einfach kommen Sie zu Ihrem Schutz
-            </h2>
-            <p className="mt-4 text-[16px] leading-relaxed text-muted-foreground">
-              Kein Papierkram-Stress, kein Fachchinesisch. Wir machen es Ihnen leicht.
-            </p>
-            <div className="mx-auto mt-5 h-1 w-12 rounded-full bg-primary" />
-          </div>
-
-          <div className="relative grid gap-12 md:grid-cols-3 md:gap-8">
-            <div className="absolute left-[16.6%] right-[16.6%] top-9 hidden h-px md:block">
-              <div className="h-full w-full bg-[repeating-linear-gradient(to_right,var(--primary)_0_10px,transparent_10px_20px)] opacity-40" />
-            </div>
-
-            {steps.map((s) => (
-              <div key={s.n} className="relative text-center">
-                <span className="mx-auto mb-6 grid h-[72px] w-[72px] place-items-center rounded-full bg-gradient-to-br from-brand to-brand-dark text-2xl font-extrabold text-white shadow-[0_0_0_10px_var(--muted),0_10px_28px_-8px_rgba(61,122,58,0.5)]">
-                  {s.n}
+      {/* ── Leistungen ─────────────────────────────────── */}
+      <Section
+        eyebrow={`${services.length} Bereiche`}
+        title="Wobei wir Sie unterstützen"
+        lead="Ob privat, geschäftlich oder für Ihre Zukunft – wir erklären verständlich, was Sie wirklich brauchen."
+      >
+        <div className="mt-16 grid grid-cols-1 gap-px bg-border md:grid-cols-2 lg:grid-cols-3">
+          {services.map((s) => {
+            const Icon = icons[s.icon as IconName];
+            return (
+              <Link
+                key={s.slug}
+                href={`/leistungen#${s.slug}`}
+                className="group flex flex-col bg-background px-8 py-10 transition-colors hover:bg-muted"
+              >
+                <span className="mb-7 inline-flex text-brand">
+                  <Icon className="h-6 w-6" strokeWidth={1.4} />
                 </span>
-                <h3 className="mb-2.5 text-[19px] font-bold text-foreground">{s.title}</h3>
-                <p className="mx-auto max-w-[34ch] text-[14px] leading-relaxed text-muted-foreground">
-                  {s.text}
+                <h3 className="text-[17px] font-medium text-foreground">
+                  {s.title}
+                </h3>
+                <p className="mt-3 flex-1 text-[14.5px] leading-[1.7] text-muted-foreground">
+                  {s.teaser}
                 </p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-14 text-center">
-            <Link
-              href="/kontakt"
-              className="group inline-flex items-center gap-2 rounded-full bg-primary px-8 py-3.5 text-sm font-bold text-primary-foreground shadow-xl shadow-brand/25 transition-all hover:-translate-y-0.5 hover:bg-brand-dark"
-            >
-              Gespräch vereinbaren
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Link>
-          </div>
+                <span className="mt-7 inline-flex items-center gap-1.5 text-[13.5px] text-brand">
+                  Mehr erfahren
+                  <ArrowRight
+                    className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5"
+                    strokeWidth={1.8}
+                  />
+                </span>
+              </Link>
+            );
+          })}
         </div>
-      </section>
+      </Section>
 
-      {/* ── Swenja ──────────────────────────────────────── */}
-      <section className="py-24 sm:py-28">
-        <div className="mx-auto grid max-w-7xl items-center gap-16 px-5 sm:px-8 lg:grid-cols-2 lg:gap-20">
-          <div className="relative">
-            <div className="relative overflow-hidden rounded-3xl bg-background p-9 shadow-2xl ring-1 ring-border">
-              <BorderBeam size={260} duration={11} />
-              <span className="mb-6 grid h-20 w-20 place-items-center rounded-full bg-gradient-to-br from-brand to-brand-dark text-3xl font-bold text-white shadow-lg">
-                S
+      {/* ── Unterschied ────────────────────────────────── */}
+      <Section
+        tone="paper"
+        eyebrow="Der Unterschied"
+        title="Warum Kunden zu uns wechseln"
+      >
+        <div className="mt-16 grid gap-x-14 gap-y-12 sm:grid-cols-2">
+          {advantages.map((a, i) => (
+            <div key={a.title} className="border-t border-border pt-7">
+              <span className="display text-[15px] text-brand tabular-nums">
+                {String(i + 1).padStart(2, "0")}
               </span>
-              <h3 className="text-[19px] font-bold text-foreground">
-                {schadenmanagerin.name}
+              <h3 className="mt-4 text-[17px] font-medium text-foreground">
+                {a.title}
               </h3>
-              <p className="mt-1 text-[12px] font-semibold uppercase tracking-[0.1em] text-primary">
-                {schadenmanagerin.role}
+              <p className="mt-3 max-w-[34rem] text-[15px] leading-[1.75] text-muted-foreground">
+                {a.text}
               </p>
-              <Quote className="mt-6 h-7 w-7 text-primary/25" />
-              <p className="mt-2 border-l-[3px] border-primary pl-5 text-[15px] italic leading-[1.75] text-foreground/80">
-                „Ich begleite Sie persönlich durch jeden Schadensfall – von der ersten
-                Meldung bis zur Lösung. Ohne Warteschleife, ohne Bürokratie."
-              </p>
-
-              {/* Direkte Durchwahl statt Zentrale – der eigentliche Beweis */}
-              <div className="mt-7 grid gap-2 border-t border-border pt-6 sm:grid-cols-2">
-                <a
-                  href={schadenmanagerin.phoneHref}
-                  className="flex items-center gap-2.5 rounded-xl bg-muted px-4 py-3 text-[14px] font-semibold text-foreground transition-colors hover:bg-accent"
-                >
-                  <Phone className="h-4 w-4 shrink-0 text-primary" />
-                  {schadenmanagerin.phone}
-                </a>
-                <a
-                  href={schadenmanagerin.emailHref}
-                  className="flex items-center gap-2.5 rounded-xl bg-muted px-4 py-3 text-[13px] font-semibold text-foreground transition-colors hover:bg-accent"
-                >
-                  <Mail className="h-4 w-4 shrink-0 text-primary" />
-                  <span className="truncate">Direkt schreiben</span>
-                </a>
-              </div>
             </div>
-            <span className="absolute -right-3 -top-3 rounded-full bg-primary px-4 py-2 text-center text-[12px] font-bold leading-tight text-primary-foreground shadow-xl">
-              Eigene
+          ))}
+        </div>
+      </Section>
+
+      {/* ── Schadensfall ───────────────────────────────── */}
+      <Section id="schaden" tone="dark">
+        <div className="grid gap-14 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
+          <div>
+            <p className="eyebrow text-white/45">Im Schadensfall</p>
+            <h2 className="display mt-5 text-[clamp(1.9rem,3.6vw,2.9rem)] text-white">
+              Eine Ansprechpartnerin,
               <br />
-              Durchwahl
-            </span>
+              die Sie kennt
+            </h2>
+            <div className="mt-7 space-y-5 text-[16.5px] leading-[1.8] text-white/60">
+              <p>
+                Wasserschaden in der Wohnung, Auffahrunfall auf dem Weg zur
+                Arbeit: Situationen, in denen niemand Lust auf Formulare und
+                Warteschleifen hat.
+              </p>
+              <p>
+                {schadenmanagerin.name} nimmt Ihren Fall auf, kennt Ihren Vertrag
+                und bleibt Ihre Ansprechpartnerin, bis alles geklärt ist. Sie
+                erreichen sie unter ihrer eigenen Durchwahl – nicht über die
+                Zentrale.
+              </p>
+            </div>
+
+            <div className="mt-9 flex flex-wrap gap-3">
+              <a
+                href={schadenmanagerin.phoneHref}
+                className="inline-flex items-center gap-2.5 rounded-md bg-white px-6 py-3.5 text-[14px] font-medium text-brand-ink tabular-nums transition-colors hover:bg-white/90"
+              >
+                <Phone className="h-4 w-4" strokeWidth={1.8} />
+                {schadenmanagerin.phone}
+              </a>
+              <a
+                href={schadenmanagerin.emailHref}
+                className="inline-flex items-center gap-2.5 rounded-md border border-white/25 px-6 py-3.5 text-[14px] font-medium text-white transition-colors hover:border-white/60"
+              >
+                <Mail className="h-4 w-4" strokeWidth={1.8} />
+                E-Mail schreiben
+              </a>
+            </div>
           </div>
 
-          <div>
-            <SectionLabel>Im Schadensfall an Ihrer Seite</SectionLabel>
-            <h2 className="text-[clamp(1.9rem,3.4vw,2.7rem)] font-extrabold leading-[1.15] tracking-[-0.025em] text-foreground">
-              Eine Ansprechpartnerin, die Sie kennt
-            </h2>
-
-            <div className="mt-6 space-y-4 text-[16px] leading-[1.8] text-muted-foreground">
-              <p>
-                Wasserschaden in der Wohnung, Auffahrunfall auf dem Weg zur Arbeit:
-                Situationen, in denen niemand Lust auf Formulare und Warteschleifen
-                hat. Genau dafür gibt es bei uns eine feste Schadenmanagerin.
-              </p>
-              <p>
-                Swenja-Elisè Möller nimmt Ihren Fall auf, kennt Ihren Vertrag und
-                bleibt Ihre Ansprechpartnerin, bis alles geklärt ist. Sie erreichen
-                sie unter ihrer eigenen Durchwahl – nicht über die Zentrale.
-              </p>
-            </div>
-
-            <ul className="mt-8 space-y-3.5">
-              {[
-                "Schadenmeldung per Telefon, E-Mail oder WhatsApp",
-                "Eigene Durchwahl – kein Weiterverbinden über die Zentrale",
-                "Sie erfahren von uns, wie der Stand ist, nicht umgekehrt",
-                "Über 1,1 Mio. € Schäden allein 2025 für unsere Kunden reguliert",
-              ].map((t) => (
-                <li key={t} className="flex items-start gap-3 text-[15px] text-foreground/80">
-                  <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-primary/12">
-                    <Check className="h-3 w-3 text-primary" strokeWidth={3.5} />
-                  </span>
-                  {t}
+          {/* Schaden direkt melden */}
+          <div className="border-t border-white/12 pt-9 lg:border-l lg:border-t-0 lg:pl-16 lg:pt-0">
+            <p className="eyebrow text-white/45">Schaden online melden</p>
+            <p className="mt-4 text-[15px] leading-relaxed text-white/50">
+              Rund um die Uhr, ohne Anmeldung. Wählen Sie die passende Sparte:
+            </p>
+            <ul className="mt-8">
+              {schadenMelden.map((s) => (
+                <li key={s.label}>
+                  <a
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-center justify-between border-b border-white/10 py-4 text-[15.5px] text-white/85 transition-colors hover:text-white"
+                  >
+                    {s.label}
+                    <ArrowUpRight
+                      className="h-4 w-4 text-white/35 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-white"
+                      strokeWidth={1.6}
+                    />
+                  </a>
                 </li>
               ))}
             </ul>
           </div>
         </div>
-      </section>
+      </Section>
 
-      {/* ── Kanzleien ───────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-[#0a0d0a] py-24 text-white sm:py-28">
-        <div className="pointer-events-none absolute left-1/2 top-0 h-[420px] w-[820px] -translate-x-1/2 rounded-full bg-primary/12 blur-[130px]" />
-        <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
-          <div className="mx-auto mb-14 max-w-2xl text-center">
-            <span className="mb-3 inline-block text-[11px] font-semibold uppercase tracking-[0.16em] text-primary">
-              Unser Spezialgebiet
-            </span>
-            <h2 className="text-[clamp(1.9rem,3.4vw,2.7rem)] font-extrabold tracking-[-0.025em] text-white">
-              Maßgeschneidert für Steuerberater &amp; Anwälte
-            </h2>
-            <p className="mt-4 text-[16px] leading-relaxed text-white/55">
-              Kanzleien haben besondere Anforderungen – und verdienen einen Partner,
-              der sie versteht.
-            </p>
-            <div className="mx-auto mt-5 h-1 w-12 rounded-full bg-primary" />
-          </div>
+      {/* ── Team ───────────────────────────────────────── */}
+      <Section
+        id="team"
+        eyebrow="Das Team"
+        title="Menschen, keine Hotline"
+        lead="Buchen Sie direkt einen Termin im Kalender Ihres Ansprechpartners – ohne Rückruf-Warterei."
+      >
+        <div className="mt-16 grid grid-cols-1 gap-px bg-border sm:grid-cols-2 lg:grid-cols-3">
+          {team.map((m) => (
+            <div key={m.name} className="flex flex-col bg-background px-8 py-9">
+              <span className="display grid h-14 w-14 place-items-center rounded-full bg-accent text-[18px] text-brand">
+                {m.name
+                  .split(/[\s-]/)
+                  .filter(Boolean)
+                  .slice(0, 2)
+                  .map((p) => p[0])
+                  .join("")}
+              </span>
+              <h3 className="mt-6 text-[16.5px] font-medium text-foreground">
+                {m.name}
+              </h3>
+              <p className="mt-1.5 flex-1 text-[14px] text-muted-foreground">
+                {m.role}
+              </p>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              {
-                icon: Scale,
-                title: "Wir kennen Ihre Welt",
-                text: "Wir wissen, welche Risiken in einer Kanzlei wirklich zählen – und beraten Sie auf Augenhöhe.",
-              },
-              {
-                icon: Award,
-                title: "Sonderkonditionen DAV",
-                text: "Als Mitglied im Deutschen Anwaltverein profitieren Sie von exklusiven Konditionen.",
-              },
-              {
-                icon: TrendingUp,
-                title: "Sonderkonditionen StbV",
-                text: "Steuerberaterinnen und Steuerberater erhalten Schutz zu attraktiven Verbandskonditionen.",
-              },
-              {
-                icon: ShieldCheck,
-                title: "Rundum geschützt",
-                text: "Von der Berufshaftpflicht bis zum Cyber-Schutz – abgestimmt auf Ihren Kanzleibetrieb.",
-              },
-            ].map(({ icon: Icon, title, text }) => (
-              <div
-                key={title}
-                className="rounded-2xl border border-white/10 bg-white/[0.04] p-7 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:bg-white/[0.07]"
-              >
-                <span className="mb-5 grid h-14 w-14 place-items-center rounded-2xl bg-primary/15 text-primary">
-                  <Icon className="h-6 w-6" strokeWidth={1.9} />
-                </span>
-                <h3 className="mb-2 text-[17px] font-bold text-white">{title}</h3>
-                <p className="text-[14px] leading-relaxed text-white/55">{text}</p>
+              <div className="mt-6 flex flex-col gap-2">
+                {m.booking && (
+                  <a
+                    href={m.booking}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-flex items-center gap-1.5 text-[13.5px] text-brand"
+                  >
+                    Termin buchen
+                    <ArrowUpRight
+                      className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                      strokeWidth={1.8}
+                    />
+                  </a>
+                )}
+                {m.phone && (
+                  <a
+                    href={`tel:${m.phone.replace(/\s/g, "")}`}
+                    className="text-[13.5px] text-brand tabular-nums"
+                  >
+                    {m.phone}
+                  </a>
+                )}
               </div>
+            </div>
+          ))}
+        </div>
+
+        <p className="mt-8 text-[13px] text-muted-foreground">
+          Acht Kolleginnen und Kollegen sind für Sie da – weitere Profile und
+          Fotos folgen.
+        </p>
+      </Section>
+
+      {/* ── Ablauf ─────────────────────────────────────── */}
+      <Section
+        tone="paper"
+        eyebrow="In drei Schritten"
+        title="So einfach kommen Sie zu Ihrem Schutz"
+      >
+        <div className="mt-16 grid gap-x-14 gap-y-12 md:grid-cols-3">
+          {steps.map((s) => (
+            <div key={s.n} className="border-t border-border pt-7">
+              <span className="display text-[15px] text-brand tabular-nums">
+                {s.n}
+              </span>
+              <h3 className="mt-4 text-[17px] font-medium text-foreground">
+                {s.title}
+              </h3>
+              <p className="mt-3 text-[15px] leading-[1.75] text-muted-foreground">
+                {s.text}
+              </p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* ── Kanzleien ──────────────────────────────────── */}
+      <Section
+        eyebrow="Spezialgebiet"
+        title="Für Steuerberater und Rechtsanwälte"
+        lead="Kanzleien haben Haftungsrisiken, die man wirklich verstehen muss. Mitglieder von DAV und StbV erhalten bei uns zusätzlich Sonderkonditionen."
+      >
+        <div className="mt-14 grid gap-x-14 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+          {[
+            ["Vermögensschadenhaftpflicht", "Der Kern jeder Kanzleiabsicherung – passend zur Sozietätsform."],
+            ["Büro und Betrieb", "Inventar, Elektronik, Betriebsunterbrechung."],
+            ["Cyber-Schutz", "Mandantendaten sind das sensibelste Gut einer Kanzlei."],
+            ["Sonderkonditionen", "Exklusive Sätze für Mitglieder von DAV und StbV."],
+          ].map(([t, d]) => (
+            <div key={t} className="border-t border-border pt-6">
+              <h3 className="text-[15.5px] font-medium text-foreground">{t}</h3>
+              <p className="mt-2.5 text-[14px] leading-[1.7] text-muted-foreground">
+                {d}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <Link
+          href="/leistungen#kanzleien"
+          className="group mt-12 inline-flex items-center gap-2 text-[14.5px] text-brand"
+        >
+          Mehr für Kanzleien
+          <ArrowRight
+            className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
+            strokeWidth={1.8}
+          />
+        </Link>
+      </Section>
+
+      {/* ── Kundenstimmen ──────────────────────────────── */}
+      {testimonials.length > 0 && (
+        <Section tone="paper" eyebrow="Kundenstimmen" title="Was Kunden sagen">
+          <div className="mt-16 grid gap-x-14 gap-y-12 md:grid-cols-3">
+            {testimonials.map((t) => (
+              <figure key={t.name} className="border-t border-border pt-7">
+                <blockquote className="text-[15.5px] leading-[1.75] text-foreground">
+                  {t.quote}
+                </blockquote>
+                <figcaption className="mt-5 text-[13.5px] text-muted-foreground">
+                  <span className="block font-medium text-foreground">
+                    {t.name}
+                  </span>
+                  {t.role}
+                </figcaption>
+              </figure>
             ))}
           </div>
-
-          <div className="mt-14 text-center">
-            <Link
-              href="/leistungen#kanzleien"
-              className="group inline-flex items-center gap-2 rounded-full bg-primary px-8 py-3.5 text-sm font-bold text-primary-foreground shadow-xl shadow-brand/25 transition-all hover:-translate-y-0.5 hover:bg-brand-dark"
-            >
-              Mehr für Kanzleien erfahren
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Kundenstimmen (nur wenn echte vorhanden) ───── */}
-      {testimonials.length > 0 && (
-        <section className="bg-muted/50 py-24 sm:py-28">
-          <div className="mx-auto max-w-7xl px-5 sm:px-8">
-            <div className="mx-auto mb-14 max-w-2xl text-center">
-              <SectionLabel>Was Kunden sagen</SectionLabel>
-              <h2 className="text-[clamp(1.9rem,3.4vw,2.7rem)] font-extrabold tracking-[-0.025em] text-foreground">
-                Vertrauen, das gewachsen ist
-              </h2>
-              <div className="mx-auto mt-5 h-1 w-12 rounded-full bg-primary" />
-            </div>
-
-            <div className="grid gap-6 md:grid-cols-3">
-              {testimonials.map((t) => (
-                <figure
-                  key={t.name}
-                  className="flex flex-col rounded-2xl border border-border bg-background p-7 shadow-sm"
-                >
-                  <Quote className="mb-4 h-7 w-7 shrink-0 text-primary/25" />
-                  <blockquote className="flex-1 text-[15px] leading-[1.75] text-foreground/80">
-                    {t.quote}
-                  </blockquote>
-                  <figcaption className="mt-6 border-t border-border pt-5">
-                    <span className="block text-[14px] font-bold text-foreground">
-                      {t.name}
-                    </span>
-                    <span className="text-[13px] text-muted-foreground">{t.role}</span>
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
-          </div>
-        </section>
+        </Section>
       )}
 
-      {/* ── FAQ (Lightswind Accordion) ─────────────────── */}
-      <section className="py-24 sm:py-28">
-        <div className="mx-auto max-w-3xl px-5 sm:px-8">
-          <div className="mb-12 text-center">
-            <SectionLabel>Häufige Fragen</SectionLabel>
-            <h2 className="text-[clamp(1.9rem,3.4vw,2.7rem)] font-extrabold tracking-[-0.025em] text-foreground">
-              Das fragen uns Kunden am häufigsten
-            </h2>
-            <div className="mx-auto mt-5 h-1 w-12 rounded-full bg-primary" />
-          </div>
-
-          <Accordion type="single" collapsible className="space-y-3">
+      {/* ── FAQ ────────────────────────────────────────── */}
+      <Section tone="paper" eyebrow="Häufige Fragen" title="Das fragen uns Kunden am häufigsten">
+        <div className="mt-12 max-w-[52rem]">
+          <Accordion type="single" collapsible>
             {faqs.map((f, i) => (
               <AccordionItem
                 key={f.q}
                 value={`item-${i}`}
-                className="overflow-hidden rounded-xl border border-border bg-background px-5"
+                className="border-b border-border"
               >
-                <AccordionTrigger className="py-5 text-left text-[16px] font-semibold text-foreground hover:no-underline">
+                <AccordionTrigger className="py-6 text-left text-[16.5px] font-medium text-foreground hover:no-underline">
                   {f.q}
                 </AccordionTrigger>
-                <AccordionContent className="pb-5 text-[15px] leading-relaxed text-muted-foreground">
+                <AccordionContent className="pb-6 text-[15.5px] leading-[1.75] text-muted-foreground">
                   {f.a}
                 </AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
         </div>
-      </section>
+      </Section>
 
-      {/* ── Abschluss-CTA ───────────────────────────────── */}
-      <section className="relative overflow-hidden bg-[linear-gradient(135deg,#2d5e29_0%,#3d7a3a_50%,#68a040_100%)] py-24 text-center text-white sm:py-28">
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:56px_56px] [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_75%)]" />
-        <div className="relative mx-auto max-w-3xl px-5 sm:px-8">
-          <span className="mb-3 inline-block text-[11px] font-semibold uppercase tracking-[0.16em] text-white/70">
-            Ihr nächster Schritt
-          </span>
-          <h2 className="text-[clamp(1.9rem,3.6vw,2.9rem)] font-extrabold leading-[1.15] tracking-[-0.025em] text-white">
-            Bereit für Versicherung, die sich um Sie kümmert?
-          </h2>
-          <p className="mx-auto mt-5 max-w-xl text-[17px] leading-relaxed text-white/75">
-            Vereinbaren Sie Ihr kostenloses, unverbindliches Kennenlerngespräch –
-            vor Ort, telefonisch oder per Videocall.
-          </p>
-          <div className="mt-9 flex flex-wrap justify-center gap-3">
+      {/* ── Abschluss ──────────────────────────────────── */}
+      <Section tone="dark">
+        <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr] lg:items-end">
+          <div>
+            <p className="eyebrow text-white/45">Ihr nächster Schritt</p>
+            <h2 className="display mt-5 text-[clamp(2rem,4vw,3.2rem)] text-white">
+              Reden wir über das,
+              <br />
+              was Ihnen wichtig ist.
+            </h2>
+            <p className="mt-6 max-w-[32rem] text-[16.5px] leading-[1.75] text-white/55">
+              Das Erstgespräch ist kostenlos und unverbindlich – vor Ort in{" "}
+              {site.city}, telefonisch oder per Videocall.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-3 lg:justify-end">
             <Link
               href="/kontakt"
-              className="group inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 text-sm font-bold text-brand-dark shadow-xl shadow-black/20 transition-all hover:-translate-y-0.5"
+              className="group inline-flex items-center gap-2.5 rounded-md bg-white px-7 py-4 text-[14.5px] font-medium text-brand-ink transition-colors hover:bg-white/90"
             >
-              Gespräch vereinbaren
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              Termin vereinbaren
+              <ArrowRight
+                className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
+                strokeWidth={1.8}
+              />
             </Link>
             <a
               href={site.phoneHref}
-              className="inline-flex items-center gap-2 rounded-full border-2 border-white/35 px-8 py-3.5 text-sm font-semibold text-white transition-all hover:border-white hover:bg-white/10"
+              className="inline-flex items-center gap-2.5 rounded-md border border-white/25 px-7 py-4 text-[14.5px] font-medium text-white tabular-nums transition-colors hover:border-white/60"
             >
+              <Phone className="h-4 w-4" strokeWidth={1.8} />
               {site.phone}
             </a>
           </div>
         </div>
-      </section>
+      </Section>
     </>
   );
 }
