@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="HDI Generalvertretung Tim Haupt in Erfurt – Ihr persönlicher Versicherungspartner. Ein festes, IHK-geprüftes Team. Ehrliche Beratung, schnelle Schadenhilfe, Spezialist für Steuerberater & Anwälte.">
+  <title>HDI Generalvertretung Tim Haupt | Persönliche Versicherung in Erfurt</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page-home">
+
+  <!-- SVG ICON SPRITE -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></symbol>
+    <symbol id="i-building" viewBox="0 0 24 24"><rect width="16" height="20" x="4" y="2" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/></symbol>
+    <symbol id="i-scale" viewBox="0 0 24 24"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></symbol>
+    <symbol id="i-trending" viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></symbol>
+    <symbol id="i-car" viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1Z"/></symbol>
+    <symbol id="i-shield-check" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1Z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></symbol>
+    <symbol id="i-award" viewBox="0 0 24 24"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"/><circle cx="12" cy="8" r="6"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+    <symbol id="i-calculator" viewBox="0 0 24 24"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></symbol>
+    <symbol id="i-smile" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" x2="9.01" y1="9" y2="9"/><line x1="15" x2="15.01" y1="9" y2="9"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  </svg>
+
+  <!-- HEADER -->
+  <header id="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-mark">TH</div>
+        <div class="logo-text">
+          <span class="name">Tim Haupt</span>
+          <span class="sub">HDI Generalvertretung</span>
+        </div>
+      </a>
+
+      <nav>
+        <a href="index.html">Start</a>
+        <a href="leistungen.html">Leistungen</a>
+        <a href="ueber-uns.html">Über uns</a>
+        <a href="kontakt.html">Kontakt</a>
+      </nav>
+
+      <div class="header-cta">
+        <a href="tel:036156536060" class="header-tel">
+          <svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>
+          0361 56 53 660
+        </a>
+        <a href="kontakt.html" class="btn btn-primary">Beratung anfragen</a>
+      </div>
+
+      <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-content">
+      <div class="hero-left">
+        <div class="hero-badge">
+          <span class="dot"></span>
+          Offizielle HDI Generalvertretung · Erfurt
+        </div>
+
+        <h1>Versicherung mit<br><span>echtem Ansprechpartner.</span></h1>
+
+        <p class="hero-sub">
+          Schluss mit Warteschleifen und Lösungen von der Stange. Bei der Agentur Tim Haupt
+          betreut Sie ein festes, IHK-geprüftes Team – persönlich, ehrlich und immer erreichbar.
+        </p>
+
+        <div class="hero-actions">
+          <a href="kontakt.html" class="btn btn-primary">Kostenlos beraten lassen</a>
+          <a href="leistungen.html" class="btn btn-outline">Unsere Leistungen</a>
+        </div>
+
+        <div class="hero-features">
+          <div class="hero-feature">
+            <span class="check"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg></span>
+            Ein fester Ansprechpartner – kein Callcenter
+          </div>
+          <div class="hero-feature">
+            <span class="check"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg></span>
+            Ehrliche Empfehlungen statt Verkaufsdruck
+          </div>
+          <div class="hero-feature">
+            <span class="check"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg></span>
+            Schnelle Hilfe, wenn es darauf ankommt
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="hero-card featured">
+          <div class="hero-card-icon"><svg class="ico" aria-hidden="true"><use href="#i-users"/></svg></div>
+          <div>
+            <h4>Persönliche Betreuung</h4>
+            <p>Von der ersten Frage bis zum Schadensfall: Sie haben Menschen an Ihrer Seite, die Sie und Ihre Verträge kennen.</p>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-icon"><svg class="ico" aria-hidden="true"><use href="#i-home"/></svg></div>
+          <h4>Privat &amp; Familie</h4>
+          <p>Rundum sicher zuhause, unterwegs und im Alltag.</p>
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-icon"><svg class="ico" aria-hidden="true"><use href="#i-building"/></svg></div>
+          <h4>Für Ihr Unternehmen</h4>
+          <p>Schutz, der zu Ihrem Betrieb passt.</p>
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-icon"><svg class="ico" aria-hidden="true"><use href="#i-scale"/></svg></div>
+          <h4>Kanzlei-Spezialist</h4>
+          <p>Maßgeschneidert für Steuerberater &amp; Anwälte.</p>
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-icon"><svg class="ico" aria-hidden="true"><use href="#i-trending"/></svg></div>
+          <h4>Clever vorsorgen</h4>
+          <p>Ihre Zukunft – durchdacht und renditestark.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
+    <div class="trust-bar-inner">
+      <div class="trust-item fade-up">
+        <div class="icon"><svg class="ico" aria-hidden="true"><use href="#i-users"/></svg></div>
+        Persönlicher Ansprechpartner
+      </div>
+      <div class="trust-item fade-up">
+        <div class="icon"><svg class="ico" aria-hidden="true"><use href="#i-zap"/></svg></div>
+        Schnelle Schadenhilfe
+      </div>
+      <div class="trust-item fade-up">
+        <div class="icon"><svg class="ico" aria-hidden="true"><use href="#i-award"/></svg></div>
+        IHK-geprüftes Team
+      </div>
+      <div class="trust-item fade-up">
+        <div class="icon"><svg class="ico" aria-hidden="true"><use href="#i-scale"/></svg></div>
+        Spezialist für Kanzleien
+      </div>
+      <div class="trust-item fade-up">
+        <div class="icon"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></div>
+        Mitten in Erfurt
+      </div>
+    </div>
+  </div>
+
+  <!-- INHABER / TIM HAUPT -->
+  <section class="owner">
+    <div class="container">
+      <div class="owner-inner">
+        <div class="owner-portrait fade-up">
+          <div class="owner-photo">
+            <span class="monogram">TH</span>
+            <span class="photo-caption">Tim Haupt</span>
+            <span class="photo-hint">Portraitfoto folgt</span>
+          </div>
+          <div class="owner-seal">
+            <div class="seal-icon"><svg class="ico" aria-hidden="true"><use href="#i-shield-check"/></svg></div>
+            <div class="seal-text">
+              <strong>HDI Generalvertretung</strong>
+              <span>Offiziell &amp; IHK-geprüft</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="owner-content fade-up">
+          <span class="section-label">Ihr persönlicher Ansprechpartner</span>
+          <h2>Tim Haupt</h2>
+          <div class="owner-role">Inhaber der HDI Generalvertretung · Erfurt</div>
+
+          <p>
+            Versicherung ist für mich Vertrauenssache. Als ich diese Agentur gegründet habe,
+            hatte ich ein klares Ziel: Beratung, die ehrlich ist, Entscheidungen, die schnell
+            fallen – und Menschen, die man beim Namen kennt.
+          </p>
+          <p>
+            Genau dafür stehen mein Team und ich – jeden Tag, hier in Erfurt. Kein anonymer
+            Konzern-Service, sondern ein fester Ansprechpartner, der bleibt.
+          </p>
+
+          <p class="owner-promise">
+            „Bei mir sind Sie keine Vertragsnummer. Sie sind mein Kunde – und das spüren Sie in jedem Gespräch."
+          </p>
+
+          <div class="owner-signature">Tim Haupt</div>
+          <div class="owner-signline">Inhaber &amp; Generalvertreter</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WARUM WECHSELN -->
+  <section style="background: var(--gray-light);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Der Unterschied</span>
+        <h2>Warum Kunden zu uns wechseln</h2>
+        <p>Wir machen Versicherung so, wie sie sein sollte: verständlich, persönlich und ohne Kleingedrucktes.</p>
+        <div class="accent-bar"></div>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-card fade-up">
+          <div class="why-icon"><svg class="ico" aria-hidden="true"><use href="#i-smile"/></svg></div>
+          <h3>Ein Gesicht statt Hotline</h3>
+          <p>Sie sprechen immer mit Menschen, die Sie und Ihre Verträge kennen. Keine Warteschleife, keine ständig wechselnden Berater.</p>
+        </div>
+        <div class="why-card fade-up">
+          <div class="why-icon"><svg class="ico" aria-hidden="true"><use href="#i-compass"/></svg></div>
+          <h3>Ehrlich statt aufdringlich</h3>
+          <p>Wir analysieren Ihren echten Bedarf und empfehlen nur, was wirklich zu Ihnen passt – auch wenn das manchmal weniger ist.</p>
+        </div>
+        <div class="why-card fade-up">
+          <div class="why-icon"><svg class="ico" aria-hidden="true"><use href="#i-zap"/></svg></div>
+          <h3>Schnell im Ernstfall</h3>
+          <p>Wenn etwas passiert, kümmert sich Ihre persönliche Schadenmanagerin sofort und unkompliziert um Ihren Fall.</p>
+        </div>
+        <div class="why-card fade-up">
+          <div class="why-icon"><svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg></div>
+          <h3>Stark im Rücken</h3>
+          <p>Die Sicherheit eines der größten Versicherer Europas – kombiniert mit dem persönlichen Service Ihrer Agentur vor Ort.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEISTUNGEN PREVIEW -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Für jede Lebenslage</span>
+        <h2>Alles aus einer Hand</h2>
+        <p>Ob privat, geschäftlich oder für Ihre Zukunft – wir haben die passende Lösung und erklären sie verständlich.</p>
+        <div class="accent-bar"></div>
+      </div>
+
+      <div class="leistungen-grid">
+        <div class="leistung-card fade-up">
+          <div class="leistung-icon"><svg class="ico" aria-hidden="true"><use href="#i-home"/></svg></div>
+          <h3>Privat &amp; Familie</h3>
+          <p>Haftpflicht, Hausrat, Wohngebäude und mehr – clever gebündelt, damit Sie und Ihre Liebsten in jeder Situation abgesichert sind.</p>
+          <span class="leistung-tag">Privat</span>
+        </div>
+
+        <div class="leistung-card fade-up">
+          <div class="leistung-icon"><svg class="ico" aria-hidden="true"><use href="#i-building"/></svg></div>
+          <h3>Für Ihr Unternehmen</h3>
+          <p>Modularer Firmenschutz für kleine und mittelständische Betriebe – auf Ihre Branche und Ihren Alltag zugeschnitten.</p>
+          <span class="leistung-tag">Gewerbe</span>
+        </div>
+
+        <div class="leistung-card fade-up">
+          <div class="leistung-icon"><svg class="ico" aria-hidden="true"><use href="#i-trending"/></svg></div>
+          <h3>Vorsorge &amp; Zukunft</h3>
+          <p>Mit Clever Invest planen wir Ihre Altersvorsorge renditeorientiert und flexibel – verständlich erklärt, ohne Fachchinesisch.</p>
+          <span class="leistung-tag">Vorsorge</span>
+        </div>
+
+        <div class="leistung-card fade-up">
+          <div class="leistung-icon"><svg class="ico" aria-hidden="true"><use href="#i-car"/></svg></div>
+          <h3>Mobilität &amp; Kfz</h3>
+          <p>Faire Kfz-Tarife mit schneller Schadenhilfe. Wir finden den Schutz, der zu Ihrem Fahrzeug und Ihrem Budget passt.</p>
+          <span class="leistung-tag">Mobilität</span>
+        </div>
+
+        <div class="leistung-card fade-up">
+          <div class="leistung-icon"><svg class="ico" aria-hidden="true"><use href="#i-heart"/></svg></div>
+          <h3>Gesundheit &amp; Zähne</h3>
+          <p>Top-Versorgung beim Zahnarzt ohne Kostenschock – mit der Zahnzusatzversicherung der DKV schließen Sie die Lücke der Kasse.</p>
+          <span class="leistung-tag">Gesundheit</span>
+        </div>
+
+        <div class="leistung-card special fade-up">
+          <div class="leistung-icon"><svg class="ico" aria-hidden="true"><use href="#i-scale"/></svg></div>
+          <h3>Steuerberater &amp; Anwälte</h3>
+          <p>Unser Spezialgebiet: maßgeschneiderter Schutz für Kanzleien – mit echtem Fachwissen und Sonderkonditionen für DAV- und StbV-Mitglieder.</p>
+          <span class="leistung-tag">Spezial</span>
+        </div>
+      </div>
+
+      <div class="text-center mt-2">
+        <a href="leistungen.html" class="btn btn-ghost">Alle Leistungen im Detail →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SO EINFACH GEHTS -->
+  <section class="steps" style="background: var(--gray-light);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">In drei Schritten</span>
+        <h2>So einfach kommen Sie zu Ihrem Schutz</h2>
+        <p>Kein Papierkram-Stress, kein Fachchinesisch. Wir machen es Ihnen leicht.</p>
+        <div class="accent-bar"></div>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step fade-up">
+          <div class="step-num">1</div>
+          <h3>Kennenlernen</h3>
+          <p>In einem unverbindlichen Gespräch hören wir zu und verstehen Ihre Situation und Wünsche.</p>
+        </div>
+        <div class="step fade-up">
+          <div class="step-num">2</div>
+          <h3>Bedarf prüfen</h3>
+          <p>Wir analysieren ehrlich, was Sie wirklich brauchen – und was nicht. Transparent und nachvollziehbar.</p>
+        </div>
+        <div class="step fade-up">
+          <div class="step-num">3</div>
+          <h3>Entspannt abgesichert</h3>
+          <p>Sie erhalten eine klare Empfehlung und einen festen Ansprechpartner für alles Weitere.</p>
+        </div>
+      </div>
+
+      <div class="text-center mt-2">
+        <a href="kontakt.html" class="btn btn-primary">Jetzt Gespräch vereinbaren</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SWENJA / PERSÖNLICHE BETREUUNG -->
+  <section class="swenja">
+    <div class="container">
+      <div class="swenja-inner">
+        <div class="swenja-visual">
+          <div class="swenja-card-main">
+            <div class="swenja-avatar">S</div>
+            <div class="swenja-name">Swenja</div>
+            <div class="swenja-title">Persönliche Schadenmanagerin</div>
+            <p class="swenja-quote">
+              „Ich begleite Sie persönlich durch jeden Schadensfall – von der ersten Meldung bis zur Lösung. Ohne Warteschleife, ohne Bürokratie."
+            </p>
+          </div>
+          <div class="swenja-badge">Persönlich<br>für Sie da</div>
+        </div>
+
+        <div class="swenja-content">
+          <span class="section-label">Im Schadensfall an Ihrer Seite</span>
+          <h2>Eine Ansprechpartnerin, die Sie kennt</h2>
+          <p>
+            Ein Schaden ist stressig genug. Deshalb haben Sie bei uns mit Swenja eine feste
+            Schadenmanagerin, die Ihren Vertrag kennt, Ihre Situation versteht und direkt handelt.
+          </p>
+          <p>
+            Kein anonymes Hotline-System, keine ewigen Warteschleifen: Sie werden persönlich
+            betreut und bleiben jederzeit auf dem Laufenden – bis Ihr Fall gelöst ist.
+          </p>
+
+          <div class="swenja-highlights">
+            <div class="sh-item">
+              <span class="icon">✓</span>
+              <span>Eine feste Ansprechpartnerin, die Ihren Fall persönlich kennt</span>
+            </div>
+            <div class="sh-item">
+              <span class="icon">✓</span>
+              <span>Schnelle, unkomplizierte Bearbeitung – ohne Behördendeutsch</span>
+            </div>
+            <div class="sh-item">
+              <span class="icon">✓</span>
+              <span>Sie werden Schritt für Schritt auf dem Laufenden gehalten</span>
+            </div>
+            <div class="sh-item">
+              <span class="icon">✓</span>
+              <span>Erreichbar während unserer Öffnungszeiten – persönlich &amp; per E-Mail</span>
+            </div>
+          </div>
+
+          <a href="kontakt.html" class="btn btn-primary">Lernen Sie uns kennen</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPEZIALGEBIET KANZLEIEN -->
+  <section class="usps">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label" style="color:rgba(255,255,255,0.6)">Unser Spezialgebiet</span>
+        <h2>Maßgeschneidert für Steuerberater &amp; Anwälte</h2>
+        <p style="color:rgba(255,255,255,0.6)">Kanzleien haben besondere Anforderungen – und verdienen einen Partner, der sie versteht.</p>
+        <div class="accent-bar"></div>
+      </div>
+
+      <div class="usps-grid">
+        <div class="usp-card fade-up">
+          <div class="usp-icon"><svg class="ico" aria-hidden="true"><use href="#i-scale"/></svg></div>
+          <h3>Wir kennen Ihre Welt</h3>
+          <p>Wir wissen, welche Risiken in einer Kanzlei wirklich zählen – und beraten Sie auf Augenhöhe, ohne Umwege.</p>
+        </div>
+        <div class="usp-card fade-up">
+          <div class="usp-icon"><svg class="ico" aria-hidden="true"><use href="#i-award"/></svg></div>
+          <h3>Sonderkonditionen DAV</h3>
+          <p>Als Mitglied im Deutschen Anwaltverein profitieren Sie von exklusiven Konditionen, die wir gemeinsam entwickelt haben.</p>
+        </div>
+        <div class="usp-card fade-up">
+          <div class="usp-icon"><svg class="ico" aria-hidden="true"><use href="#i-calculator"/></svg></div>
+          <h3>Sonderkonditionen StbV</h3>
+          <p>Steuerberaterinnen und Steuerberater erhalten maßgeschneiderten Schutz zu attraktiven Verbandskonditionen.</p>
+        </div>
+        <div class="usp-card fade-up">
+          <div class="usp-icon"><svg class="ico" aria-hidden="true"><use href="#i-shield-check"/></svg></div>
+          <h3>Rundum geschützt</h3>
+          <p>Von der Berufshaftpflicht über die Büroversicherung bis zum Cyber-Schutz – alles abgestimmt auf Ihren Kanzleibetrieb.</p>
+        </div>
+      </div>
+
+      <div class="text-center mt-2">
+        <a href="leistungen.html#kanzlei-detail" class="btn btn-primary">Mehr für Kanzleien erfahren</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="cta-band">
+    <div class="container">
+      <span class="section-label" style="color: rgba(255,255,255,0.7);">Ihr nächster Schritt</span>
+      <h2>Bereit für Versicherung, die sich um Sie kümmert?</h2>
+      <p>Vereinbaren Sie jetzt Ihr kostenloses, unverbindliches Kennenlerngespräch – vor Ort, telefonisch oder per Videocall.</p>
+      <div class="cta-actions">
+        <a href="kontakt.html" class="btn btn-white">Termin vereinbaren</a>
+        <a href="tel:036156536060" class="btn btn-outline">0361 56 53 660</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAKT PREVIEW -->
+  <section>
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info fade-up">
+          <span class="section-label">Wir sind für Sie da</span>
+          <h2>So erreichen Sie uns</h2>
+          <p>Unser Team in Erfurt steht Ihnen persönlich, telefonisch und per E-Mail zur Verfügung.</p>
+
+          <div class="contact-details">
+            <div class="contact-detail">
+              <div class="contact-detail-icon"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></div>
+              <div class="contact-detail-text">
+                <div class="label">Adresse</div>
+                <span>Johannesstr. 62–64<br>99084 Erfurt</span>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <div class="contact-detail-icon"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg></div>
+              <div class="contact-detail-text">
+                <div class="label">Telefon</div>
+                <a href="tel:036156536060">0361 56 53 660</a>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <div class="contact-detail-icon"><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg></div>
+              <div class="contact-detail-text">
+                <div class="label">E-Mail</div>
+                <a href="mailto:agentur-tim-haupt@hdi.de">agentur-tim-haupt@hdi.de</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="opening-hours">
+            <h4>Öffnungszeiten</h4>
+            <div class="oh-row"><span class="day">Mo – Do</span><span class="time">08:30 – 17:00 Uhr</span></div>
+            <div class="oh-row"><span class="day">Fr</span><span class="time">08:30 – 15:00 Uhr</span></div>
+            <div class="oh-row"><span class="day">Sa – So</span><span class="time">Geschlossen</span></div>
+          </div>
+        </div>
+
+        <div class="contact-form-wrapper fade-up">
+          <h3>Schreiben Sie uns</h3>
+          <p style="font-size:0.88rem;color:var(--gray-muted);margin-bottom:1.5rem;max-width:none;">Wir melden uns werktags innerhalb von 24 Stunden bei Ihnen.</p>
+          <form id="contact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Max Mustermann" required>
+              </div>
+              <div class="form-group">
+                <label for="phone">Telefon</label>
+                <input type="tel" id="phone" name="phone" placeholder="0361 …">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">E-Mail</label>
+              <input type="email" id="email" name="email" placeholder="ihre@mail.de" required>
+            </div>
+            <div class="form-group">
+              <label for="thema">Thema</label>
+              <select id="thema" name="thema">
+                <option value="">Bitte wählen…</option>
+                <option>Privat &amp; Familie</option>
+                <option>Für mein Unternehmen</option>
+                <option>Vorsorge &amp; Zukunft</option>
+                <option>Kfz-Versicherung</option>
+                <option>Steuerberater / Rechtsanwalt</option>
+                <option>Gesundheit / Zahnzusatz</option>
+                <option>Sonstiges</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Nachricht</label>
+              <textarea id="message" name="message" placeholder="Kurze Beschreibung Ihres Anliegens…"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">
+              Nachricht senden
+            </button>
+            <p class="form-note">
+              Mit dem Absenden stimmen Sie unserer Datenschutzerklärung zu. Wir melden uns werktags innerhalb von 24 Stunden.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAP -->
+  <div class="map-section">
+    <div class="map-wrapper">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2477.5!2d11.0285!3d50.9780!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a472bcf6ea3b65%3A0x3c4ec2e31d0cc0!2sJohannesstra%C3%9Fe%2062-64%2C%2099084%20Erfurt!5e0!3m2!1sde!2sde!4v1680000000000"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Standort HDI Generalvertretung Tim Haupt, Erfurt">
+      </iframe>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo-mark" style="margin-bottom:1rem;">TH</div>
+          <p>HDI Generalvertretung Tim Haupt – Ihr persönlicher Versicherungspartner in Erfurt. IHK-geprüft. Persönlich. Zuverlässig.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Leistungen</h4>
+          <a href="leistungen.html">Privat &amp; Familie</a>
+          <a href="leistungen.html">Für Unternehmen</a>
+          <a href="leistungen.html">Vorsorge &amp; Zukunft</a>
+          <a href="leistungen.html">Kfz-Versicherung</a>
+          <a href="leistungen.html">Gesundheit &amp; Zähne</a>
+          <a href="leistungen.html">Steuerberater &amp; Anwälte</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="index.html">Startseite</a>
+          <a href="leistungen.html">Leistungen</a>
+          <a href="ueber-uns.html">Über uns</a>
+          <a href="kontakt.html">Kontakt</a>
+          <a href="datenschutz.html">Datenschutz</a>
+          <a href="impressum.html">Impressum</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Kontakt</h4>
+          <div class="footer-contact-item">
+            <span class="fi-icon"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></span>
+            <div><strong>Adresse</strong>Johannesstr. 62–64<br>99084 Erfurt</div>
+          </div>
+          <div class="footer-contact-item">
+            <span class="fi-icon"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg></span>
+            <div><strong>Telefon</strong><a href="tel:036156536060" style="color:rgba(255,255,255,0.55)">0361 56 53 660</a></div>
+          </div>
+          <div class="footer-contact-item">
+            <span class="fi-icon"><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg></span>
+            <div><strong>E-Mail</strong><a href="mailto:agentur-tim-haupt@hdi.de" style="color:rgba(255,255,255,0.55)">agentur-tim-haupt@hdi.de</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2025 HDI Generalvertretung Tim Haupt · Erfurt</span>
+        <div class="footer-bottom-links">
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button id="scroll-top" aria-label="Nach oben scrollen">↑</button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
