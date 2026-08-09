@@ -34,11 +34,12 @@
   --ink: #14171a;
   --ink-foreground: #ffffff;
 
-  --secondary: #f2f3ef;
+  --secondary: #eceee6;
   --secondary-foreground: #14171a;
 
-  --muted: #f2f3ef;
-  --muted-foreground: #6a7169;
+  /* Deutlich genug abgesetzt, damit die Zonen bewusst wirken */
+  --muted: #eceee6;
+  --muted-foreground: #666d64;
 
   --accent: #eef2ea;
   --accent-foreground: #2d5e29;

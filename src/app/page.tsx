@@ -167,15 +167,17 @@ export default function HomePage() {
       </section>
 
       {/* ── Haltung ────────────────────────────────────── */}
-      <Section>
-        <div className="max-w-[52rem]">
-          <p className="eyebrow">Unsere Haltung</p>
-          <ScrollTextHighlight
-            text="Wir verkaufen keine Policen. Wir sorgen dafür, dass Sie im Ernstfall nicht allein dastehen – mit ehrlicher Beratung, festen Ansprechpartnern und einem Team, das Sie beim Namen kennt."
-            className="display mt-7 text-[clamp(1.7rem,3.4vw,2.6rem)]"
-          />
+      <section className="bg-background">
+        <div className="mx-auto max-w-[1240px] px-6 lg:px-10">
+          <div className="grid gap-10 border-b border-border py-20 sm:py-24 lg:grid-cols-[auto_1fr] lg:gap-20">
+            <p className="eyebrow lg:pt-3">Unsere Haltung</p>
+            <ScrollTextHighlight
+              text="Wir verkaufen keine Policen. Wir sorgen dafür, dass Sie im Ernstfall nicht allein dastehen – mit ehrlicher Beratung, festen Ansprechpartnern und einem Team, das Sie beim Namen kennt."
+              className="display max-w-[46rem] text-[clamp(1.6rem,3vw,2.35rem)]"
+            />
+          </div>
         </div>
-      </Section>
+      </section>
 
       {/* ── Inhaber ────────────────────────────────────── */}
       <Section tone="paper">
@@ -223,27 +225,29 @@ export default function HomePage() {
           </div>
 
           <div className="order-1 lg:order-2">
-            <Image
-              src="/img/team.png"
-              alt="Das Team der HDI Generalvertretung Tim Haupt in Erfurt"
-              width={1800}
-              height={980}
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className="w-full rounded-lg"
-            />
-            <div className="mt-6 flex items-center gap-5 border-t border-border pt-6">
+            <div className="mx-auto max-w-[26rem] lg:mx-0 lg:ml-auto">
               <Image
-                src="/img/siegel.png"
-                alt="Gütesiegel gut beraten – ausgezeichnet für engagierte Weiterbildung"
-                width={626}
-                height={204}
-                sizes="200px"
-                className="h-auto w-[200px]"
+                src="/img/tim-portrait.png"
+                alt="Tim Haupt, Inhaber der HDI Generalvertretung Erfurt"
+                width={340}
+                height={425}
+                sizes="(max-width: 1024px) 80vw, 26rem"
+                className="w-full rounded-lg"
               />
-              <p className="text-[13px] leading-snug text-muted-foreground">
-                Ausgezeichnet für engagierte Weiterbildung – eine Initiative der
-                deutschen Versicherungswirtschaft.
-              </p>
+              <div className="mt-7 border-t border-border pt-7">
+                <Image
+                  src="/img/siegel.png"
+                  alt="Gütesiegel gut beraten – ausgezeichnet für engagierte Weiterbildung"
+                  width={626}
+                  height={204}
+                  sizes="210px"
+                  className="h-auto w-[210px]"
+                />
+                <p className="mt-4 max-w-[24rem] text-[13.5px] leading-relaxed text-muted-foreground">
+                  Ausgezeichnet für engagierte Weiterbildung – eine Initiative
+                  der deutschen Versicherungswirtschaft.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -386,10 +390,19 @@ export default function HomePage() {
         title="Menschen, keine Hotline"
         lead="Buchen Sie direkt einen Termin im Kalender Ihres Ansprechpartners – ohne Rückruf-Warterei."
       >
-        <div className="mt-16 grid grid-cols-1 gap-px bg-border sm:grid-cols-2 lg:grid-cols-3">
+        <Image
+          src="/img/team-banner.png"
+          alt="Das Team der HDI Generalvertretung Tim Haupt in Erfurt"
+          width={1794}
+          height={700}
+          sizes="(max-width: 1240px) 100vw, 1160px"
+          className="mt-14 w-full rounded-lg bg-muted"
+        />
+
+        <div className="mt-14 grid grid-cols-1 gap-px bg-border sm:grid-cols-2 lg:grid-cols-3">
           {team.map((m) => (
             <div key={m.name} className="flex flex-col bg-background px-8 py-9">
-              <span className="display grid h-14 w-14 place-items-center rounded-full bg-accent text-[18px] text-brand">
+              <span className="display grid h-14 w-14 place-items-center rounded-full bg-brand text-[17px] text-white">
                 {m.name
                   .split(/[\s-]/)
                   .filter(Boolean)
@@ -432,10 +445,6 @@ export default function HomePage() {
           ))}
         </div>
 
-        <p className="mt-8 text-[13px] text-muted-foreground">
-          Acht Kolleginnen und Kollegen sind für Sie da – weitere Profile und
-          Fotos folgen.
-        </p>
       </Section>
 
       {/* ── Ablauf ─────────────────────────────────────── */}

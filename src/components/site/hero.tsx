@@ -33,13 +33,13 @@ export function Hero() {
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute inset-y-0 right-0 w-full lg:w-[64%]">
           <Image
-            src="/img/team.png"
+            src="/img/team-dunkel.png"
             alt=""
             aria-hidden
             fill
             priority
             sizes="(max-width: 1024px) 100vw, 64vw"
-            className="object-cover object-[62%_center] opacity-[0.42] saturate-[0.55] lg:opacity-60"
+            className="object-cover object-[62%_center] opacity-70 lg:opacity-90"
           />
         </div>
         {/* Verlauf, der die Textseite freistellt */}
