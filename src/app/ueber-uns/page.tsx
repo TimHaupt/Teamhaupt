@@ -95,7 +95,7 @@ export default function UeberUnsPage() {
             </p>
           </div>
 
-          <div className="grid gap-x-12 gap-y-9 sm:grid-cols-2">
+          <div className="grid gap-x-12 gap-y-7 sm:grid-cols-2">
             {gruende.map((g, i) => (
               <div key={g.title} className="border-t border-border pt-6">
                 <span className="display text-[14px] text-brand tabular-nums">
@@ -128,10 +128,10 @@ export default function UeberUnsPage() {
           height={700}
           priority
           sizes="(max-width: 1240px) 100vw, 1160px"
-          className="mt-14 w-full rounded-lg bg-background"
+          className="mt-10 w-full rounded-lg bg-background"
         />
 
-        <div className="mt-14 grid grid-cols-1 gap-px bg-border sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid grid-cols-1 gap-px bg-border sm:grid-cols-2 lg:grid-cols-3">
           {team.map((m) => (
             <div key={m.name} className="flex flex-col bg-background">
               <div className="relative">

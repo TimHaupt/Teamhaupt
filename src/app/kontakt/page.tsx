@@ -93,7 +93,7 @@ export default function KontaktPage() {
         title="Termin direkt im Kalender buchen"
         lead="Sie sehen die freien Zeiten und wählen selbst – kein Rückruf nötig."
       >
-        <div className="mt-12 grid grid-cols-1 gap-px bg-border sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid grid-cols-1 gap-px bg-border sm:grid-cols-2 lg:grid-cols-3">
           {buchbar.map((m) => (
             <a
               key={m.name}
@@ -127,7 +127,7 @@ export default function KontaktPage() {
         title="Schaden online melden"
         lead={`Rund um die Uhr, ohne Anmeldung. ${schadenmanagerin.name} übernimmt Ihren Fall und bleibt Ihre Ansprechpartnerin, bis er geklärt ist.`}
       >
-        <div className="mt-12 grid gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-20">
+        <div className="mt-8 grid gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-20">
           <ul>
             {schadenMelden.map((s) => (
               <li key={s.label}>
@@ -177,7 +177,7 @@ export default function KontaktPage() {
 
       {/* Formular + Öffnungszeiten */}
       <Section tone="paper" eyebrow="Nachricht" title="Schreiben Sie uns">
-        <div className="mt-12 grid gap-14 lg:grid-cols-[1.3fr_1fr] lg:gap-20">
+        <div className="mt-8 grid gap-14 lg:grid-cols-[1.3fr_1fr] lg:gap-20">
           <ContactForm />
 
           <div>

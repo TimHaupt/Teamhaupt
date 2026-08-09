@@ -116,7 +116,7 @@ export default function HomePage() {
       {/* ── Haltung ────────────────────────────────────── */}
       <section className="bg-background">
         <div className="mx-auto max-w-[1240px] px-6 lg:px-10">
-          <div className="grid gap-10 border-b border-border py-20 sm:py-24 lg:grid-cols-[auto_1fr] lg:gap-20">
+          <div className="grid gap-10 border-b border-border py-14 sm:py-16 lg:grid-cols-[auto_1fr] lg:gap-20">
             <p className="eyebrow lg:pt-3">Unsere Haltung</p>
             <ScrollTextHighlight
               text="Wir verkaufen keine Policen. Wir sorgen dafür, dass Sie im Ernstfall nicht allein dastehen – mit ehrlicher Beratung, festen Ansprechpartnern und einem Team, das Sie beim Namen kennt."
@@ -182,7 +182,7 @@ export default function HomePage() {
                 sizes="(max-width: 1024px) 80vw, 26rem"
                 className="w-full rounded-lg"
               />
-              <div className="mt-7 border-t border-border pt-7">
+              <div className="mt-7 border-t border-border pt-5">
                 <Image
                   src="/img/siegel.png"
                   alt="Gütesiegel gut beraten – ausgezeichnet für engagierte Weiterbildung"
@@ -207,7 +207,7 @@ export default function HomePage() {
         title="Wobei wir Sie unterstützen"
         lead="Ob privat, geschäftlich oder für Ihre Zukunft – wir erklären verständlich, was Sie wirklich brauchen."
       >
-        <div className="mt-16 grid grid-cols-1 gap-px bg-border md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid grid-cols-1 gap-px bg-border md:grid-cols-2 lg:grid-cols-3">
           {services.map((s) => {
             const Icon = icons[s.icon as IconName];
             return (
@@ -244,16 +244,16 @@ export default function HomePage() {
         eyebrow="Der Unterschied"
         title="Warum Kunden zu uns wechseln"
       >
-        <div className="mt-16 grid gap-x-14 gap-y-12 sm:grid-cols-2">
+        <div className="mt-10 grid gap-x-14 gap-y-8 sm:grid-cols-2">
           {advantages.map((a, i) => (
-            <div key={a.title} className="border-t border-border pt-7">
+            <div key={a.title} className="border-t border-border pt-5">
               <span className="display text-[15px] text-brand-bright tabular-nums">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <h3 className="mt-4 text-[17px] font-medium text-foreground">
+              <h3 className="mt-2.5 text-[17px] font-medium text-foreground">
                 {a.title}
               </h3>
-              <p className="mt-3 max-w-[34rem] text-[15px] leading-[1.75] text-muted-foreground">
+              <p className="mt-2 max-w-[34rem] text-[15px] leading-[1.75] text-muted-foreground">
                 {a.text}
               </p>
             </div>
@@ -344,10 +344,10 @@ export default function HomePage() {
           width={1794}
           height={700}
           sizes="(max-width: 1240px) 100vw, 1160px"
-          className="mt-14 w-full rounded-lg bg-muted"
+          className="mt-10 w-full rounded-lg bg-muted"
         />
 
-        <ul className="mt-12">
+        <ul className="mt-8">
           {team.map((m) => (
             <li
               key={m.name}
@@ -405,14 +405,14 @@ export default function HomePage() {
         title="Für Steuerberater und Rechtsanwälte"
         lead="Kanzleien haben Haftungsrisiken, die man wirklich verstehen muss. Mitglieder von DAV und StbV erhalten bei uns zusätzlich Sonderkonditionen."
       >
-        <div className="mt-14 grid gap-x-14 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid gap-x-14 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
           {[
             ["Vermögensschadenhaftpflicht", "Der Kern jeder Kanzleiabsicherung – passend zur Sozietätsform."],
             ["Büro und Betrieb", "Inventar, Elektronik, Betriebsunterbrechung."],
             ["Cyber-Schutz", "Mandantendaten sind das sensibelste Gut einer Kanzlei."],
             ["Sonderkonditionen", "Exklusive Sätze für Mitglieder von DAV und StbV."],
           ].map(([t, d]) => (
-            <div key={t} className="border-t border-border pt-6">
+            <div key={t} className="border-t border-border pt-5">
               <h3 className="text-[15.5px] font-medium text-foreground">{t}</h3>
               <p className="mt-2.5 text-[14px] leading-[1.7] text-muted-foreground">
                 {d}
@@ -435,7 +435,7 @@ export default function HomePage() {
 
       {/* ── Vertrauen: Kundenstimme + ProvenExpert ─────── */}
       <Section eyebrow="Vertrauen" title="Was Kunden sagen">
-        <div className="mt-14 grid gap-12 lg:grid-cols-[1.15fr_1fr] lg:gap-20">
+        <div className="mt-10 grid gap-12 lg:grid-cols-[1.15fr_1fr] lg:gap-20">
           {testimonials[0] && (
             <figure>
               <blockquote className="display text-[clamp(1.25rem,2vw,1.6rem)] leading-[1.5] text-foreground">
@@ -494,16 +494,16 @@ export default function HomePage() {
         eyebrow="In drei Schritten"
         title="So einfach kommen Sie zu Ihrem Schutz"
       >
-        <div className="mt-16 grid gap-x-14 gap-y-12 md:grid-cols-3">
+        <div className="mt-10 grid gap-x-14 gap-y-8 md:grid-cols-3">
           {steps.map((s) => (
-            <div key={s.n} className="border-t border-border pt-7">
+            <div key={s.n} className="border-t border-border pt-5">
               <span className="display text-[15px] text-brand-bright tabular-nums">
                 {s.n}
               </span>
-              <h3 className="mt-4 text-[17px] font-medium text-foreground">
+              <h3 className="mt-2.5 text-[17px] font-medium text-foreground">
                 {s.title}
               </h3>
-              <p className="mt-3 text-[15px] leading-[1.75] text-muted-foreground">
+              <p className="mt-2 text-[15px] leading-[1.75] text-muted-foreground">
                 {s.text}
               </p>
             </div>
@@ -513,7 +513,7 @@ export default function HomePage() {
 
       {/* ── FAQ ────────────────────────────────────────── */}
       <Section eyebrow="Häufige Fragen" title="Das fragen uns Kunden am häufigsten">
-        <div className="mt-12 max-w-[52rem]">
+        <div className="mt-8 max-w-[52rem]">
           <Accordion type="single" collapsible>
             {faqs.map((f, i) => (
               <AccordionItem
@@ -536,7 +536,7 @@ export default function HomePage() {
       {/* ── Abschluss: gruene CI-Flaeche wie auf den Angebotsunterlagen ── */}
       <section className="relative overflow-hidden bg-[linear-gradient(140deg,#16281a_0%,#2d5e29_46%,#3d7a3a_76%,#4c8f42_110%)] text-white">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_82%_18%,rgba(104,160,64,0.38),transparent_55%)]" />
-        <div className="relative mx-auto max-w-[1240px] px-6 py-20 sm:py-24 lg:px-10">
+        <div className="relative mx-auto max-w-[1240px] px-6 py-16 sm:py-20 lg:px-10">
         <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr] lg:items-end">
           <div>
             <p className="eyebrow text-white/65">Ihr nächster Schritt</p>

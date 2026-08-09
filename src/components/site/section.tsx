@@ -29,7 +29,7 @@ export function Section({
 
   return (
     <section id={id} className={cn(toneClass[tone], className)}>
-      <div className="mx-auto max-w-[1240px] px-6 py-20 sm:py-24 lg:px-10">
+      <div className="mx-auto max-w-[1240px] px-6 py-16 sm:py-20 lg:px-10">
         {(eyebrow || title || lead) && (
           <div className="max-w-[42rem]">
             {eyebrow && (
