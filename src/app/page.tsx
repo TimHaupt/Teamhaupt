@@ -338,16 +338,7 @@ export default function HomePage() {
         title="Menschen, keine Hotline"
         lead="Buchen Sie direkt einen Termin im Kalender Ihres Ansprechpartners – ohne Rückruf-Warterei."
       >
-        <Image
-          src="/img/team-banner.jpg"
-          alt="Das Team der HDI Generalvertretung Tim Haupt in Erfurt"
-          width={1794}
-          height={700}
-          sizes="(max-width: 1240px) 100vw, 1160px"
-          className="mt-10 w-full rounded-lg bg-muted"
-        />
-
-        <div className="mt-8 grid grid-cols-2 gap-px bg-border sm:grid-cols-3 lg:grid-cols-6">
+        <div className="mt-10 grid grid-cols-2 gap-px bg-border sm:grid-cols-3 lg:grid-cols-6">
           {team
             .filter((m) => m.booking)
             .map((m) => (
@@ -371,6 +362,9 @@ export default function HomePage() {
                 <div className="relative px-4 py-4">
                   <span className="block text-[13.5px] font-medium text-white">
                     {m.name}
+                  </span>
+                  <span className="mt-0.5 block text-[11.5px] text-white/60">
+                    {m.role}
                   </span>
                   <span className="mt-3 inline-flex items-center gap-1.5 text-[12px] text-brand-bright">
                     Termin buchen
