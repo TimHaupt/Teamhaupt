@@ -67,7 +67,7 @@ export default function HomePage() {
       {/* ── Selfservice ────────────────────────────────── */}
       <section className="border-b border-border bg-background">
         <div className="mx-auto max-w-[1240px] px-6 lg:px-10">
-          <div className="grid grid-cols-1 gap-px bg-border sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-px bg-border sm:grid-cols-3">
             {selfservice.map((s) => {
               const Icon = icons[s.icon as IconName];
               const inner = (

@@ -233,13 +233,6 @@ export const selfservice = [
     href: "https://api.flixcheck.com/api/v1/widget/qwxjBtbxUsKJKafbTaFVlRyxCjJfvRzv/transactions/redirect",
   },
   {
-    icon: "CalendarCheck",
-    title: "Termin buchen",
-    text: "Direkt im Kalender Ihres Ansprechpartners – ohne Rückruf-Warterei.",
-    href: "#team",
-    internal: true,
-  },
-  {
     icon: "LayoutDashboard",
     title: "Mein HDI",
     text: "Ihre Verträge und Dokumente im Kundenportal der HDI.",
