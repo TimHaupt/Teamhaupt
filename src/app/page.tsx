@@ -356,14 +356,14 @@ export default function HomePage() {
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 200px"
                   className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
                 />
-                {/* Foto verläuft nach unten in die Kachelfläche, damit Name
-                    und Buchungslink lesbar auf dem Bild liegen. */}
-                <div className="absolute inset-0 bg-[linear-gradient(to_top,var(--brand-ink)_0%,rgba(13,20,16,0.82)_26%,rgba(13,20,16,0.1)_55%,transparent_80%)]" />
+                {/* Foto verläuft nach unten in die Kachelfläche, damit Name,
+                    Zuständigkeit und Buchungslink lesbar auf dem Bild liegen. */}
+                <div className="absolute inset-0 bg-[linear-gradient(to_top,var(--brand-ink)_0%,rgba(13,20,16,0.9)_38%,rgba(13,20,16,0.15)_62%,transparent_85%)]" />
                 <div className="relative px-4 py-4">
                   <span className="block text-[13.5px] font-medium text-white">
                     {m.name}
                   </span>
-                  <span className="mt-0.5 block text-[11.5px] leading-snug text-white/60">
+                  <span className="mt-0.5 line-clamp-2 text-[11.5px] leading-snug text-white/60">
                     {m.role}
                     {m.focus ? ` · ${m.focus}` : ""}
                   </span>

@@ -56,7 +56,7 @@ export function GET() {
     `  Durchwahl ${schadenmanagerin.phone} statt zentraler Hotline.`,
     "- Spezialisierung auf die Absicherung von Steuerberater- und",
     "  Rechtsanwaltskanzleien, mit Sonderkonditionen für Mitglieder von DAV und StbV.",
-    "- Kathrin Letsch betreut zusätzlich den Schwerpunkt Heilberufe.",
+    "- Kathrin Severin betreut zusätzlich den Schwerpunkt Heilberufe.",
     "- Schadenmeldung und Vertragsänderungen sind online rund um die Uhr möglich.",
     "- Termine können direkt in den Kalendern der Beraterinnen und Berater",
     "  gebucht werden (cal.com).",

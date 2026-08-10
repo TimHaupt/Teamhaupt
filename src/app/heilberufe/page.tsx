@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 
 /**
  * Inhalte beschreiben das Leistungsangebot der Agentur (Schwerpunkt von
- * Kathrin Letsch laut Teamseite). Bewusst ohne Kennzahlen-Behauptungen –
+ * Kathrin Severin laut Teamseite). Bewusst ohne Kennzahlen-Behauptungen –
  * anders als bei /kanzleien liegen hier keine belegten Zahlen vor.
  */
 const bausteine = [
@@ -52,7 +52,7 @@ const bausteine = [
 ];
 
 /**
- * Realer Fall aus der Agentur (LinkedIn-Post, begleitet von Kathrin Letsch):
+ * Realer Fall aus der Agentur (LinkedIn-Post, begleitet von Kathrin Severin):
  * Impf-GmbH von der Gruendung bis zum zweiten Standort.
  */
 const caseStudy = {
@@ -164,7 +164,7 @@ export default function HeilberufePage() {
         tone="dark"
         eyebrow="Aus der Praxis"
         title="Von der ersten Anfrage bis zum zweiten Standort"
-        lead="Ein realer Fall, begleitet von Kathrin Letsch: eine junge Impf-GmbH auf dem Weg von einem gemieteten Praxisraum zum zweiten Standort."
+        lead="Ein realer Fall, begleitet von Kathrin Severin: eine junge Impf-GmbH auf dem Weg von einem gemieteten Praxisraum zum zweiten Standort."
       >
         <div className="mt-10 grid gap-x-14 gap-y-8 md:grid-cols-3">
           {caseStudy.stationen.map((s) => (
@@ -195,7 +195,7 @@ export default function HeilberufePage() {
         <div className="grid items-center gap-10 lg:grid-cols-[auto_1fr] lg:gap-16">
           <Image
             src="/img/team/kathrin-letsch.jpg"
-            alt="Kathrin Letsch, Kundenberaterin und Spezialistin für Heilberufe"
+            alt="Kathrin Severin, Kundenberaterin und Spezialistin für Heilberufe"
             width={520}
             height={650}
             sizes="(max-width: 1024px) 60vw, 300px"
@@ -204,13 +204,13 @@ export default function HeilberufePage() {
           <div>
             <p className="eyebrow">Ihre Ansprechpartnerin</p>
             <h2 className="display mt-4 text-[clamp(1.65rem,2.9vw,2.35rem)] text-foreground">
-              Kathrin Letsch
+              Kathrin Severin
             </h2>
             <p className="mt-1.5 text-[14px] text-muted-foreground">
               Kundenberaterin · Spezialistin für Privatversicherungen und Heilberufe
             </p>
             <p className="mt-5 max-w-[36rem] text-[15.5px] leading-[1.75] text-muted-foreground">
-              Kathrin Letsch betreut bei uns den Schwerpunkt Heilberufe – von der
+              Kathrin Severin betreut bei uns den Schwerpunkt Heilberufe – von der
               Berufshaftpflicht bis zur Absicherung der eigenen Arbeitskraft. Sie
               buchen Ihren Termin direkt in ihrem Kalender, ohne Umweg über die
               Zentrale.
@@ -222,7 +222,7 @@ export default function HeilberufePage() {
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2 rounded-md bg-brand px-6 py-3.5 text-[14px] font-medium text-white transition-colors hover:bg-brand-ink"
               >
-                Termin bei Kathrin Letsch buchen
+                Termin bei Kathrin Severin buchen
                 <ArrowUpRight
                   className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                   strokeWidth={1.8}

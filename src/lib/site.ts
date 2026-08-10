@@ -284,7 +284,7 @@ export const team: Member[] = [
     photo: "/img/team/nancy-richter.jpg",
   },
   {
-    name: "Kathrin Letsch",
+    name: "Kathrin Severin",
     role: "Kundenberaterin",
     focus: "Privatversicherungen und Heilberufe",
     photo: "/img/team/kathrin-letsch.jpg",
