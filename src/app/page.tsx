@@ -363,8 +363,9 @@ export default function HomePage() {
                   <span className="block text-[13.5px] font-medium text-white">
                     {m.name}
                   </span>
-                  <span className="mt-0.5 block text-[11.5px] text-white/60">
+                  <span className="mt-0.5 block text-[11.5px] leading-snug text-white/60">
                     {m.role}
+                    {m.focus ? ` · ${m.focus}` : ""}
                   </span>
                   <span className="mt-3 inline-flex items-center gap-1.5 text-[12px] text-brand-bright">
                     Termin buchen
