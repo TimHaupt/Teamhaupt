@@ -357,15 +357,22 @@ export default function HomePage() {
                     sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 200px"
                     className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
                   />
+                  {/* Sanfter Übergang in den Textstreifen, ohne das Gesicht
+                      abzudunkeln. */}
+                  <div className="absolute inset-x-0 bottom-0 h-10 bg-[linear-gradient(to_top,var(--brand-ink)_0%,transparent_100%)]" />
                 </div>
                 <div className="bg-brand-ink px-4 py-4">
                   <span className="block text-[13.5px] font-medium text-white">
                     {m.name}
                   </span>
-                  <span className="mt-0.5 line-clamp-2 text-[11.5px] leading-snug text-white/60">
+                  <span className="mt-0.5 block text-[11.5px] leading-snug text-white/60">
                     {m.role}
-                    {m.focus ? ` · ${m.focus}` : ""}
                   </span>
+                  {m.focus && (
+                    <span className="line-clamp-1 block text-[11.5px] leading-snug text-white/60">
+                      {m.focus}
+                    </span>
+                  )}
                   <span className="mt-3 inline-flex items-center gap-1.5 text-[12px] text-brand-bright">
                     Termin buchen
                     <ArrowUpRight
