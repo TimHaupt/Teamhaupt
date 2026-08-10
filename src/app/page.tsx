@@ -347,19 +347,18 @@ export default function HomePage() {
                 href={m.booking}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative flex aspect-[3/4] flex-col justify-end overflow-hidden bg-brand-ink"
+                className="group flex flex-col bg-background"
               >
-                <Image
-                  src={m.photo}
-                  alt={`${m.name}, ${m.role}`}
-                  fill
-                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 200px"
-                  className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                />
-                {/* Foto verläuft nach unten in die Kachelfläche, damit Name,
-                    Zuständigkeit und Buchungslink lesbar auf dem Bild liegen. */}
-                <div className="absolute inset-0 bg-[linear-gradient(to_top,var(--brand-ink)_0%,rgba(13,20,16,0.9)_38%,rgba(13,20,16,0.15)_62%,transparent_85%)]" />
-                <div className="relative px-4 py-4">
+                <div className="relative aspect-[4/5] overflow-hidden bg-muted">
+                  <Image
+                    src={m.photo}
+                    alt={`${m.name}, ${m.role}`}
+                    fill
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 200px"
+                    className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <div className="bg-brand-ink px-4 py-4">
                   <span className="block text-[13.5px] font-medium text-white">
                     {m.name}
                   </span>
