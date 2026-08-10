@@ -369,7 +369,7 @@ export default function HomePage() {
                     {m.role}
                   </span>
                   {m.focus && (
-                    <span className="line-clamp-1 block text-[11.5px] leading-snug text-white/60">
+                    <span className="line-clamp-1 text-[11.5px] leading-snug text-white/60">
                       {m.focus}
                     </span>
                   )}
