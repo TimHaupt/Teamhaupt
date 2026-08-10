@@ -347,44 +347,42 @@ export default function HomePage() {
           className="mt-10 w-full rounded-lg bg-muted"
         />
 
-        <ul className="mt-8">
-          {team.map((m) => (
-            <li
-              key={m.name}
-              className="flex flex-col gap-1.5 border-b border-border py-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6"
-            >
-              <span className="text-[15.5px]">
-                <span className="font-medium text-foreground">{m.name}</span>
-                <span className="text-muted-foreground">
-                  {" "}
-                  · {m.role}
-                  {m.focus ? ` – ${m.focus}` : ""}
-                </span>
-              </span>
-              {m.booking ? (
-                <a
-                  href={m.booking}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group inline-flex shrink-0 items-center gap-1.5 text-[13.5px] text-brand"
-                >
-                  Termin buchen
-                  <ArrowUpRight
-                    className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                    strokeWidth={1.8}
-                  />
-                </a>
-              ) : m.phone ? (
-                <a
-                  href={`tel:${m.phone.replace(/\s/g, "")}`}
-                  className="shrink-0 text-[13.5px] text-brand tabular-nums"
-                >
-                  {m.phone}
-                </a>
-              ) : null}
-            </li>
-          ))}
-        </ul>
+        <div className="mt-8 grid grid-cols-2 gap-px bg-border sm:grid-cols-3 lg:grid-cols-6">
+          {team
+            .filter((m) => m.booking)
+            .map((m) => (
+              <a
+                key={m.name}
+                href={m.booking}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative flex aspect-[3/4] flex-col justify-end overflow-hidden bg-brand-ink"
+              >
+                <Image
+                  src={m.photo}
+                  alt={`${m.name}, ${m.role}`}
+                  fill
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 200px"
+                  className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                />
+                {/* Foto verläuft nach unten in die Kachelfläche, damit Name
+                    und Buchungslink lesbar auf dem Bild liegen. */}
+                <div className="absolute inset-0 bg-[linear-gradient(to_top,var(--brand-ink)_0%,rgba(13,20,16,0.82)_26%,rgba(13,20,16,0.1)_55%,transparent_80%)]" />
+                <div className="relative px-4 py-4">
+                  <span className="block text-[13.5px] font-medium text-white">
+                    {m.name}
+                  </span>
+                  <span className="mt-3 inline-flex items-center gap-1.5 text-[12px] text-brand-bright">
+                    Termin buchen
+                    <ArrowUpRight
+                      className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                      strokeWidth={1.8}
+                    />
+                  </span>
+                </div>
+              </a>
+            ))}
+        </div>
 
         <Link
           href="/ueber-uns#team"
