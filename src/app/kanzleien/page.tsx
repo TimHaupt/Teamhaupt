@@ -58,7 +58,7 @@ const kanzleiFaqs = [
   },
   {
     q: "Was bringt mir die Mitgliedschaft im DAV oder StbV konkret?",
-    a: "Über unsere Kooperationen erhalten Mitglieder des Deutschen Anwaltvereins und des Steuerberaterverbands Sonderkonditionen auf die Bausteine der Kanzleiabsicherung – insbesondere bei der Berufshaftpflicht.",
+    a: "Wir bieten Mitgliedern des Deutschen Anwaltvereins und des Steuerberaterverbands dieselben Sonderkonditionen auf die Bausteine der Kanzleiabsicherung – insbesondere bei der Berufshaftpflicht – die wir bereits für zahlreiche ihrer Mitglieder umsetzen.",
   },
   {
     q: "Deckt die Berufshaftpflicht auch die persönliche Haftung der Partner?",
@@ -238,10 +238,10 @@ export default function KanzleienPage() {
               Inhaber · Spezialist für Firmen und Freiberufler
             </p>
             <p className="mt-5 max-w-[36rem] text-[15.5px] leading-[1.75] text-muted-foreground">
-              Die Kanzleiabsicherung ist Chefsache: Tim Haupt betreut die
-              Verbandskooperationen mit DAV und StbV persönlich und kennt die
-              Haftungsfragen von Sozietäten aus über hundert betreuten
-              Berufsträgern.
+              Die Kanzleiabsicherung ist Chefsache: Tim Haupt betreut
+              persönlich zahlreiche Mitglieder von DAV und StbV, bietet ihnen
+              dieselben Sonderkonditionen und kennt die Haftungsfragen von
+              Sozietäten aus über hundert betreuten Berufsträgern.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <a

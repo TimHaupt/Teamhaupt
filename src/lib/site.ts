@@ -353,7 +353,7 @@ export type Baustein = { title: string; text: string; highlight?: string };
 export const kanzleiBausteine: Baustein[] = [
   {
     title: "Berufshaftpflicht",
-    text: "Ihre Expertise und das Vertrauen Ihrer Mandanten sind das Fundament der Kanzlei. Wir sichern es ab – mit Sonderkonditionen über unsere Kooperationen.",
+    text: "Ihre Expertise und das Vertrauen Ihrer Mandanten sind das Fundament der Kanzlei. Wir sichern es ab – mit Sonderkonditionen für Mitglieder von DAV und StbV.",
     highlight: "Sonderkonditionen DAV & StbV",
   },
   {
