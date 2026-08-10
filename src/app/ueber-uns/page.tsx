@@ -79,7 +79,7 @@ export default function UeberUnsPage() {
 
       {/* Philosophie */}
       <Section eyebrow="Unsere Philosophie" title="Offen und ehrlich kommunizieren">
-        <div className="mt-8 grid gap-12 lg:grid-cols-2 lg:gap-20">
+        <div className="mt-6 grid gap-8 lg:grid-cols-2 lg:gap-14">
           <div className="space-y-5 text-[16.5px] leading-[1.8] text-muted-foreground">
             <p>
               Unsere Philosophie beruht auf offener und ehrlicher Kommunikation –
@@ -195,7 +195,7 @@ export default function UeberUnsPage() {
 
       {/* Karriere */}
       <Section>
-        <div className="grid gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-20">
+        <div className="grid gap-8 lg:grid-cols-[1.1fr_1fr] lg:gap-14">
           <div>
             <p className="eyebrow">Karriere</p>
             <h2 className="display mt-5 text-[clamp(1.65rem,2.9vw,2.35rem)] text-foreground">

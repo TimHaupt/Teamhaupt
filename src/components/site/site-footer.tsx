@@ -6,8 +6,8 @@ import { nav, openingHours, services, site } from "@/lib/site";
 export function SiteFooter() {
   return (
     <footer className="border-t border-border bg-background">
-      <div className="mx-auto max-w-[1240px] px-6 py-20 lg:px-10">
-        <div className="grid gap-14 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1.2fr]">
+      <div className="mx-auto max-w-[1240px] px-6 py-14 lg:px-10">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1.2fr]">
           {/* Marke */}
           <div>
             <div className="flex items-center gap-3">
@@ -69,22 +69,6 @@ export function SiteFooter() {
                   </Link>
                 </li>
               ))}
-              <li className="pt-2">
-                <Link
-                  href="/kanzleien"
-                  className="text-[14.5px] font-medium text-foreground transition-colors hover:text-brand"
-                >
-                  Für Kanzleien
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/heilberufe"
-                  className="text-[14.5px] font-medium text-foreground transition-colors hover:text-brand"
-                >
-                  Für Heilberufe
-                </Link>
-              </li>
             </ul>
           </div>
 
@@ -167,7 +151,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-border pt-8 text-[13px] text-muted-foreground sm:flex-row sm:items-center">
+        <div className="mt-10 flex flex-col items-start justify-between gap-4 border-t border-border pt-8 text-[13px] text-muted-foreground sm:flex-row sm:items-center">
           <span>
             © {new Date().getFullYear()} {site.legalName} · {site.city}
           </span>

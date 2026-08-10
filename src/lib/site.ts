@@ -14,6 +14,8 @@ export const site = {
 export const nav = [
   { label: "Start", href: "/" },
   { label: "Leistungen", href: "/leistungen" },
+  { label: "Kanzleien", href: "/kanzleien" },
+  { label: "Heilberufe", href: "/heilberufe" },
   { label: "Über uns", href: "/ueber-uns" },
   { label: "Kontakt", href: "/kontakt" },
 ] as const;

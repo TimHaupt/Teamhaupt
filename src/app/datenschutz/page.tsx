@@ -17,7 +17,7 @@ function Block({
   children: React.ReactNode;
 }) {
   return (
-    <section className="border-t border-border py-9">
+    <section className="border-t border-border py-6">
       <h2 className="text-[15px] font-medium text-foreground">{title}</h2>
       <div className="mt-4 space-y-3 text-[15px] leading-[1.75] text-muted-foreground">
         {children}
@@ -36,7 +36,7 @@ export default function DatenschutzPage() {
       />
 
       <div className="bg-background">
-        <div className="mx-auto max-w-[52rem] px-6 py-20 lg:px-10">
+        <div className="mx-auto max-w-[52rem] px-6 py-12 lg:px-10">
           <Block title="Verantwortlich">
             <p>
               {site.legalName}

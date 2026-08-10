@@ -73,7 +73,7 @@ export function SiteHeader() {
         </Link>
 
         {/* Navigation */}
-        <nav className="hidden items-center gap-9 lg:flex">
+        <nav className="hidden items-center gap-7 lg:flex">
           {nav.map((item) => {
             const active =
               item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
