@@ -286,7 +286,7 @@ export const team: Member[] = [
   {
     name: "Kathrin Severin",
     role: "Kundenberaterin",
-    focus: "Privatversicherungen und Heilberufe",
+    focus: "Heilberufe und Privatversicherungen",
     photo: "/img/team/kathrin-letsch.jpg",
     booking: "https://cal.com/kathrin-letsch",
   },
@@ -307,7 +307,7 @@ export const team: Member[] = [
   {
     name: "Amanuel Tekeste",
     role: "Kundenberater",
-    focus: "Privatversicherungen und Firmen",
+    focus: "Firmen und Privatversicherungen",
     photo: "/img/team/amanuel-tekeste.jpg",
     booking: "https://cal.com/amanueltekeste",
   },
