@@ -52,7 +52,7 @@ export function Hero() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_16%_30%,rgba(104,160,64,0.15),transparent_52%)]" />
       </div>
 
-      <div className="relative mx-auto max-w-[1240px] px-6 pb-16 pt-36 sm:pb-20 sm:pt-40 lg:px-10 lg:pb-24 lg:pt-44">
+      <div className="relative mx-auto max-w-[1240px] px-6 pb-16 pt-28 sm:pb-20 sm:pt-32 lg:px-10 lg:pb-24 lg:pt-36">
         <div className="max-w-[38rem]">
           <p className={cn("eyebrow text-brand-bright", rise("delay-0"))}>
             HDI Generalvertretung · Erfurt
@@ -85,9 +85,9 @@ export function Hero() {
               rise("delay-200"),
             )}
           >
-            Im Schadensfall erreichen Sie bei uns keine Hotline, sondern eine
-            feste Ansprechpartnerin mit eigener Durchwahl – und ein Team, das
-            Sie beim Namen kennt.
+            Ob private Vorsorge, Firmenschutz oder der Ernstfall: Sie bekommen
+            ehrliche Beratung und feste Ansprechpartner – keine anonyme
+            Hotline, sondern ein Team, das Sie beim Namen kennt.
           </p>
 
           <div className={cn("mt-10 flex flex-wrap items-center gap-3", rise("delay-300"))}>
