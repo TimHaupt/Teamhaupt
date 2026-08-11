@@ -41,7 +41,7 @@ export function Hero() {
             fill
             priority
             sizes="(max-width: 1024px) 100vw, 64vw"
-            className="object-cover object-[62%_center] opacity-70 lg:opacity-90"
+            className="scale-110 object-cover object-[100%_center] opacity-70 lg:opacity-90"
           />
         </div>
         {/* Verlauf: deckt die Textspalte ab, gibt die Gesichter rechts frei.
