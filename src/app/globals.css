@@ -114,7 +114,12 @@
   border-color: var(--border);
 }
 
-html {
+/* Nur wenn Lenis NICHT laeuft: Sonst setzen natives Smooth-Scrolling und Lenis
+   im selben Frame konkurrierende Scrollpositionen und die Seite stottert.
+   Lenis haengt die Klasse `lenis` an <html>, sobald es aktiv ist – ohne
+   JavaScript oder bei prefers-reduced-motion bleibt sie aus und Ankerspruenge
+   (#main) laufen wie bisher weich. */
+html:not(.lenis) {
   scroll-behavior: smooth;
 }
 

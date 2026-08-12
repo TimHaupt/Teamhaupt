@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Titillium_Web } from "next/font/google";
 import "./globals.css";
+import "lenis/dist/lenis.css";
+import { SmoothScroll } from "@/components/site/smooth-scroll";
 import { SiteHeader } from "@/components/site/site-header";
 import { SiteFooter } from "@/components/site/site-footer";
 import { MobileCta } from "@/components/site/mobile-cta";
@@ -87,6 +89,7 @@ export default function RootLayout({
   return (
     <html lang="de" className={titillium.variable}>
       <body className="font-sans antialiased">
+        <SmoothScroll />
         <a
           href="#main"
           className="fixed left-4 top-4 z-[100] -translate-y-24 rounded-md bg-ink px-4 py-2.5 text-[13.5px] font-medium text-ink-foreground transition-transform focus-visible:translate-y-0"

@@ -1,4 +1,5 @@
 import { cn } from "@/components/lib/utils";
+import { Reveal } from "@/components/site/reveal";
 
 type Tone = "light" | "paper" | "dark";
 
@@ -26,12 +27,13 @@ export function Section({
   id?: string;
 }) {
   const dark = tone === "dark";
+  const hasHeader = Boolean(eyebrow || title || lead);
 
   return (
     <section id={id} className={cn(toneClass[tone], className)}>
       <div className="mx-auto max-w-[1240px] px-6 py-16 sm:py-20 lg:px-10">
-        {(eyebrow || title || lead) && (
-          <div className="max-w-[42rem]">
+        {hasHeader && (
+          <Reveal className="max-w-[42rem]">
             {eyebrow && (
               <p className={cn("eyebrow", dark && "text-brand-bright")}>{eyebrow}</p>
             )}
@@ -55,9 +57,11 @@ export function Section({
                 {lead}
               </p>
             )}
-          </div>
+          </Reveal>
         )}
-        {children}
+        {/* Leichter Versatz, damit Kopf und Inhalt nacheinander ankommen statt
+            als ein Block – aber nur, wenn es ueberhaupt einen Kopf gibt. */}
+        {children && <Reveal delay={hasHeader ? 0.1 : 0}>{children}</Reveal>}
       </div>
     </section>
   );
