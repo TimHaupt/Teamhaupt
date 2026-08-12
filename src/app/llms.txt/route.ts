@@ -59,7 +59,7 @@ export function GET() {
     "- Kathrin Severin betreut zusätzlich den Schwerpunkt Heilberufe.",
     "- Schadenmeldung und Vertragsänderungen sind online rund um die Uhr möglich.",
     "- Termine können direkt in den Kalendern der Beraterinnen und Berater",
-    "  gebucht werden (cal.com).",
+    "  gebucht werden (cal.com, cal.eu).",
     "- Mira ist eine digitale KI-Assistentin, kein Mensch.",
     "",
     "## Häufige Fragen",

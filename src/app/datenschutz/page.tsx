@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import { PageHero } from "@/components/site/section";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Datenschutz",
   description:
     "Datenschutzerklärung der HDI Generalvertretung Tim Haupt, Erfurt.",
-  robots: { index: false, follow: true },
-};
+  path: "/datenschutz",
+  noindex: true,
+});
 
 function Block({
   title,
@@ -43,11 +45,11 @@ export default function DatenschutzPage() {
               <br />
               {site.street}, {site.zip} {site.city}
               <br />
-              <a href={site.phoneHref} className="text-brand tabular-nums">
+              <a href={site.phoneHref} className="text-brand-text tabular-nums">
                 {site.phone}
               </a>
               {" · "}
-              <a href={site.emailHref} className="break-all text-brand">
+              <a href={site.emailHref} className="break-all text-brand-text">
                 {site.email}
               </a>
             </p>
@@ -102,7 +104,7 @@ export default function DatenschutzPage() {
             </p>
             <ul className="ml-5 list-disc space-y-2">
               <li>
-                <span className="text-foreground">cal.com</span> – Terminbuchung
+                <span className="text-foreground">cal.com und cal.eu</span> – Terminbuchung
                 bei einzelnen Teammitgliedern
               </li>
               <li>

@@ -11,6 +11,11 @@
   /* Marke */
   --brand: #3d7a3a;
   --brand-bright: #68a040;
+  /* Gruen fuer TEXT auf hellen Flaechen. --brand erreicht auf --muted nur
+     4,40:1, --brand-bright sogar nur 2,66:1. Dieser Ton haelt auf
+     background/muted/accent durchgehend ueber 5,8:1. Fuer Flaechen,
+     Linien und Icons weiter --brand bzw. --brand-bright verwenden. */
+  --brand-text: #31642e;
   --brand-deep: #16281a;
   --brand-ink: #0d1410;
   --brand-red: #e00818;
@@ -89,6 +94,7 @@
 
   --color-brand: var(--brand);
   --color-brand-bright: var(--brand-bright);
+  --color-brand-text: var(--brand-text);
   --color-brand-deep: var(--brand-deep);
   --color-brand-ink: var(--brand-ink);
 
@@ -187,6 +193,14 @@ body::before {
 .bg-brand-ink :focus-visible,
 .bg-brand-ink:focus-visible {
   outline-color: var(--brand-bright);
+}
+/* Auf der gruenen Abschlussflaeche geht ein gruener Ring im Verlauf unter
+   (gemessen 1,0–1,5:1). Weiss mit dunklem Aussenring haelt dort die
+   geforderten 3:1 – betrifft die wichtigsten Buttons der Seite. */
+.cta-green :focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(13, 20, 16, 0.55);
 }
 
 @media (prefers-reduced-motion: reduce) {

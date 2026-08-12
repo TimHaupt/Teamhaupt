@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Menu, Phone, X } from "lucide-react";
 import { cn } from "@/components/lib/utils";
 import { nav, site } from "@/lib/site";
@@ -13,6 +13,7 @@ export function SiteHeader() {
   const isHome = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const toggleRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
@@ -28,6 +29,22 @@ export function SiteHeader() {
     return () => {
       document.body.style.overflow = "";
     };
+  }, [open]);
+
+  /**
+   * Escape schliesst das Menue und gibt den Fokus an den Button zurueck.
+   * Ohne das bleibt die Tastaturbedienung bei gesperrtem Body-Scroll
+   * in einem Zustand haengen, aus dem nur die Maus herausfuehrt.
+   */
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      setOpen(false);
+      toggleRef.current?.focus();
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
   }, [open]);
 
   /** Über dem dunklen Hero hell, danach auf hellem Grund dunkel. */
@@ -132,10 +149,12 @@ export function SiteHeader() {
           </Link>
 
           <button
+            ref={toggleRef}
             type="button"
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Menü schließen" : "Menü öffnen"}
             aria-expanded={open}
+            aria-controls="mobile-menu"
             className={cn(
               "-mr-2 grid h-10 w-10 place-items-center transition-colors lg:hidden",
               onDark ? "text-white" : "text-foreground",
@@ -148,7 +167,7 @@ export function SiteHeader() {
 
       {/* Mobiles Menü */}
       {open && (
-        <div className="border-t border-border bg-background lg:hidden">
+        <div id="mobile-menu" className="border-t border-border bg-background lg:hidden">
           <nav className="mx-auto flex max-w-[1240px] flex-col px-6 py-2">
             {nav.map((item) => (
               <Link

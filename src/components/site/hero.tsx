@@ -41,7 +41,7 @@ export function Hero() {
             fill
             priority
             sizes="(max-width: 1024px) 100vw, 64vw"
-            className="scale-110 object-cover object-[100%_center] opacity-70 lg:opacity-90"
+            className="scale-110 object-cover object-[64%_center] opacity-70 lg:object-[100%_center] lg:opacity-90"
           />
         </div>
         {/* Verlauf: deckt die Textspalte ab, gibt die Gesichter rechts frei.
@@ -62,9 +62,14 @@ export function Hero() {
               FocusReveal blendet den Text notfalls per Timeout ein, falls die
               Animation nicht anlaeuft – die Ueberschrift darf nie unsichtbar
               bleiben. */}
-          <div className="mt-6 text-[clamp(2.3rem,5vw,3.8rem)]">
+          {/* Beide Zeilen liegen in EINER h1: FocusReveal setzt je ein
+              aria-label und versteckt die Zeichen-Spans, der Name der
+              Ueberschrift setzt sich daraus zum vollen Satz zusammen.
+              Zwei getrennte Elemente ergaeben sonst die Fragment-H1
+              "Versicherung ist". */}
+          <h1 className="mt-6 text-[clamp(2.3rem,5vw,3.8rem)]">
             <FocusReveal
-              as="h1"
+              as="span"
               text="Versicherung ist"
               className="display text-white"
               blur={16}
@@ -77,7 +82,7 @@ export function Hero() {
               blur={16}
               transition={{ duration: 0.55, delay: 0.68, staggerChildren: 0.03 }}
             />
-          </div>
+          </h1>
 
           <p
             className={cn(

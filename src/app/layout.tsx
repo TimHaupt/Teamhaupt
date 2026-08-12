@@ -15,7 +15,9 @@ import { agencySchema, graph, ownerSchema, websiteSchema } from "@/lib/schema";
 const titillium = Titillium_Web({
   variable: "--font-titillium",
   subsets: ["latin"],
-  weight: ["300", "400", "600", "700"],
+  // 700 wird nirgends verwendet: font-medium ist per globals.css auf 600
+  // gemappt, font-bold kommt nicht vor. Ein Schnitt weniger zu laden.
+  weight: ["300", "400", "600"],
   display: "swap",
 });
 
@@ -26,7 +28,7 @@ export const metadata: Metadata = {
     template: "%s | Tim Haupt · HDI Erfurt",
   },
   description:
-    "Ihre HDI Generalvertretung in Erfurt. Persönliche Beratung, ein festes IHK-geprüftes Team und schnelle Schadenhilfe – für Privat, Unternehmen und Kanzleien.",
+    "Ihre HDI Generalvertretung in Erfurt. Persönliche Beratung, ein festes Team mit IHK-Ausbildung und schnelle Schadenhilfe – für Privat, Unternehmen und Kanzleien.",
   keywords: [
     "Versicherung Erfurt",
     "HDI Erfurt",
@@ -47,7 +49,7 @@ export const metadata: Metadata = {
     siteName: "HDI Generalvertretung Tim Haupt",
     title: "HDI Generalvertretung Tim Haupt | Versicherung in Erfurt",
     description:
-      "Persönliche Beratung, ein festes IHK-geprüftes Team und schnelle Schadenhilfe – für Privat, Unternehmen und Kanzleien.",
+      "Persönliche Beratung, ein festes Team mit IHK-Ausbildung und schnelle Schadenhilfe – für Privat, Unternehmen und Kanzleien.",
     images: [
       {
         url: "/img/og.jpg",
@@ -61,7 +63,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "HDI Generalvertretung Tim Haupt | Versicherung in Erfurt",
     description:
-      "Persönliche Beratung, ein festes IHK-geprüftes Team und schnelle Schadenhilfe.",
+      "Persönliche Beratung, ein festes Team mit IHK-Ausbildung und schnelle Schadenhilfe.",
     images: ["/img/og.jpg"],
   },
   robots: {

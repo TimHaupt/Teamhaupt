@@ -1,19 +1,18 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Image from "next/image";
-import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { PageHero, Section } from "@/components/site/section";
 import { JsonLd } from "@/components/site/json-ld";
 import { breadcrumbSchema, graph } from "@/lib/schema";
 import { ProvenExpertBadge } from "@/components/site/proven-expert";
-import { openingHours, site, stats, team } from "@/lib/site";
+import { openingHours, site, stats, team, teamSize } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Über uns",
-  description:
-    "Acht IHK-geprüfte Köpfe in Erfurt: Das Team der HDI Generalvertretung Tim Haupt, unsere Haltung und wie wir arbeiten.",
-  alternates: { canonical: "/ueber-uns" },
-};
+  description: `${teamSize} Köpfe mit IHK-Ausbildung in Erfurt: Das Team der HDI Generalvertretung Tim Haupt, unsere Haltung und wie wir arbeiten.`,
+  path: "/ueber-uns",
+});
 
 /** Die vier Gründe – Haltung der Agentur, übernommen von tim-haupt.de. */
 const gruende = [
@@ -67,7 +66,7 @@ export default function UeberUnsPage() {
                 </dd>
                 <dt className="mt-3 text-[14px] leading-snug text-muted-foreground">
                   {s.label}
-                  <span className="block text-[13px] text-muted-foreground/70">
+                  <span className="block text-[13px] text-muted-foreground">
                     {s.note}
                   </span>
                 </dt>
@@ -98,7 +97,7 @@ export default function UeberUnsPage() {
           <div className="grid gap-x-12 gap-y-7 sm:grid-cols-2">
             {gruende.map((g, i) => (
               <div key={g.title} className="border-t border-border pt-6">
-                <span className="display text-[14px] text-brand tabular-nums">
+                <span className="display text-[14px] text-brand-text tabular-nums">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <h3 className="mt-3 text-[16px] font-medium text-foreground">
@@ -126,7 +125,6 @@ export default function UeberUnsPage() {
           alt="Das Team der HDI Generalvertretung Tim Haupt in Erfurt"
           width={1794}
           height={700}
-          priority
           sizes="(max-width: 1240px) 100vw, 1160px"
           className="mt-10 w-full rounded-lg bg-background"
         />
@@ -134,7 +132,10 @@ export default function UeberUnsPage() {
         <div className="mt-10 grid grid-cols-1 gap-px bg-border sm:grid-cols-2 lg:grid-cols-3">
           {team.map((m) => (
             <div key={m.name} className="flex flex-col bg-background">
-              <div className="relative">
+              {/* Festes Seitenverhaeltnis: sonst richtet sich die Kachelhoehe
+                  nach der Proportion der Bilddatei und die Rasterkacheln
+                  franst bei ausgetauschten Fotos unterschiedlich hoch aus. */}
+              <div className="relative aspect-[4/5] overflow-hidden bg-muted">
                 <Image
                   src={m.photo}
                   alt={
@@ -142,10 +143,9 @@ export default function UeberUnsPage() {
                       ? `${m.name} – ${m.role} (computergeneriertes Bild)`
                       : `${m.name}, ${m.role}`
                   }
-                  width={520}
-                  height={650}
+                  fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="w-full object-cover"
+                  className="object-cover object-top"
                 />
                 {m.digital && (
                   <span className="absolute bottom-3 left-3 rounded bg-brand-ink/85 px-2.5 py-1 text-[10.5px] font-medium uppercase tracking-[0.12em] text-white backdrop-blur">
@@ -157,7 +157,7 @@ export default function UeberUnsPage() {
                 <h3 className="text-[16.5px] font-medium text-foreground">
                   {m.name}
                 </h3>
-                <p className="mt-1.5 text-[14px] text-brand">{m.role}</p>
+                <p className="mt-1.5 text-[14px] text-brand-text">{m.role}</p>
                 {m.focus && (
                   <p className="mt-1 flex-1 text-[13.5px] leading-snug text-muted-foreground">
                     {m.focus}
@@ -236,7 +236,7 @@ export default function UeberUnsPage() {
             <p className="mt-7 text-[14.5px] leading-relaxed text-muted-foreground">
               {site.street} · {site.zip} {site.city}
               <br />
-              <a href={site.phoneHref} className="text-brand tabular-nums">
+              <a href={site.phoneHref} className="text-brand-text tabular-nums">
                 {site.phone}
               </a>
             </p>

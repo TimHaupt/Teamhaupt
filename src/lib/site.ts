@@ -36,28 +36,6 @@ export const schadenmanagerin = {
   emailHref: "mailto:Swenja.Moeller@hdi.de",
 } as const;
 
-/**
- * Kennzahlen von tim-haupt.de übernommen (Stand: Startseite der Altsite).
- * Bei Aktualisierung bitte auch das Bezugsjahr mitpflegen – Zahlen ohne
- * Zeitbezug sind werblich angreifbar.
- */
-export const stats = [
-  {
-    value: "1.193.144 €",
-    label: "Schäden für unsere Kunden reguliert",
-    note: "im Jahr 2025",
-  },
-  {
-    value: "5.000+",
-    label: "Privat- und Firmenkunden",
-    note: "vertrauen uns",
-  },
-  {
-    value: "8",
-    label: "Köpfe im Team",
-    note: "IHK-geprüft",
-  },
-] as const;
 
 export type Service = {
   slug: string;
@@ -166,7 +144,7 @@ export const advantages = [
   {
     icon: "ShieldCheck",
     title: "Konzernstärke, Agenturservice",
-    text: "Im Hintergrund die Leistungsfähigkeit der HDI, im Vordergrund acht Menschen in Erfurt, die Sie beim Namen kennen.",
+    text: "Im Hintergrund die Leistungsfähigkeit der HDI, im Vordergrund ein festes Team in Erfurt, das Sie beim Namen kennt.",
   },
 ] as const;
 
@@ -287,7 +265,7 @@ export const team: Member[] = [
     name: "Kathrin Severin",
     role: "Kundenberaterin",
     focus: "Heilberufe und Privatversicherungen",
-    photo: "/img/team/kathrin-letsch.jpg",
+    photo: "/img/team/kathrin-severin.jpg",
     booking: "https://cal.com/kathrin-letsch",
   },
   {
@@ -323,6 +301,66 @@ export const team: Member[] = [
     focus: "Beantwortet Standardfragen rund um die Uhr",
     photo: "/img/team/mira.jpg",
     digital: true,
+  },
+];
+
+/**
+ * Anzahl der Menschen im Team – Mira ist eine KI und zaehlt nicht mit.
+ * Alle sichtbaren Angaben leiten sich hiervon ab, damit beim Ausscheiden
+ * einer Person nicht vier Stellen einzeln nachgezogen werden muessen.
+ */
+/**
+ * Person aus `team` nachschlagen. Wirft beim Build, wenn der Name nicht
+ * (mehr) existiert – besser ein roter Build als ein stiller toter Button.
+ */
+export function member(name: string): Member {
+  const found = team.find((m) => m.name === name);
+  if (!found) throw new Error(`Unbekanntes Teammitglied: ${name}`);
+  return found;
+}
+
+/**
+ * Buchungslink einer Person. Wirft, wenn sie keinen hat – Seiten, die
+ * gezielt auf einen Kalender verlinken, sollen beim Build scheitern statt
+ * einen Button ins Leere zu rendern.
+ */
+export function bookingUrl(name: string): string {
+  const { booking } = member(name);
+  if (!booking) throw new Error(`Kein Buchungslink für ${name} hinterlegt`);
+  return booking;
+}
+
+export const teamSize = team.filter((m) => !m.digital).length;
+
+/** Teamgroesse ausgeschrieben, fuer Fliesstext. */
+export const teamSizeWord =
+  ["null", "eine", "zwei", "drei", "vier", "fünf", "sechs", "sieben", "acht", "neun", "zehn"][
+    teamSize
+  ] ?? String(teamSize);
+
+/**
+ * Kennzahlen von tim-haupt.de übernommen (Stand: Startseite der Altsite).
+ * Bei Aktualisierung bitte auch das Bezugsjahr mitpflegen – Zahlen ohne
+ * Zeitbezug sind werblich angreifbar.
+ *
+ * Steht bewusst NACH `team`: die Teamgroesse wird daraus abgeleitet, damit
+ * Kennzahl, Fliesstext und Teamraster nicht auseinanderlaufen.
+ */
+export const stats = [
+  {
+    value: "1.193.144 €",
+    label: "Schäden für unsere Kunden reguliert",
+    note: "im Jahr 2025",
+  },
+  {
+    value: "5.000+",
+    label: "Privat- und Firmenkunden",
+    note: "vertrauen uns",
+  },
+  {
+    value: String(teamSize),
+    label: "Köpfe im Team",
+    note: "IHK-Ausbildung",
   },
 ];
 

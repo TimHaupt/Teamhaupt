@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Check, Phone, X } from "lucide-react";
 import { PageHero, Section } from "@/components/site/section";
+import { CtaSection } from "@/components/site/cta-section";
 import { JsonLd } from "@/components/site/json-ld";
 import {
   breadcrumbSchema,
@@ -10,14 +12,14 @@ import {
   graph,
   serviceSchema,
 } from "@/lib/schema";
-import { kanzleiBausteine, site } from "@/lib/site";
+import { kanzleiBausteine, bookingUrl, site } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Versicherung für Steuerberater & Rechtsanwälte",
   description:
     "Komplettabsicherung für Kanzleien in Erfurt und Thüringen: Berufshaftpflicht, Cyber, Inhalt und Rechtsschutz – mit Sonderkonditionen für DAV- und StbV-Mitglieder. Über 107 versicherte Berufsträger.",
-  alternates: { canonical: "/kanzleien" },
-};
+  path: "/kanzleien",
+});
 
 /**
  * Kennzahlen von der bisherigen Kanzleiseite (tim-haupt.de) übernommen.
@@ -122,12 +124,12 @@ export default function KanzleienPage() {
           <dl className="grid grid-cols-1 gap-px bg-border sm:grid-cols-3">
             {zahlen.map((s) => (
               <div key={s.label} className="bg-background px-7 py-8">
-                <dd className="display text-[clamp(1.6rem,2.6vw,2.1rem)] text-brand tabular-nums">
+                <dd className="display text-[clamp(1.6rem,2.6vw,2.1rem)] text-brand-text tabular-nums">
                   {s.value}
                 </dd>
                 <dt className="mt-2 text-[14px] leading-snug text-muted-foreground">
                   {s.label}
-                  <span className="block text-[13px] text-muted-foreground/70">
+                  <span className="block text-[13px] text-muted-foreground">
                     {s.note}
                   </span>
                 </dt>
@@ -245,7 +247,7 @@ export default function KanzleienPage() {
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <a
-                href="https://cal.com/tim-haupt"
+                href={bookingUrl("Tim Haupt")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2 rounded-md bg-brand px-6 py-3.5 text-[14px] font-medium text-white transition-colors hover:bg-brand-ink"
@@ -285,36 +287,28 @@ export default function KanzleienPage() {
       </Section>
 
       {/* Abschluss */}
-      <section className="relative overflow-hidden bg-[linear-gradient(140deg,#16281a_0%,#2d5e29_46%,#3d7a3a_76%,#4c8f42_110%)] text-white">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_82%_18%,rgba(104,160,64,0.38),transparent_55%)]" />
-        <div className="relative mx-auto max-w-[1240px] px-6 py-16 sm:py-20 lg:px-10">
-          <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-end">
-            <div>
-              <p className="eyebrow text-white/65">Kostenlos und unverbindlich</p>
-              <h2 className="display mt-4 text-[clamp(1.8rem,3.3vw,2.65rem)] text-white">
-                Lassen Sie Ihre Verträge prüfen.
-              </h2>
-              <p className="mt-5 max-w-[32rem] text-[16px] leading-[1.75] text-white/75">
-                Im schlechtesten Fall bestätigen wir Ihnen, dass alles passt. Im
+      <CtaSection
+        eyebrow="Kostenlos und unverbindlich"
+        title="Lassen Sie Ihre Verträge prüfen."
+        lead={
+          <>
+            Im schlechtesten Fall bestätigen wir Ihnen, dass alles passt. Im
                 besten Fall sparen Sie wie in unserer Case Study rund 20 % – bei
                 besserem Schutz.
-              </p>
-            </div>
-            <div className="flex flex-wrap gap-3 lg:justify-end">
-              <Link
-                href="/kontakt"
-                className="group inline-flex items-center gap-2.5 rounded-md bg-white px-7 py-4 text-[14.5px] font-medium text-brand-ink transition-colors hover:bg-white/90"
-              >
-                Kanzlei-Check anfragen
-                <ArrowRight
-                  className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
-                  strokeWidth={1.8}
-                />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+          </>
+        }
+      >
+            <Link
+              href="/kontakt"
+              className="group inline-flex items-center gap-2.5 rounded-md bg-white px-7 py-4 text-[14.5px] font-medium text-brand-ink transition-colors hover:bg-white/90"
+            >
+              Kanzlei-Check anfragen
+              <ArrowRight
+                className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
+                strokeWidth={1.8}
+              />
+            </Link>
+      </CtaSection>
     </>
   );
 }

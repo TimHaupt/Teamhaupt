@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -20,12 +21,12 @@ import {
   weitereLeistungen,
 } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Leistungen",
   description:
     "Privatschutz, Firmenschutz, Vorsorge, Kfz, Gesundheit und die Komplettabsicherung für Kanzleien – die Leistungen der HDI Generalvertretung Tim Haupt in Erfurt.",
-  alternates: { canonical: "/leistungen" },
-};
+  path: "/leistungen",
+});
 
 const icons = { Home, Building2, TrendingUp, Car, HeartPulse, Scale } as const;
 
@@ -60,7 +61,7 @@ export default function LeistungenPage() {
             <div className="mx-auto max-w-[1240px] px-6 py-12 sm:py-16 lg:px-10">
               <div className="grid gap-6 lg:grid-cols-[1fr_1.15fr] lg:gap-14">
                 <div>
-                  <span className="inline-flex text-brand">
+                  <span className="inline-flex text-brand-text">
                     <Icon className="h-7 w-7" strokeWidth={1.3} />
                   </span>
                   <p className="eyebrow mt-4">{s.tag}</p>
@@ -81,7 +82,7 @@ export default function LeistungenPage() {
                         className="flex items-start gap-3 border-t border-border pt-3 text-[15px] text-foreground"
                       >
                         <Check
-                          className="mt-1 h-3.5 w-3.5 shrink-0 text-brand"
+                          className="mt-1 h-3.5 w-3.5 shrink-0 text-brand-text"
                           strokeWidth={2.5}
                         />
                         {b}
@@ -91,7 +92,7 @@ export default function LeistungenPage() {
 
                   <Link
                     href="/kontakt"
-                    className="group mt-6 inline-flex items-center gap-2 text-[14.5px] text-brand"
+                    className="group mt-6 inline-flex items-center gap-2 text-[14.5px] text-brand-text"
                   >
                     Dazu beraten lassen
                     <ArrowRight
@@ -163,7 +164,7 @@ export default function LeistungenPage() {
               className="flex items-start gap-4 border-b border-border py-3.5 text-[15.5px] text-foreground"
             >
               <Check
-                className="mt-1.5 h-3.5 w-3.5 shrink-0 text-brand"
+                className="mt-1.5 h-3.5 w-3.5 shrink-0 text-brand-text"
                 strokeWidth={2.5}
               />
               {l}

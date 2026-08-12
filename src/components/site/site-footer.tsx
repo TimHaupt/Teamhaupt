@@ -1,7 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
-import { nav, openingHours, services, site } from "@/lib/site";
+import { nav, openingHours, services, site, teamSizeWord } from "@/lib/site";
+
+const teamSizeWordCapitalized =
+  teamSizeWord.charAt(0).toUpperCase() + teamSizeWord.slice(1);
 
 export function SiteFooter() {
   return (
@@ -30,8 +33,9 @@ export function SiteFooter() {
             </div>
 
             <p className="mt-6 max-w-[24rem] text-[14.5px] leading-[1.7] text-muted-foreground">
-              Ihre Versicherungsagentur in {site.city}. Acht IHK-geprüfte Köpfe,
-              über 5.000 betreute Privat- und Firmenkunden.
+              Ihre Versicherungsagentur in {site.city}. {teamSizeWordCapitalized}{" "}
+              Köpfe mit IHK-Ausbildung, über 5.000 betreute Privat- und
+              Firmenkunden.
             </p>
 
             <div className="mt-8 flex items-center gap-6">
@@ -63,7 +67,7 @@ export function SiteFooter() {
                 <li key={s.slug}>
                   <Link
                     href={`/leistungen#${s.slug}`}
-                    className="text-[14.5px] text-muted-foreground transition-colors hover:text-brand"
+                    className="inline-block py-1 text-[14.5px] text-muted-foreground transition-colors hover:text-brand-text"
                   >
                     {s.title}
                   </Link>
@@ -80,7 +84,7 @@ export function SiteFooter() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-[14.5px] text-muted-foreground transition-colors hover:text-brand"
+                    className="inline-block py-1 text-[14.5px] text-muted-foreground transition-colors hover:text-brand-text"
                   >
                     {item.label}
                   </Link>
@@ -89,7 +93,7 @@ export function SiteFooter() {
               <li>
                 <Link
                   href="/impressum"
-                  className="text-[14.5px] text-muted-foreground transition-colors hover:text-brand"
+                  className="inline-block py-1 text-[14.5px] text-muted-foreground transition-colors hover:text-brand-text"
                 >
                   Impressum
                 </Link>
@@ -97,7 +101,7 @@ export function SiteFooter() {
               <li>
                 <Link
                   href="/datenschutz"
-                  className="text-[14.5px] text-muted-foreground transition-colors hover:text-brand"
+                  className="inline-block py-1 text-[14.5px] text-muted-foreground transition-colors hover:text-brand-text"
                 >
                   Datenschutz
                 </Link>
@@ -110,7 +114,7 @@ export function SiteFooter() {
             <h3 className="eyebrow">Kontakt</h3>
             <ul className="mt-6 space-y-4">
               <li className="flex gap-3">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-bright" strokeWidth={1.6} />
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-text" strokeWidth={1.6} />
                 <span className="text-[14.5px] leading-relaxed text-muted-foreground">
                   {site.street}
                   <br />
@@ -118,19 +122,19 @@ export function SiteFooter() {
                 </span>
               </li>
               <li className="flex gap-3">
-                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-brand-bright" strokeWidth={1.6} />
+                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-brand-text" strokeWidth={1.6} />
                 <a
                   href={site.phoneHref}
-                  className="text-[14.5px] text-muted-foreground tabular-nums transition-colors hover:text-brand"
+                  className="inline-block py-1 text-[14.5px] text-muted-foreground tabular-nums transition-colors hover:text-brand-text"
                 >
                   {site.phone}
                 </a>
               </li>
               <li className="flex gap-3">
-                <Mail className="mt-0.5 h-4 w-4 shrink-0 text-brand-bright" strokeWidth={1.6} />
+                <Mail className="mt-0.5 h-4 w-4 shrink-0 text-brand-text" strokeWidth={1.6} />
                 <a
                   href={site.emailHref}
-                  className="break-all text-[14.5px] text-muted-foreground transition-colors hover:text-brand"
+                  className="inline-block break-all py-1 text-[14.5px] text-muted-foreground transition-colors hover:text-brand-text"
                 >
                   {site.email}
                 </a>
@@ -156,10 +160,10 @@ export function SiteFooter() {
             © {new Date().getFullYear()} {site.legalName} · {site.city}
           </span>
           <div className="flex gap-7">
-            <Link href="/impressum" className="transition-colors hover:text-brand">
+            <Link href="/impressum" className="transition-colors hover:text-brand-text">
               Impressum
             </Link>
-            <Link href="/datenschutz" className="transition-colors hover:text-brand">
+            <Link href="/datenschutz" className="transition-colors hover:text-brand-text">
               Datenschutz
             </Link>
           </div>

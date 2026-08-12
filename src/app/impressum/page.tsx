@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import { PageHero } from "@/components/site/section";
 import { legal, site } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Impressum",
-  description: "Impressum und Pflichtangaben der HDI Generalvertretung Tim Haupt, Erfurt.",
-  robots: { index: false, follow: true },
-};
+  description:
+    "Impressum und Pflichtangaben der HDI Generalvertretung Tim Haupt, Erfurt.",
+  path: "/impressum",
+  noindex: true,
+});
 
 function Block({
   title,
@@ -42,12 +45,12 @@ export default function ImpressumPage() {
             </p>
             <p>
               Telefon:{" "}
-              <a href={site.phoneHref} className="text-brand tabular-nums">
+              <a href={site.phoneHref} className="text-brand-text tabular-nums">
                 {site.phone}
               </a>
               <br />
               E-Mail:{" "}
-              <a href={site.emailHref} className="break-all text-brand">
+              <a href={site.emailHref} className="break-all text-brand-text">
                 {site.email}
               </a>
             </p>
@@ -116,7 +119,7 @@ export default function ImpressumPage() {
                 href="https://www.vermittlerregister.info"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-brand"
+                className="text-brand-text"
               >
                 www.vermittlerregister.info
               </a>
@@ -135,7 +138,7 @@ export default function ImpressumPage() {
                 href="https://www.versicherungsombudsmann.de"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-brand"
+                className="text-brand-text"
               >
                 www.versicherungsombudsmann.de
               </a>
@@ -152,7 +155,7 @@ export default function ImpressumPage() {
                 href="https://www.pkv-ombudsmann.de"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-brand"
+                className="text-brand-text"
               >
                 www.pkv-ombudsmann.de
               </a>

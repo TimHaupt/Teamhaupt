@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import {
   ArrowUpRight,
   CalendarCheck,
@@ -18,12 +19,12 @@ import {
   team,
 } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Kontakt",
   description:
     "HDI Generalvertretung Tim Haupt, Johannesstr. 62–64, 99084 Erfurt. Telefon 0361 56 53 660. Termin direkt online buchen oder Schaden melden.",
-  alternates: { canonical: "/kontakt" },
-};
+  path: "/kontakt",
+});
 
 export default function KontaktPage() {
   const buchbar = team.filter((m) => m.booking);
@@ -52,7 +53,7 @@ export default function KontaktPage() {
               href={site.phoneHref}
               className="group flex flex-col bg-background px-7 py-7 transition-colors hover:bg-muted"
             >
-              <Phone className="h-[22px] w-[22px] text-brand" strokeWidth={1.5} />
+              <Phone className="h-[22px] w-[22px] text-brand-text" strokeWidth={1.5} />
               <span className="mt-4 text-[16px] font-medium text-foreground tabular-nums">
                 {site.phone}
               </span>
@@ -65,7 +66,7 @@ export default function KontaktPage() {
               href={site.emailHref}
               className="group flex flex-col bg-background px-7 py-7 transition-colors hover:bg-muted"
             >
-              <Mail className="h-[22px] w-[22px] text-brand" strokeWidth={1.5} />
+              <Mail className="h-[22px] w-[22px] text-brand-text" strokeWidth={1.5} />
               <span className="mt-4 break-all text-[16px] font-medium text-foreground">
                 {site.email}
               </span>
@@ -75,7 +76,7 @@ export default function KontaktPage() {
             </a>
 
             <div className="flex flex-col bg-background px-7 py-7">
-              <MapPin className="h-[22px] w-[22px] text-brand" strokeWidth={1.5} />
+              <MapPin className="h-[22px] w-[22px] text-brand-text" strokeWidth={1.5} />
               <span className="mt-4 text-[16px] font-medium text-foreground">
                 {site.street}
               </span>
@@ -112,7 +113,7 @@ export default function KontaktPage() {
                 </span>
               </span>
               <CalendarCheck
-                className="mt-0.5 h-[18px] w-[18px] shrink-0 text-brand"
+                className="mt-0.5 h-[18px] w-[18px] shrink-0 text-brand-text"
                 strokeWidth={1.5}
               />
             </a>
@@ -213,7 +214,7 @@ export default function KontaktPage() {
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group mt-5 inline-flex items-center gap-1.5 text-[14px] text-brand"
+                className="group mt-5 inline-flex items-center gap-1.5 text-[14px] text-brand-text"
               >
                 In Google Maps öffnen
                 <ArrowUpRight

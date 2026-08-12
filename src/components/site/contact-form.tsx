@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { site } from "@/lib/site";
 
@@ -75,13 +76,16 @@ export function ContactForm() {
         <input id="email" name="email" type="email" required className={field} placeholder="ihre@adresse.de" />
       </div>
 
-      <div className="mt-5">
-        <span className={label}>Worum geht es?</span>
+      {/* fieldset/legend gibt der Gruppe einen Namen, aria-pressed macht den
+          gewaehlten Zustand ansagbar – vorher war er nur farblich erkennbar. */}
+      <fieldset className="mt-5 border-0 p-0">
+        <legend className={label}>Worum geht es?</legend>
         <div className="flex flex-wrap gap-2">
           {themen.map((t) => (
             <button
               key={t}
               type="button"
+              aria-pressed={thema === t}
               onClick={() => setThema(thema === t ? "" : t)}
               className={`rounded-md border px-3.5 py-2 text-[13.5px] transition-colors ${
                 thema === t
@@ -93,7 +97,7 @@ export function ContactForm() {
             </button>
           ))}
         </div>
-      </div>
+      </fieldset>
 
       <div className="mt-5">
         <label className={label} htmlFor="kontaktweg">
@@ -135,7 +139,11 @@ export function ContactForm() {
       <p className="mt-4 max-w-[34rem] text-[13px] leading-relaxed text-muted-foreground">
         Beim Absenden öffnet sich Ihr E-Mail-Programm mit einer fertig
         ausgefüllten Nachricht an {site.email}. Sie sehen, was Sie senden, und
-        schicken sie selbst ab – wir speichern hier nichts.
+        schicken sie selbst ab – wir speichern hier nichts. Mehr dazu in der{" "}
+        <Link href="/datenschutz" className="text-brand-text underline underline-offset-2">
+          Datenschutzerklärung
+        </Link>
+        .
       </p>
     </form>
   );

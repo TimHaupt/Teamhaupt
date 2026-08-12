@@ -7,10 +7,13 @@ const BASE = "https://www.tim-haupt.de";
  * hier ehrlicher als eine generierte. Neue Route: hier eintragen.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date("2026-08-09");
+  // Zeitpunkt des Builds. Ein hart codiertes Datum veraltet stillschweigend
+  // bei jeder Aenderung; da jeder Inhalt hier per Deploy ausgeliefert wird,
+  // ist der Build-Zeitpunkt die ehrlichere Angabe.
+  const lastModified = new Date();
 
   return [
-    { url: `${BASE}/`, lastModified, changeFrequency: "monthly", priority: 1 },
+    { url: BASE, lastModified, changeFrequency: "monthly", priority: 1 },
     {
       url: `${BASE}/leistungen`,
       lastModified,

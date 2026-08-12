@@ -18,15 +18,10 @@ import {
 } from "lucide-react";
 import { Hero } from "@/components/site/hero";
 import { Section } from "@/components/site/section";
+import { CtaSection } from "@/components/site/cta-section";
 import { JsonLd } from "@/components/site/json-ld";
 import { faqSchema, graph } from "@/lib/schema";
 import ScrollTextHighlight from "@/components/originkit/scroll-text-highlight";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/lightswind/accordion";
 import {
   advantages,
   faqs,
@@ -35,6 +30,7 @@ import {
   schadenmanagerin,
   selfservice,
   services,
+  bookingUrl,
   site,
   steps,
   team,
@@ -72,7 +68,7 @@ export default function HomePage() {
               const Icon = icons[s.icon as IconName];
               const inner = (
                 <>
-                  <span className="mb-4 inline-flex text-brand-bright">
+                  <span className="mb-4 inline-flex text-brand-text">
                     <Icon className="h-[22px] w-[22px]" strokeWidth={1.5} />
                   </span>
                   <span className="flex items-start justify-between gap-3">
@@ -159,7 +155,7 @@ export default function HomePage() {
             </blockquote>
 
             <Link
-              href="https://cal.com/tim-haupt"
+              href={bookingUrl("Tim Haupt")}
               target="_blank"
               rel="noopener noreferrer"
               className="group mt-9 inline-flex items-center gap-2.5 rounded-md bg-brand px-6 py-3.5 text-[14px] font-medium text-white transition-colors hover:bg-brand-ink"
@@ -216,7 +212,7 @@ export default function HomePage() {
                 href={`/leistungen#${s.slug}`}
                 className="group flex flex-col bg-background px-7 py-7 transition-colors hover:bg-accent"
               >
-                <span className="mb-5 inline-flex text-brand-bright">
+                <span className="mb-5 inline-flex text-brand-text">
                   <Icon className="h-6 w-6" strokeWidth={1.4} />
                 </span>
                 <h3 className="text-[17px] font-medium text-foreground">
@@ -225,7 +221,7 @@ export default function HomePage() {
                 <p className="mt-2 flex-1 text-[14.5px] leading-[1.7] text-muted-foreground">
                   {s.teaser}
                 </p>
-                <span className="mt-5 inline-flex items-center gap-1.5 text-[13.5px] text-brand">
+                <span className="mt-5 inline-flex items-center gap-1.5 text-[13.5px] text-brand-text">
                   Mehr erfahren
                   <ArrowRight
                     className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5"
@@ -247,7 +243,7 @@ export default function HomePage() {
         <div className="mt-10 grid gap-x-14 gap-y-8 sm:grid-cols-2">
           {advantages.map((a, i) => (
             <div key={a.title} className="border-t border-border pt-5">
-              <span className="display text-[15px] text-brand-bright tabular-nums">
+              <span className="display text-[15px] text-brand-text tabular-nums">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <h3 className="mt-2.5 text-[17px] font-medium text-foreground">
@@ -387,7 +383,7 @@ export default function HomePage() {
 
         <Link
           href="/ueber-uns#team"
-          className="group mt-8 inline-flex items-center gap-2 text-[14.5px] text-brand"
+          className="group mt-8 inline-flex items-center gap-2 text-[14.5px] text-brand-text"
         >
           Das ganze Team mit Fotos ansehen
           <ArrowRight
@@ -423,7 +419,7 @@ export default function HomePage() {
         <div className="mt-10 flex flex-wrap gap-x-10 gap-y-3">
           <Link
             href="/kanzleien"
-            className="group inline-flex items-center gap-2 text-[14.5px] text-brand"
+            className="group inline-flex items-center gap-2 text-[14.5px] text-brand-text"
           >
             Mehr für Kanzleien – inkl. Case Study
             <ArrowRight
@@ -433,7 +429,7 @@ export default function HomePage() {
           </Link>
           <Link
             href="/heilberufe"
-            className="group inline-flex items-center gap-2 text-[14.5px] text-brand"
+            className="group inline-flex items-center gap-2 text-[14.5px] text-brand-text"
           >
             Auch spezialisiert: Heilberufe
             <ArrowRight
@@ -450,7 +446,7 @@ export default function HomePage() {
           {testimonials[0] && (
             <figure>
               <blockquote className="display text-[clamp(1.25rem,2vw,1.6rem)] leading-[1.5] text-foreground">
-                „{testimonials[0].quote}"
+                &bdquo;{testimonials[0].quote}&ldquo;
               </blockquote>
               <figcaption className="mt-6 text-[14px] text-muted-foreground">
                 <span className="block font-medium text-foreground">
@@ -463,7 +459,7 @@ export default function HomePage() {
 
           <div className="border-t border-border pt-8 lg:border-l lg:border-t-0 lg:pl-16 lg:pt-0">
             <p className="eyebrow">ProvenExpert</p>
-            <p className="display mt-5 text-[clamp(1.7rem,2.7vw,2.2rem)] text-brand tabular-nums">
+            <p className="display mt-5 text-[clamp(1.7rem,2.7vw,2.2rem)] text-brand-text tabular-nums">
               {provenExpert.rating.toLocaleString("de-DE", {
                 minimumFractionDigits: 2,
               })}
@@ -487,7 +483,7 @@ export default function HomePage() {
               href={provenExpert.profileUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="group mt-7 inline-flex items-center gap-1.5 text-[14px] text-brand"
+              className="group mt-7 inline-flex items-center gap-1.5 text-[14px] text-brand-text"
             >
               Profil auf ProvenExpert ansehen
               <ArrowUpRight
@@ -508,7 +504,7 @@ export default function HomePage() {
         <div className="mt-10 grid gap-x-14 gap-y-8 md:grid-cols-3">
           {steps.map((s) => (
             <div key={s.n} className="border-t border-border pt-5">
-              <span className="display text-[15px] text-brand-bright tabular-nums">
+              <span className="display text-[15px] text-brand-text tabular-nums">
                 {s.n}
               </span>
               <h3 className="mt-2.5 text-[17px] font-medium text-foreground">
@@ -524,66 +520,58 @@ export default function HomePage() {
 
       {/* ── FAQ ────────────────────────────────────────── */}
       <Section eyebrow="Häufige Fragen" title="Das fragen uns Kunden am häufigsten">
+        {/* Natives <details> wie auf /kanzleien und /heilberufe: bringt
+            aria-expanded und das Ausblenden geschlossener Antworten von
+            selbst mit und spart die Client-Komponente im Bundle. */}
         <div className="mt-8 max-w-[52rem]">
-          <Accordion type="single" collapsible>
-            {faqs.map((f, i) => (
-              <AccordionItem
-                key={f.q}
-                value={`item-${i}`}
-                className="border-b border-border"
-              >
-                <AccordionTrigger className="py-6 text-left text-[16.5px] font-medium text-foreground hover:no-underline">
-                  {f.q}
-                </AccordionTrigger>
-                <AccordionContent className="pb-6 text-[15.5px] leading-[1.75] text-muted-foreground">
-                  {f.a}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+          {faqs.map((f) => (
+            <details key={f.q} className="group border-b border-border">
+              <summary className="cursor-pointer list-none py-6 text-[16.5px] font-medium text-foreground [&::-webkit-details-marker]:hidden">
+                {f.q}
+              </summary>
+              <p className="pb-6 text-[15.5px] leading-[1.75] text-muted-foreground">
+                {f.a}
+              </p>
+            </details>
+          ))}
         </div>
       </Section>
 
       {/* ── Abschluss: gruene CI-Flaeche wie auf den Angebotsunterlagen ── */}
-      <section className="relative overflow-hidden bg-[linear-gradient(140deg,#16281a_0%,#2d5e29_46%,#3d7a3a_76%,#4c8f42_110%)] text-white">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_82%_18%,rgba(104,160,64,0.38),transparent_55%)]" />
-        <div className="relative mx-auto max-w-[1240px] px-6 py-16 sm:py-20 lg:px-10">
-        <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr] lg:items-end">
-          <div>
-            <p className="eyebrow text-white/65">Ihr nächster Schritt</p>
-            <h2 className="display mt-5 text-[clamp(1.8rem,3.3vw,2.65rem)] text-white">
-              Reden wir über das,
-              <br />
-              was Ihnen wichtig ist.
-            </h2>
-            <p className="mt-6 max-w-[32rem] text-[16.5px] leading-[1.75] text-white/75">
-              Das Erstgespräch ist kostenlos und unverbindlich – vor Ort in{" "}
-              {site.city}, telefonisch oder per Videocall.
-            </p>
-          </div>
-
-          <div className="flex flex-wrap gap-3 lg:justify-end">
-            <Link
-              href="/kontakt"
-              className="group inline-flex items-center gap-2.5 rounded-md bg-white px-7 py-4 text-[14.5px] font-medium text-brand-ink transition-colors hover:bg-white/90"
-            >
-              Termin vereinbaren
-              <ArrowRight
-                className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
-                strokeWidth={1.8}
-              />
-            </Link>
-            <a
-              href={site.phoneHref}
-              className="inline-flex items-center gap-2.5 rounded-md border border-white/40 px-7 py-4 text-[14.5px] font-medium text-white tabular-nums transition-colors hover:border-white"
-            >
-              <Phone className="h-4 w-4" strokeWidth={1.8} />
-              {site.phone}
-            </a>
-          </div>
-        </div>
-        </div>
-      </section>
+      <CtaSection
+        eyebrow="Ihr nächster Schritt"
+        title={
+          <>
+            Reden wir über das,
+            <br />
+            was Ihnen wichtig ist.
+          </>
+        }
+        lead={
+          <>
+            Das Erstgespräch ist kostenlos und unverbindlich – vor Ort in{" "}
+            {site.city}, telefonisch oder per Videocall.
+          </>
+        }
+      >
+        <Link
+          href="/kontakt"
+          className="group inline-flex items-center gap-2.5 rounded-md bg-white px-7 py-4 text-[14.5px] font-medium text-brand-ink transition-colors hover:bg-white/90"
+        >
+          Termin vereinbaren
+          <ArrowRight
+            className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
+            strokeWidth={1.8}
+          />
+        </Link>
+        <a
+          href={site.phoneHref}
+          className="inline-flex items-center gap-2.5 rounded-md border border-white/40 px-7 py-4 text-[14.5px] font-medium text-white tabular-nums transition-colors hover:border-white"
+        >
+          <Phone className="h-4 w-4" strokeWidth={1.8} />
+          {site.phone}
+        </a>
+      </CtaSection>
     </>
   );
 }

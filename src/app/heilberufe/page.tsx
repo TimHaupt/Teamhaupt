@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Phone } from "lucide-react";
 import { PageHero, Section } from "@/components/site/section";
+import { CtaSection } from "@/components/site/cta-section";
 import { JsonLd } from "@/components/site/json-ld";
 import {
   breadcrumbSchema,
@@ -10,14 +12,14 @@ import {
   graph,
   serviceSchema,
 } from "@/lib/schema";
-import { site } from "@/lib/site";
+import { bookingUrl, site } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Versicherung für Heilberufe – Ärzte, Praxen & Therapeuten",
   description:
     "Absicherung für Heilberufe in Erfurt und Thüringen: Berufshaftpflicht, Praxisinventar, Praxisausfall, Cyber-Schutz für Patientendaten und Vorsorge – mit fester Spezialistin als Ansprechpartnerin.",
-  alternates: { canonical: "/heilberufe" },
-};
+  path: "/heilberufe",
+});
 
 /**
  * Inhalte beschreiben das Leistungsangebot der Agentur (Schwerpunkt von
@@ -183,7 +185,7 @@ export default function HeilberufePage() {
         </div>
 
         <blockquote className="display mt-10 max-w-[38rem] border-l border-brand-bright pl-5 text-[clamp(1.15rem,1.8vw,1.45rem)] italic leading-snug text-white">
-          „{caseStudy.zitat}"
+          &bdquo;{caseStudy.zitat}&ldquo;
         </blockquote>
         <p className="mt-3 text-[13.5px] text-white/45">
           Nachricht des Gründers, rund 18 Monate nach dem Erstgespräch
@@ -194,7 +196,7 @@ export default function HeilberufePage() {
       <Section tone="paper">
         <div className="grid items-center gap-10 lg:grid-cols-[auto_1fr] lg:gap-16">
           <Image
-            src="/img/team/kathrin-letsch.jpg"
+            src="/img/team/kathrin-severin.jpg"
             alt="Kathrin Severin, Kundenberaterin und Spezialistin für Heilberufe"
             width={520}
             height={650}
@@ -217,7 +219,7 @@ export default function HeilberufePage() {
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <a
-                href="https://cal.com/kathrin-letsch"
+                href={bookingUrl("Kathrin Severin")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2 rounded-md bg-brand px-6 py-3.5 text-[14px] font-medium text-white transition-colors hover:bg-brand-ink"
@@ -257,35 +259,27 @@ export default function HeilberufePage() {
       </Section>
 
       {/* Abschluss */}
-      <section className="relative overflow-hidden bg-[linear-gradient(140deg,#16281a_0%,#2d5e29_46%,#3d7a3a_76%,#4c8f42_110%)] text-white">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_82%_18%,rgba(104,160,64,0.38),transparent_55%)]" />
-        <div className="relative mx-auto max-w-[1240px] px-6 py-16 sm:py-20 lg:px-10">
-          <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-end">
-            <div>
-              <p className="eyebrow text-white/65">Kostenlos und unverbindlich</p>
-              <h2 className="display mt-4 text-[clamp(1.8rem,3.3vw,2.65rem)] text-white">
-                Reden wir über Ihre Praxis.
-              </h2>
-              <p className="mt-5 max-w-[32rem] text-[16px] leading-[1.75] text-white/75">
-                Erstgespräch und Analyse kosten nichts – und Sie wissen danach
+      <CtaSection
+        eyebrow="Kostenlos und unverbindlich"
+        title="Reden wir über Ihre Praxis."
+        lead={
+          <>
+            Erstgespräch und Analyse kosten nichts – und Sie wissen danach
                 genau, wo Ihre Praxis steht.
-              </p>
-            </div>
-            <div className="flex flex-wrap gap-3 lg:justify-end">
-              <Link
-                href="/kontakt"
-                className="group inline-flex items-center gap-2.5 rounded-md bg-white px-7 py-4 text-[14.5px] font-medium text-brand-ink transition-colors hover:bg-white/90"
-              >
-                Praxis-Check anfragen
-                <ArrowRight
-                  className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
-                  strokeWidth={1.8}
-                />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+          </>
+        }
+      >
+            <Link
+              href="/kontakt"
+              className="group inline-flex items-center gap-2.5 rounded-md bg-white px-7 py-4 text-[14.5px] font-medium text-brand-ink transition-colors hover:bg-white/90"
+            >
+              Praxis-Check anfragen
+              <ArrowRight
+                className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
+                strokeWidth={1.8}
+              />
+            </Link>
+      </CtaSection>
     </>
   );
 }
