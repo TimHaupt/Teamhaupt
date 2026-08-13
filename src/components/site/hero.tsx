@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { ArrowRight, Phone } from "lucide-react";
+import { ArrowRight, MessageCircle, Phone } from "lucide-react";
 import { cn } from "@/components/lib/utils";
 import FocusReveal from "@/components/originkit/focus-reveal";
 import { ProvenExpertBadge } from "@/components/site/proven-expert";
@@ -114,6 +114,15 @@ export function Hero() {
             >
               <Phone className="h-4 w-4" strokeWidth={1.8} />
               {site.phone}
+            </a>
+            <a
+              href={site.whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2.5 rounded-md border border-white/25 px-7 py-4 text-[14.5px] font-medium text-white transition-colors hover:border-white/60"
+            >
+              <MessageCircle className="h-4 w-4" strokeWidth={1.8} />
+              WhatsApp
             </a>
           </div>
 
