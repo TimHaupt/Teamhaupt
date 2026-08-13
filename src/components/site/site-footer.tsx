@@ -210,12 +210,18 @@ export function SiteFooter() {
           <span>
             © {new Date().getFullYear()} {site.legalName} · {site.city}
           </span>
-          <div className="flex gap-7">
+          <div className="flex flex-wrap gap-x-7 gap-y-2">
             <Link href="/impressum" className="transition-colors hover:text-brand-text">
               Impressum
             </Link>
             <Link href="/datenschutz" className="transition-colors hover:text-brand-text">
               Datenschutz
+            </Link>
+            <Link
+              href="/nachhaltigkeitsinformation"
+              className="transition-colors hover:text-brand-text"
+            >
+              Nachhaltigkeitsinformation
             </Link>
           </div>
         </div>
