@@ -41,7 +41,9 @@ export function Hero() {
             fill
             priority
             sizes="(max-width: 1024px) 100vw, 64vw"
-            className="scale-110 object-cover object-[64%_center] opacity-70 lg:object-[100%_center] lg:opacity-90"
+            // -translate-y hebt die Koepfe auf Desktop in die obere Herohaelfte;
+            // die Unterkante des Bildes verschwindet im Bodenverlauf darunter.
+            className="scale-110 object-cover object-[64%_center] opacity-70 lg:-translate-y-[12%] lg:object-[100%_center] lg:opacity-90"
           />
         </div>
         {/* Verlauf: deckt die Textspalte ab, gibt die Gesichter rechts frei.
