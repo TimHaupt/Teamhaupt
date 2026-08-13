@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { CalendarCheck, Phone } from "lucide-react";
+import { CalendarCheck, MessageCircle, Phone } from "lucide-react";
 import { site } from "@/lib/site";
 
 /**
@@ -28,19 +28,28 @@ export function MobileCta() {
           show ? "translate-y-0" : "translate-y-full"
         }`}
       >
-        <div className="mx-auto grid max-w-[1240px] grid-cols-2 gap-2.5 px-4 pb-[calc(env(safe-area-inset-bottom)+10px)] pt-2.5">
+        <div className="mx-auto grid max-w-[1240px] grid-cols-3 gap-2 px-4 pb-[calc(env(safe-area-inset-bottom)+10px)] pt-2.5">
           <a
             href={site.phoneHref}
-            className="inline-flex items-center justify-center gap-2 rounded-md border border-border px-4 py-3 text-[14px] font-medium text-foreground tabular-nums"
+            className="inline-flex items-center justify-center gap-1.5 rounded-md border border-border px-2 py-3 text-[13.5px] font-medium text-foreground"
           >
-            <Phone className="h-4 w-4" strokeWidth={1.8} />
+            <Phone className="h-4 w-4 shrink-0" strokeWidth={1.8} />
             Anrufen
+          </a>
+          <a
+            href={site.whatsappHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-1.5 rounded-md border border-border px-2 py-3 text-[13.5px] font-medium text-foreground"
+          >
+            <MessageCircle className="h-4 w-4 shrink-0" strokeWidth={1.8} />
+            WhatsApp
           </a>
           <Link
             href="/kontakt#termin"
-            className="inline-flex items-center justify-center gap-2 rounded-md bg-brand px-4 py-3 text-[14px] font-medium text-white"
+            className="inline-flex items-center justify-center gap-1.5 rounded-md bg-brand px-2 py-3 text-[13.5px] font-medium text-white"
           >
-            <CalendarCheck className="h-4 w-4" strokeWidth={1.8} />
+            <CalendarCheck className="h-4 w-4 shrink-0" strokeWidth={1.8} />
             Termin
           </Link>
         </div>

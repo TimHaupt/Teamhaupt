@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import {
   nav,
   openingHours,
@@ -136,6 +136,17 @@ export function SiteFooter() {
                   className="inline-block py-1 text-[14.5px] text-muted-foreground tabular-nums transition-colors hover:text-brand-text"
                 >
                   {site.phone}
+                </a>
+              </li>
+              <li className="flex gap-3">
+                <MessageCircle className="mt-0.5 h-4 w-4 shrink-0 text-brand-text" strokeWidth={1.6} />
+                <a
+                  href={site.whatsappHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block py-1 text-[14.5px] text-muted-foreground tabular-nums transition-colors hover:text-brand-text"
+                >
+                  WhatsApp: {site.whatsapp}
                 </a>
               </li>
               <li className="flex gap-3">

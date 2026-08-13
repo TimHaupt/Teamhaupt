@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Titillium_Web } from "next/font/google";
 import "./globals.css";
 import "lenis/dist/lenis.css";
+import { Analytics } from "@vercel/analytics/next";
+import { AnalyticsEvents } from "@/components/site/analytics-events";
 import { SmoothScroll } from "@/components/site/smooth-scroll";
 import { SiteHeader } from "@/components/site/site-header";
 import { SiteFooter } from "@/components/site/site-footer";
@@ -103,6 +105,10 @@ export default function RootLayout({
         <main id="main">{children}</main>
         <SiteFooter />
         <MobileCta />
+        {/* Cookielose Reichweitenmessung (Vercel) plus Conversion-Events –
+            Details in der Datenschutzerklaerung. */}
+        <Analytics />
+        <AnalyticsEvents />
       </body>
     </html>
   );

@@ -5,6 +5,7 @@ import {
   CalendarCheck,
   Mail,
   MapPin,
+  MessageCircle,
   Phone,
 } from "lucide-react";
 import { PageHero, Section } from "@/components/site/section";
@@ -51,7 +52,7 @@ export default function KontaktPage() {
       {/* Direkte Wege */}
       <section className="border-b border-border bg-background">
         <div className="mx-auto max-w-[1240px] px-6 lg:px-10">
-          <div className="grid grid-cols-1 gap-px bg-border sm:grid-cols-3">
+          <div className="grid grid-cols-1 gap-px bg-border sm:grid-cols-2 lg:grid-cols-4">
             <a
               href={site.phoneHref}
               className="group flex flex-col bg-background px-7 py-7 transition-colors hover:bg-muted"
@@ -62,6 +63,21 @@ export default function KontaktPage() {
               </span>
               <span className="mt-2 text-[14px] text-muted-foreground">
                 {phoneHoursCompact}
+              </span>
+            </a>
+
+            <a
+              href={site.whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex flex-col bg-background px-7 py-7 transition-colors hover:bg-muted"
+            >
+              <MessageCircle className="h-[22px] w-[22px] text-brand-text" strokeWidth={1.5} />
+              <span className="mt-4 text-[16px] font-medium text-foreground tabular-nums">
+                WhatsApp
+              </span>
+              <span className="mt-2 text-[14px] text-muted-foreground">
+                {site.whatsapp} – Chat startet in Ihrer App
               </span>
             </a>
 

@@ -65,8 +65,31 @@ export default function DatenschutzPage() {
             </p>
             <p>
               Diese Website setzt <span className="text-foreground">keine
-              Cookies zu Analyse- oder Marketingzwecken</span> ein. Es findet
-              kein Tracking statt.
+              Cookies zu Analyse- oder Marketingzwecken</span> ein und erstellt
+              keine Nutzerprofile. Zur Verbesserung der Website werten wir
+              lediglich anonyme, aggregierte Zugriffszahlen aus – Details im
+              nächsten Abschnitt.
+            </p>
+          </Block>
+
+          <Block title="Hosting und Reichweitenmessung (Vercel)">
+            <p>
+              Diese Website wird bei Vercel Inc. (440 N Barranca Ave #4133,
+              Covina, CA 91723, USA) gehostet. Beim Aufruf verarbeitet Vercel
+              die oben genannten technisch notwendigen Daten in unserem
+              Auftrag (Art. 28 DSGVO).
+            </p>
+            <p>
+              Zusätzlich nutzen wir Vercel Web Analytics, um zu verstehen,
+              welche Seiten besucht werden und ob Kontaktwege wie Telefon,
+              WhatsApp oder Terminbuchung genutzt werden. Dieses Verfahren
+              arbeitet <span className="text-foreground">ohne Cookies und ohne
+              seitenübergreifende Verfolgung</span>: Es werden keine
+              dauerhaften Kennungen gespeichert und keine Profile gebildet;
+              die Auswertung erfolgt anonym und aggregiert. Rechtsgrundlage
+              ist unser berechtigtes Interesse an einer funktionierenden,
+              nachvollziehbar gestalteten Website (Art. 6 Abs. 1 lit. f
+              DSGVO).
             </p>
           </Block>
 
@@ -122,6 +145,13 @@ export default function DatenschutzPage() {
               <li>
                 <span className="text-foreground">Google Maps</span> – Anfahrt,
                 nur über den Link auf der Kontaktseite
+              </li>
+              <li>
+                <span className="text-foreground">WhatsApp</span> – Kontakt
+                per Chat. Erst wenn Sie den Chat selbst starten, verarbeitet
+                WhatsApp (Meta Platforms Ireland Ltd.) Ihre Daten nach den
+                dortigen Datenschutzhinweisen; unsere Website übermittelt
+                vorher nichts.
               </li>
             </ul>
             <p>

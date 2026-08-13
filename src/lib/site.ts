@@ -6,6 +6,9 @@ export const site = {
   city: "Erfurt",
   phone: "0361 56 53 660",
   phoneHref: "tel:+493615653660",
+  /** WhatsApp-Nummer (eigene Durchwahl, vom Inhaber genannt 08/2026). */
+  whatsapp: "0361 56 53 661",
+  whatsappHref: "https://wa.me/493615653661",
   email: "agentur-tim-haupt@hdi.de",
   emailHref: "mailto:agentur-tim-haupt@hdi.de",
   url: "https://www.tim-haupt.de",
