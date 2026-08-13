@@ -8,7 +8,14 @@ import { CtaSection } from "@/components/site/cta-section";
 import { JsonLd } from "@/components/site/json-ld";
 import { breadcrumbSchema, graph, teamPersonsSchema } from "@/lib/schema";
 import { ProvenExpertBadge } from "@/components/site/proven-expert";
-import { openingHours, site, stats, team, teamSize } from "@/lib/site";
+import {
+  openingHours,
+  openingHoursNote,
+  site,
+  stats,
+  team,
+  teamSize,
+} from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
   title: "Über uns",
@@ -237,6 +244,9 @@ export default function UeberUnsPage() {
                   </span>
                 </span>
               ))}
+              <span className="block text-[14px] text-muted-foreground">
+                {openingHoursNote}
+              </span>
             </dd>
             <p className="mt-7 text-[14.5px] leading-relaxed text-muted-foreground">
               {site.street} · {site.zip} {site.city}

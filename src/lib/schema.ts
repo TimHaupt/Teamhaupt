@@ -5,6 +5,7 @@ import {
   schadenmanagerin,
   services,
   site,
+  social,
   team,
 } from "@/lib/site";
 
@@ -149,7 +150,12 @@ export function agencySchema() {
       bestRating: 5,
       worstRating: 1,
     },
-    sameAs: [provenExpert.profileUrl],
+    // Agentur-Profile; die Inhaber-Profile haengen am Person-Knoten.
+    sameAs: [
+      provenExpert.profileUrl,
+      social.agentur.facebook,
+      social.agentur.instagram,
+    ],
   };
 }
 
@@ -170,6 +176,7 @@ export function ownerSchema() {
       "Versicherungen für Firmen und Freiberufler",
       "Kanzleiabsicherung für Steuerberater und Rechtsanwälte",
     ],
+    sameAs: [social.inhaber.linkedin, social.inhaber.xing],
   };
 }
 

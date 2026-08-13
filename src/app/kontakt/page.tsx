@@ -14,6 +14,7 @@ import { ContactForm } from "@/components/site/contact-form";
 import {
   mapsUrl,
   openingHours,
+  openingHoursNote,
   phoneHoursCompact,
   schadenMelden,
   schadenmanagerin,
@@ -208,6 +209,9 @@ export default function KontaktPage() {
                     </span>
                   </span>
                 ))}
+                <span className="block text-[14px] text-muted-foreground">
+                  {openingHoursNote}
+                </span>
               </dd>
             </dl>
 
@@ -220,11 +224,44 @@ export default function KontaktPage() {
                 <br />
                 {site.zip} {site.city}
               </p>
+
+              {/* Haltestellen, Entfernungen und Linien per OpenStreetMap ab den
+                  Buerokoordinaten verifiziert; Parken und Ladenlokal vom
+                  Inhaber bestaetigt (08/2026). */}
+              <dl className="mt-6 space-y-4 text-[14.5px] leading-relaxed text-muted-foreground">
+                <div>
+                  <dt className="font-medium text-foreground">
+                    Mit der Straßenbahn
+                  </dt>
+                  <dd className="mt-1">
+                    Die Haltestellen Augustinerkloster und Boyneburgufer liegen
+                    beide keine drei Gehminuten entfernt – dort halten die
+                    Linien 1 und 5. Vom Hauptbahnhof bringt Sie die Linie 5
+                    ohne Umstieg zu uns.
+                  </dd>
+                </div>
+                <div>
+                  <dt className="font-medium text-foreground">Mit dem Auto</dt>
+                  <dd className="mt-1">
+                    Rund um die Johannesstraße gibt es öffentliche,
+                    kostenpflichtige Parkplätze; die Tiefgarage im
+                    Thüringenhaus ist etwa fünf Gehminuten entfernt.
+                  </dd>
+                </div>
+                <div>
+                  <dt className="font-medium text-foreground">Vor Ort</dt>
+                  <dd className="mt-1">
+                    Sie finden uns im Erdgeschoss: Unser Büro ist ein
+                    Ladenlokal, der Eingang liegt direkt an der Straße.
+                  </dd>
+                </div>
+              </dl>
+
               <a
                 href={mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group mt-5 inline-flex items-center gap-1.5 text-[14px] text-brand-text"
+                className="group mt-6 inline-flex items-center gap-1.5 text-[14px] text-brand-text"
               >
                 In Google Maps öffnen
                 <ArrowUpRight

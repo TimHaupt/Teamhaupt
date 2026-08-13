@@ -1,7 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
-import { nav, openingHours, services, site, teamSizeWord } from "@/lib/site";
+import {
+  nav,
+  openingHours,
+  openingHoursNote,
+  services,
+  site,
+  social,
+  teamSizeWord,
+} from "@/lib/site";
 
 const teamSizeWordCapitalized =
   teamSizeWord.charAt(0).toUpperCase() + teamSizeWord.slice(1);
@@ -150,8 +158,40 @@ export function SiteFooter() {
                     <span className="shrink-0 text-foreground tabular-nums">{o.time}</span>
                   </span>
                 ))}
+                <span className="block text-[13px] text-muted-foreground">
+                  {openingHoursNote}
+                </span>
               </dd>
             </dl>
+
+            {/* Textlinks statt Marken-Icons – lucide 1.x fuehrt keine, und
+                schlichte Links passen zum Rest des Footers. */}
+            <div className="mt-6 flex flex-wrap gap-x-5 gap-y-1 text-[13.5px]">
+              <a
+                href={social.agentur.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground transition-colors hover:text-brand-text"
+              >
+                Instagram
+              </a>
+              <a
+                href={social.agentur.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground transition-colors hover:text-brand-text"
+              >
+                Facebook
+              </a>
+              <a
+                href={social.inhaber.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground transition-colors hover:text-brand-text"
+              >
+                LinkedIn
+              </a>
+            </div>
           </div>
         </div>
 

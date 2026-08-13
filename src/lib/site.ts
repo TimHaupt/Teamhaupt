@@ -33,6 +33,25 @@ export const openingHours = [
  */
 export const phoneHoursCompact = "Mo–Do 9–18 Uhr, Fr 9–16 Uhr";
 
+/** Zusatz zu den Oeffnungszeiten – so auf der HDI-Betreuerseite gelistet. */
+export const openingHoursNote = "Sowie nach Vereinbarung";
+
+/**
+ * Social-Profile. Quelle: die eigene HDI-Betreuerseite
+ * (hdi.de/betreuer/tim-haupt, Stand 08/2026). Agentur- und Inhaber-Profile
+ * getrennt, damit Schema.org `sameAs` sauber zuordnen kann.
+ */
+export const social = {
+  agentur: {
+    facebook: "https://www.facebook.com/HDI.TimHaupt/",
+    instagram: "https://www.instagram.com/hdierfurt/",
+  },
+  inhaber: {
+    linkedin: "https://www.linkedin.com/in/tim-haupt/",
+    xing: "https://www.xing.com/profile/Tim_Haupt4",
+  },
+} as const;
+
 /** Google-Maps-Ziel der Agentur – eine Quelle fuer alle Anfahrt-Links. */
 export const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
   `${site.street}, ${site.zip} ${site.city}`,
