@@ -89,8 +89,9 @@ export function SiteHeader() {
           </span>
         </Link>
 
-        {/* Navigation */}
-        <nav className="hidden items-center gap-7 lg:flex">
+        {/* Navigation – bei lg engere Abstaende, damit neben der ab lg
+            sichtbaren Telefonnummer nichts umbricht ("Ueber uns"). */}
+        <nav className="hidden items-center gap-4 lg:flex xl:gap-7">
           {nav.map((item) => {
             const active =
               item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
@@ -99,7 +100,7 @@ export function SiteHeader() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "relative py-1 text-[14px] transition-colors",
+                  "relative whitespace-nowrap py-1 text-[14px] transition-colors",
                   onDark
                     ? active
                       ? "text-white"
@@ -128,7 +129,7 @@ export function SiteHeader() {
           <a
             href={site.phoneHref}
             className={cn(
-              "hidden items-center gap-2 text-[14px] tabular-nums transition-colors xl:flex",
+              "hidden items-center gap-2 text-[14px] tabular-nums transition-colors lg:flex",
               onDark ? "text-white/75 hover:text-white" : "text-muted-foreground hover:text-foreground",
             )}
           >
@@ -137,7 +138,7 @@ export function SiteHeader() {
           </a>
 
           <Link
-            href="/kontakt"
+            href="/kontakt#termin"
             className={cn(
               "hidden rounded-md px-5 py-2.5 text-[13.5px] font-medium transition-colors sm:inline-flex",
               onDark

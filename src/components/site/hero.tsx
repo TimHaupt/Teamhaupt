@@ -97,7 +97,7 @@ export function Hero() {
 
           <div className={cn("mt-10 flex flex-wrap items-center gap-3", rise("delay-300"))}>
             <Link
-              href="/kontakt"
+              href="/kontakt#termin"
               className="group inline-flex items-center gap-2.5 rounded-md bg-white px-7 py-4 text-[14.5px] font-medium text-brand-ink transition-colors hover:bg-white/90"
             >
               Termin vereinbaren
@@ -114,6 +114,13 @@ export function Hero() {
               {site.phone}
             </a>
           </div>
+
+          {/* Risiko-Umkehr direkt am ersten Kontaktpunkt – die Aussage steht
+              sonst erst im FAQ und im Schluss-CTA ganz unten. */}
+          <p className={cn("mt-3 text-[13.5px] text-white/50", rise("delay-400"))}>
+            Erstgespräch kostenlos und unverbindlich – vor Ort, telefonisch
+            oder per Video.
+          </p>
 
           <div className={cn("mt-10", rise("delay-500"))}>
             <ProvenExpertBadge tone="dark" />

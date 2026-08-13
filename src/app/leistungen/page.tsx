@@ -8,13 +8,16 @@ import {
   Check,
   HeartPulse,
   Home,
+  Phone,
   Scale,
   TrendingUp,
 } from "lucide-react";
 import { PageHero, Section } from "@/components/site/section";
+import { CtaSection } from "@/components/site/cta-section";
 import { JsonLd } from "@/components/site/json-ld";
 import { breadcrumbSchema, graph } from "@/lib/schema";
 import {
+  heilberufeBausteine,
   kanzleiBausteine,
   services,
   site,
@@ -45,7 +48,27 @@ export default function LeistungenPage() {
         eyebrow="Leistungen"
         title="Ein breites Portfolio, ein Ansprechpartner."
         lead="Für Privat- und Firmenkunden. Scheuen Sie sich nicht, uns bei individuellen Fragen direkt anzusprechen – das Erstgespräch ist kostenlos."
-      />
+      >
+        <div className="mt-8 flex flex-wrap gap-3">
+          <Link
+            href="/kontakt#termin"
+            className="group inline-flex items-center gap-2.5 rounded-md bg-white px-6 py-3.5 text-[14px] font-medium text-brand-ink transition-colors hover:bg-white/90"
+          >
+            Termin vereinbaren
+            <ArrowRight
+              className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
+              strokeWidth={1.8}
+            />
+          </Link>
+          <a
+            href={site.phoneHref}
+            className="inline-flex items-center gap-2.5 rounded-md border border-white/40 px-6 py-3.5 text-[14px] font-medium text-white tabular-nums transition-colors hover:border-white"
+          >
+            <Phone className="h-4 w-4" strokeWidth={1.8} />
+            {site.phone}
+          </a>
+        </div>
+      </PageHero>
 
       {/* Die sechs Hauptbereiche, jeweils mit Detailabschnitt */}
       {services.map((s, i) => {
@@ -151,6 +174,43 @@ export default function LeistungenPage() {
         </div>
       </Section>
 
+      {/* Heilberufe im Detail */}
+      <Section
+        id="heilberufe-detail"
+        tone="dark"
+        eyebrow="Spezialgebiet"
+        title="Komplettabsicherung für Ihre Praxis"
+        lead="Niedergelassene Ärztinnen und Ärzte, Zahnarztpraxen, Therapeutinnen und Therapeuten sowie Pflegedienste – alle kennen ihre besonderen Risiken. Wir begleiten Sie mit spezialisierter Absicherung und einer festen Ansprechpartnerin."
+        className="scroll-mt-24"
+      >
+        <div className="mt-10 grid gap-x-14 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
+          {heilberufeBausteine.map((b) => (
+            <div key={b.title} className="border-t border-white/12 pt-7">
+              <h3 className="text-[16.5px] font-medium text-white">{b.title}</h3>
+              <p className="mt-3 text-[14.5px] leading-[1.7] text-white/55">
+                {b.text}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-10 border-t border-white/12 pt-8">
+          <p className="max-w-[42rem] text-[15.5px] leading-[1.8] text-white/55">
+            Patientendaten und Praxisabläufe sind hochsensibel. Die richtige Absicherung schafft Ruhe – und hilft, wenn es kritisch wird.
+          </p>
+          <Link
+            href="/heilberufe"
+            className="group mt-8 inline-flex items-center gap-2.5 rounded-md bg-white px-7 py-4 text-[14.5px] font-medium text-brand-ink transition-colors hover:bg-white/90"
+          >
+            Zur Seite für Heilberufe mit Case Study
+            <ArrowRight
+              className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
+              strokeWidth={1.8}
+            />
+          </Link>
+        </div>
+      </Section>
+
       {/* Weitere Leistungen */}
       <Section
         eyebrow="Darüber hinaus"
@@ -174,38 +234,22 @@ export default function LeistungenPage() {
       </Section>
 
       {/* Abschluss */}
-      <Section tone="paper">
-        <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-end">
-          <div>
-            <p className="eyebrow">Erstgespräch</p>
-            <h2 className="display mt-5 text-[clamp(1.65rem,2.9vw,2.35rem)] text-foreground">
-              Kostenlos und unverbindlich.
-            </h2>
-            <p className="mt-6 max-w-[34rem] text-[16.5px] leading-[1.75] text-muted-foreground">
-              Ihre Möglichkeit, individuelle Fragen in einem persönlichen
-              Gespräch zu klären – ohne Verpflichtung.
-            </p>
-          </div>
-          <div className="flex flex-wrap gap-3 lg:justify-end">
-            <Link
-              href="/kontakt"
-              className="group inline-flex items-center gap-2.5 rounded-md bg-brand px-7 py-4 text-[14.5px] font-medium text-white transition-colors hover:bg-brand-ink"
-            >
-              Termin vereinbaren
-              <ArrowRight
-                className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
-                strokeWidth={1.8}
-              />
-            </Link>
-            <a
-              href={site.phoneHref}
-              className="inline-flex items-center gap-2.5 rounded-md border border-border px-7 py-4 text-[14.5px] font-medium text-foreground tabular-nums transition-colors hover:border-brand"
-            >
-              {site.phone}
-            </a>
-          </div>
-        </div>
-      </Section>
+      <CtaSection
+        eyebrow="Erstgespräch"
+        title="Kostenlos und unverbindlich."
+        lead="Ihre Möglichkeit, individuelle Fragen in einem persönlichen Gespräch zu klären – ohne Verpflichtung."
+      >
+        <Link
+          href="/kontakt"
+          className="group inline-flex items-center gap-2.5 rounded-md bg-white px-7 py-4 text-[14.5px] font-medium text-brand-ink transition-colors hover:bg-white/90"
+        >
+          Termin vereinbaren
+          <ArrowRight
+            className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
+            strokeWidth={1.8}
+          />
+        </Link>
+      </CtaSection>
     </>
   );
 }

@@ -26,6 +26,18 @@ export const openingHours = [
   { day: "Samstag – Sonntag", time: "Geschlossen" },
 ] as const;
 
+/**
+ * Kompaktform der Telefonzeiten fuer CTAs und Kacheln.
+ * Haendisch synchron zu openingHours halten – die Kurzschreibweise
+ * (Mo–Do statt "Montag – Donnerstag") laesst sich nicht sauber ableiten.
+ */
+export const phoneHoursCompact = "Mo–Do 9–18 Uhr, Fr 9–16 Uhr";
+
+/** Google-Maps-Ziel der Agentur – eine Quelle fuer alle Anfahrt-Links. */
+export const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+  `${site.street}, ${site.zip} ${site.city}`,
+)}`;
+
 /** Persönliche Schadenmanagerin – Durchwahl abweichend von der Zentrale. */
 export const schadenmanagerin = {
   name: "Swenja-Elisè Möller",
@@ -413,6 +425,39 @@ export const kanzleiBausteine: Baustein[] = [
   {
     title: "Vorsorge fürs Team",
     text: "Betriebliche Altersvorsorge und Zusatzversicherungen binden qualifizierte Mitarbeitende langfristig an Ihre Kanzlei.",
+  },
+];
+
+/**
+ * Bausteine der Heilberufe-Absicherung – von der Seite /heilberufe.
+ * Inhalte beschreiben das Leistungsangebot der Agentur (Schwerpunkt von
+ * Kathrin Severin laut Teamseite). Bewusst ohne Kennzahlen-Behauptungen –
+ * anders als bei /kanzleien liegen hier keine belegten Zahlen vor.
+ */
+export const heilberufeBausteine: Baustein[] = [
+  {
+    title: "Berufshaftpflicht für Heilberufe",
+    text: "Der Kern jeder Absicherung im Gesundheitswesen – abgestimmt auf Fachrichtung, Tätigkeitsumfang und Anstellungsverhältnis.",
+  },
+  {
+    title: "Praxisinventar & Elektronik",
+    text: "Behandlungseinheiten, Diagnostik und IT sind teuer. Wir sichern Einrichtung und Geräte gegen Schäden und Ausfall ab.",
+  },
+  {
+    title: "Praxisausfall",
+    text: "Wenn die Praxis stillsteht, laufen Miete und Gehälter weiter. Die Ausfallversicherung fängt den Umsatzverlust auf.",
+  },
+  {
+    title: "Cyber-Schutz & Patientendaten",
+    text: "Patientendaten gehören zu den sensibelsten Daten überhaupt. Absicherung gegen Angriffe und Datenpannen – inklusive Prävention.",
+  },
+  {
+    title: "Berufsunfähigkeit",
+    text: "Wer mit den eigenen Händen behandelt, sollte die eigene Arbeitskraft zuerst absichern – möglichst früh und passend zum Fachgebiet.",
+  },
+  {
+    title: "Team & betriebliche Vorsorge",
+    text: "Gute MFA und Pflegekräfte sind rar. Betriebliche Altersvorsorge und Zusatzleistungen helfen, Ihr Team zu halten.",
   },
 ];
 

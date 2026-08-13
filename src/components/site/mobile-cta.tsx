@@ -37,7 +37,7 @@ export function MobileCta() {
             Anrufen
           </a>
           <Link
-            href="/kontakt"
+            href="/kontakt#termin"
             className="inline-flex items-center justify-center gap-2 rounded-md bg-brand px-4 py-3 text-[14px] font-medium text-white"
           >
             <CalendarCheck className="h-4 w-4" strokeWidth={1.8} />

@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/metadata";
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight, ArrowUpRight, Phone } from "lucide-react";
+import { ArrowRight, ArrowUpRight, ChevronDown, Phone } from "lucide-react";
 import { PageHero, Section } from "@/components/site/section";
 import { CtaSection } from "@/components/site/cta-section";
 import { JsonLd } from "@/components/site/json-ld";
@@ -12,7 +11,7 @@ import {
   graph,
   serviceSchema,
 } from "@/lib/schema";
-import { bookingUrl, site } from "@/lib/site";
+import { bookingUrl, heilberufeBausteine, site } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
   title: "Versicherung für Heilberufe – Ärzte, Praxen & Therapeuten",
@@ -20,38 +19,6 @@ export const metadata: Metadata = pageMetadata({
     "Absicherung für Heilberufe in Erfurt und Thüringen: Berufshaftpflicht, Praxisinventar, Praxisausfall, Cyber-Schutz für Patientendaten und Vorsorge – mit fester Spezialistin als Ansprechpartnerin.",
   path: "/heilberufe",
 });
-
-/**
- * Inhalte beschreiben das Leistungsangebot der Agentur (Schwerpunkt von
- * Kathrin Severin laut Teamseite). Bewusst ohne Kennzahlen-Behauptungen –
- * anders als bei /kanzleien liegen hier keine belegten Zahlen vor.
- */
-const bausteine = [
-  {
-    title: "Berufshaftpflicht für Heilberufe",
-    text: "Der Kern jeder Absicherung im Gesundheitswesen – abgestimmt auf Fachrichtung, Tätigkeitsumfang und Anstellungsverhältnis.",
-  },
-  {
-    title: "Praxisinventar & Elektronik",
-    text: "Behandlungseinheiten, Diagnostik und IT sind teuer. Wir sichern Einrichtung und Geräte gegen Schäden und Ausfall ab.",
-  },
-  {
-    title: "Praxisausfall",
-    text: "Wenn die Praxis stillsteht, laufen Miete und Gehälter weiter. Die Ausfallversicherung fängt den Umsatzverlust auf.",
-  },
-  {
-    title: "Cyber-Schutz & Patientendaten",
-    text: "Patientendaten gehören zu den sensibelsten Daten überhaupt. Absicherung gegen Angriffe und Datenpannen – inklusive Prävention.",
-  },
-  {
-    title: "Berufsunfähigkeit",
-    text: "Wer mit den eigenen Händen behandelt, sollte die eigene Arbeitskraft zuerst absichern – möglichst früh und passend zum Fachgebiet.",
-  },
-  {
-    title: "Team & betriebliche Vorsorge",
-    text: "Gute MFA und Pflegekräfte sind rar. Betriebliche Altersvorsorge und Zusatzleistungen helfen, Ihr Team zu halten.",
-  },
-];
 
 /**
  * Realer Fall aus der Agentur (LinkedIn-Post, begleitet von Kathrin Severin):
@@ -123,16 +90,18 @@ export default function HeilberufePage() {
         lead="Eine Praxis ist beides: Betrieb und Verantwortung. Wir sichern Behandlung, Räume, Daten und Ihre eigene Arbeitskraft ab – mit einer festen Spezialistin als Ansprechpartnerin."
       >
         <div className="mt-8 flex flex-wrap gap-3">
-          <Link
-            href="/kontakt"
+          <a
+            href={bookingUrl("Kathrin Severin")}
+            target="_blank"
+            rel="noopener noreferrer"
             className="group inline-flex items-center gap-2.5 rounded-md bg-white px-6 py-3.5 text-[14px] font-medium text-brand-ink transition-colors hover:bg-white/90"
           >
-            Praxis-Check anfragen
+            Praxis-Check-Termin buchen
             <ArrowRight
               className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
               strokeWidth={1.8}
             />
-          </Link>
+          </a>
           <a
             href={site.phoneHref}
             className="inline-flex items-center gap-2.5 rounded-md border border-white/40 px-6 py-3.5 text-[14px] font-medium text-white tabular-nums transition-colors hover:border-white"
@@ -150,7 +119,7 @@ export default function HeilberufePage() {
         lead="Sechs Bereiche, die zusammengehören – wir kombinieren sie passend zu Fachrichtung und Praxisgröße."
       >
         <div className="mt-10 grid gap-x-14 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
-          {bausteine.map((b) => (
+          {heilberufeBausteine.map((b) => (
             <div key={b.title} className="border-t border-border pt-5">
               <h3 className="text-[16px] font-medium text-foreground">{b.title}</h3>
               <p className="mt-2 text-[14.5px] leading-[1.7] text-muted-foreground">
@@ -247,8 +216,12 @@ export default function HeilberufePage() {
         <div className="mt-8 max-w-[52rem]">
           {heilberufeFaqs.map((f) => (
             <details key={f.q} className="group border-b border-border">
-              <summary className="cursor-pointer list-none py-5 text-[16px] font-medium text-foreground [&::-webkit-details-marker]:hidden">
+              <summary className="flex cursor-pointer items-center justify-between gap-3 list-none py-5 text-[16px] font-medium text-foreground [&::-webkit-details-marker]:hidden">
                 {f.q}
+                <ChevronDown
+                  className="h-4 w-4 shrink-0 text-muted-foreground transition-transform group-open:rotate-180"
+                  strokeWidth={1.8}
+                />
               </summary>
               <p className="pb-5 text-[15px] leading-[1.75] text-muted-foreground">
                 {f.a}
@@ -269,16 +242,18 @@ export default function HeilberufePage() {
           </>
         }
       >
-            <Link
-              href="/kontakt"
+            <a
+              href={bookingUrl("Kathrin Severin")}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group inline-flex items-center gap-2.5 rounded-md bg-white px-7 py-4 text-[14.5px] font-medium text-brand-ink transition-colors hover:bg-white/90"
             >
-              Praxis-Check anfragen
+              Praxis-Check-Termin buchen
               <ArrowRight
                 className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
                 strokeWidth={1.8}
               />
-            </Link>
+            </a>
       </CtaSection>
     </>
   );

@@ -2,6 +2,7 @@ import {
   faqs,
   openingHours,
   provenExpert,
+  schadenmanagerin,
   services,
   site,
   team,
@@ -45,6 +46,11 @@ function openingSpec() {
 }
 
 export function agencySchema() {
+  // Maps-Link: siehe kontakt/page.tsx ~211-224
+  const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+    `${site.street}, ${site.zip} ${site.city}`,
+  )}`;
+
   return {
     "@type": "InsuranceAgency",
     "@id": ids.agency,
@@ -53,11 +59,11 @@ export function agencySchema() {
     url: BASE,
     logo: `${BASE}/img/logo-gruen.png`,
     image: `${BASE}/img/team-banner.jpg`,
-    telephone: "+49 361 5653660",
+    telephone: site.phoneHref.replace("tel:", ""),
     email: site.email,
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Johannesstraße 62-64",
+      streetAddress: site.street,
       postalCode: site.zip,
       addressLocality: site.city,
       addressRegion: "Thüringen",
@@ -71,6 +77,21 @@ export function agencySchema() {
       longitude: 11.0288257,
     },
     openingHoursSpecification: openingSpec(),
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        contactType: "customer service",
+        telephone: site.phoneHref.replace("tel:", ""),
+        availableLanguage: "German",
+      },
+      {
+        "@type": "ContactPoint",
+        contactType: "claims",
+        telephone: schadenmanagerin.phoneHref.replace("tel:", ""),
+        availableLanguage: "German",
+      },
+    ],
+    hasMap: mapsUrl,
     areaServed: [
       { "@type": "City", name: "Erfurt" },
       { "@type": "State", name: "Thüringen" },
@@ -150,6 +171,27 @@ export function ownerSchema() {
       "Kanzleiabsicherung für Steuerberater und Rechtsanwälte",
     ],
   };
+}
+
+export function teamPersonsSchema() {
+  return team
+    .filter((m) => !m.digital)
+    .map((m) => ({
+      "@type": "Person",
+      // NFD-Normalisierung: Diakritika raus, damit die Fragmente stabil
+      // ASCII bleiben ("Swenja-Elisè Möller" -> "swenja-elise-moller").
+      "@id": `${BASE}/#member-${m.name
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/\p{Diacritic}/gu, "")
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/(^-|-$)/g, "")}`,
+      name: m.name,
+      jobTitle: m.focus ? `${m.role} – ${m.focus}` : m.role,
+      worksFor: { "@id": ids.agency },
+      image: `${BASE}${m.photo}`,
+      ...(m.focus && { knowsAbout: [m.focus] }),
+    }));
 }
 
 export function websiteSchema() {

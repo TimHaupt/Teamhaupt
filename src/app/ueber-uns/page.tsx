@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/metadata";
 import Image from "next/image";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, ArrowUpRight, Phone } from "lucide-react";
 import { PageHero, Section } from "@/components/site/section";
+import { CtaSection } from "@/components/site/cta-section";
 import { JsonLd } from "@/components/site/json-ld";
-import { breadcrumbSchema, graph } from "@/lib/schema";
+import { breadcrumbSchema, graph, teamPersonsSchema } from "@/lib/schema";
 import { ProvenExpertBadge } from "@/components/site/proven-expert";
 import { openingHours, site, stats, team, teamSize } from "@/lib/site";
 
@@ -37,12 +39,15 @@ const gruende = [
 export default function UeberUnsPage() {
   return (
     <>
+      {/* Personen-Knoten fuers Team: bestaetigt Suchanfragen wie
+          "Kathrin Severin HDI Erfurt" maschinenlesbar. */}
       <JsonLd
         data={graph(
           breadcrumbSchema([
             { name: "Start", path: "/" },
             { name: "Über uns", path: "/ueber-uns" },
           ]),
+          ...teamPersonsSchema(),
         )}
       />
       <PageHero
@@ -243,6 +248,32 @@ export default function UeberUnsPage() {
           </dl>
         </div>
       </Section>
+
+      {/* Wer bis hier gelesen hat, ist der waermste Besucher der Website –
+          und bekam bisher keinen naechsten Schritt als Kunde angeboten. */}
+      <CtaSection
+        eyebrow="Der nächste Schritt"
+        title="Lernen Sie uns persönlich kennen."
+        lead="Sie wissen jetzt, wer wir sind und wie wir arbeiten. Das Erstgespräch ist kostenlos und unverbindlich – vor Ort in Erfurt, telefonisch oder per Video."
+      >
+        <Link
+          href="/kontakt#termin"
+          className="group inline-flex items-center gap-2.5 rounded-md bg-white px-7 py-4 text-[14.5px] font-medium text-brand-ink transition-colors hover:bg-white/90"
+        >
+          Termin vereinbaren
+          <ArrowRight
+            className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
+            strokeWidth={1.8}
+          />
+        </Link>
+        <a
+          href={site.phoneHref}
+          className="inline-flex items-center gap-2.5 rounded-md border border-white/30 px-7 py-4 text-[14.5px] font-medium text-white tabular-nums transition-colors hover:border-white/60"
+        >
+          <Phone className="h-4 w-4" strokeWidth={1.8} />
+          {site.phone}
+        </a>
+      </CtaSection>
     </>
   );
 }

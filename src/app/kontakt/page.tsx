@@ -12,7 +12,9 @@ import { JsonLd } from "@/components/site/json-ld";
 import { breadcrumbSchema, graph } from "@/lib/schema";
 import { ContactForm } from "@/components/site/contact-form";
 import {
+  mapsUrl,
   openingHours,
+  phoneHoursCompact,
   schadenMelden,
   schadenmanagerin,
   site,
@@ -58,7 +60,7 @@ export default function KontaktPage() {
                 {site.phone}
               </span>
               <span className="mt-2 text-[14px] text-muted-foreground">
-                Mo–Do 9–18 Uhr, Fr 9–16 Uhr
+                {phoneHoursCompact}
               </span>
             </a>
 
@@ -75,7 +77,14 @@ export default function KontaktPage() {
               </span>
             </a>
 
-            <div className="flex flex-col bg-background px-7 py-7">
+            {/* Klickbar wie die Nachbar-Kacheln – mobil erwartet man beim
+                Tippen die Routenfuehrung. */}
+            <a
+              href={mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex flex-col bg-background px-7 py-7 transition-colors hover:bg-muted"
+            >
               <MapPin className="h-[22px] w-[22px] text-brand-text" strokeWidth={1.5} />
               <span className="mt-4 text-[16px] font-medium text-foreground">
                 {site.street}
@@ -83,13 +92,16 @@ export default function KontaktPage() {
               <span className="mt-2 text-[14px] text-muted-foreground">
                 {site.zip} {site.city}
               </span>
-            </div>
+            </a>
           </div>
         </div>
       </section>
 
-      {/* Termin direkt buchen */}
+      {/* Termin direkt buchen – Ankerziel aller "Termin vereinbaren"-CTAs.
+          scroll-mt gleicht den 72px hohen fixen Header aus. */}
       <Section
+        id="termin"
+        className="scroll-mt-[88px]"
         eyebrow="Ohne Umweg"
         title="Termin direkt im Kalender buchen"
         lead="Sie sehen die freien Zeiten und wählen selbst – kein Rückruf nötig."
@@ -209,9 +221,7 @@ export default function KontaktPage() {
                 {site.zip} {site.city}
               </p>
               <a
-                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-                  `${site.street}, ${site.zip} ${site.city}`,
-                )}`}
+                href={mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group mt-5 inline-flex items-center gap-1.5 text-[14px] text-brand-text"

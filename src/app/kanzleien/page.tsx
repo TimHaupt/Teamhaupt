@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/metadata";
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight, ArrowUpRight, Check, Phone, X } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Check, ChevronDown, Phone, X } from "lucide-react";
 import { PageHero, Section } from "@/components/site/section";
 import { CtaSection } from "@/components/site/cta-section";
 import { JsonLd } from "@/components/site/json-ld";
@@ -70,6 +69,14 @@ const kanzleiFaqs = [
     q: "Wie läuft das Erstgespräch ab?",
     a: "Wir gehen Ihre bestehenden Verträge gemeinsam durch und suchen die Schwachstellen – von Selbstbeteiligungen über Regressklauseln bis zur Frage, ob sich Verträge sinnvoll bündeln lassen. Kostenlos, unverbindlich und auf Wunsch bei Ihnen in der Kanzlei.",
   },
+  {
+    q: "Wir haben doch schon eine Berufshaftpflicht – lohnt sich ein Wechsel überhaupt?",
+    a: "Als Kanzlei sind Sie ohnehin versichert – die Frage ist, ob Deckungssummen und Bedingungen noch zu Ihrer heutigen Kanzlei passen. Genau das prüfen wir im Kanzlei-Check: kostenlos, unverbindlich und auf Basis Ihres bestehenden Vertrags.",
+  },
+  {
+    q: "Entsteht beim Wechsel eine Lücke im Versicherungsschutz?",
+    a: "Nein. Der neue Vertrag wird so gelegt, dass er nahtlos an den bestehenden anschließt – wir stimmen den Übergang ab, bevor irgendetwas gekündigt wird.",
+  },
 ];
 
 export default function KanzleienPage() {
@@ -98,16 +105,18 @@ export default function KanzleienPage() {
         lead="Rechtsanwältinnen, Rechtsanwälte und Steuerberatende tragen Haftungsrisiken, die man wirklich verstehen muss. Wir tun das seit Jahren – mit Sonderkonditionen für Mitglieder von DAV und StbV."
       >
         <div className="mt-8 flex flex-wrap gap-3">
-          <Link
-            href="/kontakt"
+          <a
+            href={bookingUrl("Tim Haupt")}
+            target="_blank"
+            rel="noopener noreferrer"
             className="group inline-flex items-center gap-2.5 rounded-md bg-white px-6 py-3.5 text-[14px] font-medium text-brand-ink transition-colors hover:bg-white/90"
           >
-            Kanzlei-Check anfragen
+            Kanzlei-Check-Termin buchen
             <ArrowRight
               className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
               strokeWidth={1.8}
             />
-          </Link>
+          </a>
           <a
             href={site.phoneHref}
             className="inline-flex items-center gap-2.5 rounded-md border border-white/40 px-6 py-3.5 text-[14px] font-medium text-white tabular-nums transition-colors hover:border-white"
@@ -275,8 +284,12 @@ export default function KanzleienPage() {
         <div className="mt-8 max-w-[52rem]">
           {kanzleiFaqs.map((f) => (
             <details key={f.q} className="group border-b border-border">
-              <summary className="cursor-pointer list-none py-5 text-[16px] font-medium text-foreground [&::-webkit-details-marker]:hidden">
+              <summary className="flex cursor-pointer items-center justify-between gap-3 list-none py-5 text-[16px] font-medium text-foreground [&::-webkit-details-marker]:hidden">
                 {f.q}
+                <ChevronDown
+                  className="h-4 w-4 shrink-0 text-muted-foreground transition-transform group-open:rotate-180"
+                  strokeWidth={1.8}
+                />
               </summary>
               <p className="pb-5 text-[15px] leading-[1.75] text-muted-foreground">
                 {f.a}
@@ -298,16 +311,18 @@ export default function KanzleienPage() {
           </>
         }
       >
-            <Link
-              href="/kontakt"
+            <a
+              href={bookingUrl("Tim Haupt")}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group inline-flex items-center gap-2.5 rounded-md bg-white px-7 py-4 text-[14.5px] font-medium text-brand-ink transition-colors hover:bg-white/90"
             >
-              Kanzlei-Check anfragen
+              Kanzlei-Check-Termin buchen
               <ArrowRight
                 className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
                 strokeWidth={1.8}
               />
-            </Link>
+            </a>
       </CtaSection>
     </>
   );

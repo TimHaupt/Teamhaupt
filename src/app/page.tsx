@@ -6,6 +6,7 @@ import {
   Building2,
   CalendarCheck,
   Car,
+  ChevronDown,
   FileWarning,
   HeartPulse,
   Home,
@@ -26,6 +27,7 @@ import {
   advantages,
   faqs,
   provenExpert,
+  phoneHoursCompact,
   schadenMelden,
   schadenmanagerin,
   selfservice,
@@ -255,6 +257,16 @@ export default function HomePage() {
             </div>
           ))}
         </div>
+        <Link
+          href="/kontakt#termin"
+          className="group mt-10 inline-flex items-center gap-2 text-[15px] text-brand-text"
+        >
+          Überzeugen Sie sich im Erstgespräch – Termin vereinbaren
+          <ArrowRight
+            className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
+            strokeWidth={1.8}
+          />
+        </Link>
       </Section>
 
       {/* ── Schadensfall ───────────────────────────────── */}
@@ -491,6 +503,16 @@ export default function HomePage() {
                 strokeWidth={1.8}
               />
             </a>
+            <Link
+              href="/kontakt#termin"
+              className="group mt-5 inline-flex items-center gap-1.5 text-[14px] text-brand-text"
+            >
+              Selbst überzeugen – Termin vereinbaren
+              <ArrowRight
+                className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
+                strokeWidth={1.8}
+              />
+            </Link>
           </div>
         </div>
       </Section>
@@ -516,6 +538,16 @@ export default function HomePage() {
             </div>
           ))}
         </div>
+        <Link
+          href="/kontakt#termin"
+          className="group mt-10 inline-flex items-center gap-2 text-[15px] text-brand-text"
+        >
+          Schritt 1 beginnt hier – Termin vereinbaren
+          <ArrowRight
+            className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
+            strokeWidth={1.8}
+          />
+        </Link>
       </Section>
 
       {/* ── FAQ ────────────────────────────────────────── */}
@@ -526,8 +558,12 @@ export default function HomePage() {
         <div className="mt-8 max-w-[52rem]">
           {faqs.map((f) => (
             <details key={f.q} className="group border-b border-border">
-              <summary className="cursor-pointer list-none py-6 text-[16.5px] font-medium text-foreground [&::-webkit-details-marker]:hidden">
+              <summary className="flex cursor-pointer items-center justify-between list-none py-6 text-[16.5px] font-medium text-foreground [&::-webkit-details-marker]:hidden">
                 {f.q}
+                <ChevronDown
+                  className="h-4 w-4 shrink-0 transition-transform group-open:rotate-180 text-muted-foreground"
+                  strokeWidth={1.8}
+                />
               </summary>
               <p className="pb-6 text-[15.5px] leading-[1.75] text-muted-foreground">
                 {f.a}
@@ -555,7 +591,7 @@ export default function HomePage() {
         }
       >
         <Link
-          href="/kontakt"
+          href="/kontakt#termin"
           className="group inline-flex items-center gap-2.5 rounded-md bg-white px-7 py-4 text-[14.5px] font-medium text-brand-ink transition-colors hover:bg-white/90"
         >
           Termin vereinbaren
@@ -571,6 +607,11 @@ export default function HomePage() {
           <Phone className="h-4 w-4" strokeWidth={1.8} />
           {site.phone}
         </a>
+        {/* w-full drueckt die Zeile unter die Buttons – wer abends anruft,
+            soll nicht ins Leere laufen. */}
+        <p className="w-full text-[13px] text-white/55 lg:text-right">
+          Telefonisch erreichbar: {phoneHoursCompact}
+        </p>
       </CtaSection>
     </>
   );
