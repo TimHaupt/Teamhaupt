@@ -231,82 +231,81 @@ export default function KontaktPage() {
                 </span>
               </dd>
             </dl>
+          </div>
+        </div>
+      </Section>
 
-            <div className="mt-10 border-t border-border pt-7">
-              <p className="eyebrow">Anfahrt</p>
-              <p className="mt-5 text-[15.5px] leading-relaxed text-foreground">
-                {site.legalName}
-                <br />
-                {site.street}
-                <br />
-                {site.zip} {site.city}
-              </p>
+      {/* Anfahrt – bewusst als eigene, bildgefuehrte Sektion statt als Anhang
+          in einer Textspalte. Das Foto ist hier kein Schmuck: Wer zoegert, zu
+          einem Fremden ins Buero zu gehen, sieht den Raum, bevor er kommt.
+          Auf Desktop haelt das Bild die linke Haelfte, der Weg dorthin die
+          rechte; darunter bricht es sauber untereinander um. */}
+      <Section>
+        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,0.85fr)_1fr] lg:gap-16">
+          <Image
+            src="/img/buero/wartebereich.jpg"
+            alt="Wartebereich der Agentur: rote Sessel vor der grünen Wand mit HDI-Schriftzug und #TeamHaupt"
+            width={1333}
+            height={2000}
+            // 4:5 statt des originalen 2:3 – im Nebeneinander mit Text wirkt
+            // das volle Hochformat zu schlank und zieht die Sektion auseinander.
+            className="aspect-[4/5] w-full rounded-md object-cover"
+            sizes="(max-width: 1024px) 100vw, 520px"
+          />
 
-              {/* Haltestellen, Entfernungen und Linien per OpenStreetMap ab den
-                  Buerokoordinaten verifiziert; Parken und Ladenlokal vom
-                  Inhaber bestaetigt (08/2026). */}
-              <dl className="mt-6 space-y-4 text-[14.5px] leading-relaxed text-muted-foreground">
-                <div>
-                  <dt className="font-medium text-foreground">
-                    Mit der Straßenbahn
-                  </dt>
-                  <dd className="mt-1">
-                    Die Haltestellen Augustinerkloster und Boyneburgufer liegen
-                    beide keine drei Gehminuten entfernt – dort halten die
-                    Linien 1 und 5. Vom Hauptbahnhof bringt Sie die Linie 5
-                    ohne Umstieg zu uns.
-                  </dd>
-                </div>
-                <div>
-                  <dt className="font-medium text-foreground">Mit dem Auto</dt>
-                  <dd className="mt-1">
-                    Rund um die Johannesstraße gibt es öffentliche,
-                    kostenpflichtige Parkplätze; die Tiefgarage im
-                    Thüringenhaus ist etwa fünf Gehminuten entfernt.
-                  </dd>
-                </div>
-                <div>
-                  <dt className="font-medium text-foreground">Vor Ort</dt>
-                  <dd className="mt-1">
-                    Sie finden uns im Erdgeschoss: Unser Büro ist ein
-                    Ladenlokal, der Eingang liegt direkt an der Straße.
-                  </dd>
-                </div>
-              </dl>
+          <div>
+            <p className="eyebrow">Anfahrt</p>
+            <h2 className="display mt-5 text-[clamp(1.65rem,2.9vw,2.35rem)] text-foreground">
+              So finden Sie uns.
+            </h2>
+            <p className="mt-5 text-[16.5px] leading-[1.75] text-muted-foreground">
+              {site.legalName} · {site.street} · {site.zip} {site.city}
+            </p>
 
-              <a
-                href={mapsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group mt-6 inline-flex items-center gap-1.5 text-[14px] text-brand-text"
-              >
-                In Google Maps öffnen
-                <ArrowUpRight
-                  className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                  strokeWidth={1.8}
-                />
-              </a>
+            {/* Haltestellen, Entfernungen und Linien per OpenStreetMap ab den
+                Buerokoordinaten verifiziert; Parken und Ladenlokal vom
+                Inhaber bestaetigt (08/2026). */}
+            <dl className="mt-8 space-y-5 border-t border-border pt-7 text-[15px] leading-[1.7] text-muted-foreground">
+              <div>
+                <dt className="font-medium text-foreground">
+                  Mit der Straßenbahn
+                </dt>
+                <dd className="mt-1.5">
+                  Die Haltestellen Augustinerkloster und Boyneburgufer liegen
+                  beide keine drei Gehminuten entfernt – dort halten die Linien
+                  1 und 5. Vom Hauptbahnhof bringt Sie die Linie 5 ohne
+                  Umstieg zu uns.
+                </dd>
+              </div>
+              <div>
+                <dt className="font-medium text-foreground">Mit dem Auto</dt>
+                <dd className="mt-1.5">
+                  Rund um die Johannesstraße gibt es öffentliche,
+                  kostenpflichtige Parkplätze; die Tiefgarage im Thüringenhaus
+                  ist etwa fünf Gehminuten entfernt.
+                </dd>
+              </div>
+              <div>
+                <dt className="font-medium text-foreground">Vor Ort</dt>
+                <dd className="mt-1.5">
+                  Sie finden uns im Erdgeschoss: Unser Büro ist ein Ladenlokal,
+                  der Eingang liegt direkt an der Straße.
+                </dd>
+              </div>
+            </dl>
 
-              {/* Der Raum, in dem das Gespraech stattfindet. Wer zoegert, zu
-                  einem Fremden ins Buero zu gehen, sieht vorher, wo er landet –
-                  das nimmt mehr Hemmung als jede Beschreibung. */}
-              <figure className="mt-8">
-                <Image
-                  src="/img/buero/wartebereich.jpg"
-                  alt="Wartebereich der Agentur: rote Sessel vor der grünen Wand mit HDI-Schriftzug und #TeamHaupt"
-                  width={1333}
-                  height={2000}
-                  // Rechte Spalte ist bei max. Containerbreite genau 480px
-                  // breit; 30vw waere zu knapp und lieferte ein weiches Bild.
-                  sizes="(max-width: 1024px) 100vw, 480px"
-                  className="w-full rounded-md object-cover"
-                />
-                <figcaption className="mt-3 text-[13.5px] text-muted-foreground">
-                  Hier empfangen wir Sie – im Erdgeschoss, direkt an der
-                  Johannesstraße.
-                </figcaption>
-              </figure>
-            </div>
+            <a
+              href={mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group mt-7 inline-flex items-center gap-1.5 text-[14.5px] text-brand-text"
+            >
+              In Google Maps öffnen
+              <ArrowUpRight
+                className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                strokeWidth={1.8}
+              />
+            </a>
           </div>
         </div>
       </Section>

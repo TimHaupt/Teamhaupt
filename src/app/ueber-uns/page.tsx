@@ -90,8 +90,12 @@ export default function UeberUnsPage() {
 
       {/* Philosophie */}
       <Section eyebrow="Unsere Philosophie" title="Offen und ehrlich kommunizieren">
-        <div className="mt-6 grid gap-8 lg:grid-cols-2 lg:gap-14">
-          <div className="space-y-5 text-[16.5px] leading-[1.8] text-muted-foreground">
+        {/* Text und Gruende zusammen in der linken Spalte, das eigene Zeichen
+            als hohe Flaeche rechts daneben – so traegt das Bild die Hoehe des
+            Abschnitts mit, statt darunter zu haengen. */}
+        <div className="mt-6 grid gap-10 lg:grid-cols-[1fr_minmax(0,0.62fr)] lg:gap-16">
+          <div>
+            <div className="space-y-5 text-[16.5px] leading-[1.8] text-muted-foreground">
             <p>
               Unsere Philosophie beruht auf offener und ehrlicher Kommunikation –
               das unterscheidet uns von vielen anderen Anbietern. Eine
@@ -104,9 +108,9 @@ export default function UeberUnsPage() {
               das Kontaktformular oder direkt im Kalender Ihres Ansprechpartners.
               Sie entscheiden, was Ihnen am besten passt.
             </p>
-          </div>
+            </div>
 
-          <div className="grid gap-x-12 gap-y-7 sm:grid-cols-2">
+            <div className="mt-10 grid gap-x-12 gap-y-7 sm:grid-cols-2">
             {gruende.map((g, i) => (
               <div key={g.title} className="border-t border-border pt-6">
                 <span className="display text-[14px] text-brand-text tabular-nums">
@@ -120,22 +124,20 @@ export default function UeberUnsPage() {
                 </p>
               </div>
             ))}
+            </div>
           </div>
-        </div>
 
-        {/* Eigenes Zeichen der Agentur, fotografiert im Buero – bewusst breit
-            und ohne Text daneben: bricht den gleichfoermigen Takt der
-            Abschnitte und zeigt etwas, das kein Baukasten mitliefert. */}
-        <figure className="mt-14">
           <Image
             src="/img/buero/th-logo.jpg"
             alt="Das Zeichen der Generalvertretung Tim Haupt an der Bürowand in Erfurt"
             width={1333}
             height={2000}
-            sizes="(max-width: 640px) 100vw, 416px"
-            className="mx-auto w-full max-w-[26rem] rounded-md object-cover"
+            // 4:5 statt 2:3: Der Ring fuellt das Original fast randlos, ein
+            // staerkerer Beschnitt wuerde ihn oben und unten anschneiden.
+            className="aspect-[4/5] w-full rounded-md object-cover"
+            sizes="(max-width: 1024px) 100vw, 430px"
           />
-        </figure>
+        </div>
       </Section>
 
       {/* Team */}
