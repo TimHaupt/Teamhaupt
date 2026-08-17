@@ -75,6 +75,15 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true, "max-image-preview": "large" },
   },
+  /**
+   * Eigentumsnachweis fuer die Google Search Console (Property
+   * https://www.tim-haupt.de, eingerichtet 08/2026). Muss dauerhaft stehen
+   * bleiben – entfernt man ihn, verliert das Konto den Zugriff auf die
+   * Property. Kein Geheimnis, gewaehrt keinerlei Rechte.
+   */
+  verification: {
+    google: "nq8rx5luuCI7k-Fba-kFBRBfk9ej47RZ2VTVkSPB0tI",
+  },
   // Ort explizit auszeichnen – hilft der lokalen Zuordnung zusaetzlich
   // zu den strukturierten Daten.
   other: {
