@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { pageMetadata } from "@/lib/metadata";
 import {
   ArrowUpRight,
@@ -285,6 +286,26 @@ export default function KontaktPage() {
                   strokeWidth={1.8}
                 />
               </a>
+
+              {/* Der Raum, in dem das Gespraech stattfindet. Wer zoegert, zu
+                  einem Fremden ins Buero zu gehen, sieht vorher, wo er landet –
+                  das nimmt mehr Hemmung als jede Beschreibung. */}
+              <figure className="mt-8">
+                <Image
+                  src="/img/buero/wartebereich.jpg"
+                  alt="Wartebereich der Agentur: rote Sessel vor der grünen Wand mit HDI-Schriftzug und #TeamHaupt"
+                  width={1333}
+                  height={2000}
+                  // Rechte Spalte ist bei max. Containerbreite genau 480px
+                  // breit; 30vw waere zu knapp und lieferte ein weiches Bild.
+                  sizes="(max-width: 1024px) 100vw, 480px"
+                  className="w-full rounded-md object-cover"
+                />
+                <figcaption className="mt-3 text-[13.5px] text-muted-foreground">
+                  Hier empfangen wir Sie – im Erdgeschoss, direkt an der
+                  Johannesstraße.
+                </figcaption>
+              </figure>
             </div>
           </div>
         </div>

@@ -122,6 +122,20 @@ export default function UeberUnsPage() {
             ))}
           </div>
         </div>
+
+        {/* Eigenes Zeichen der Agentur, fotografiert im Buero – bewusst breit
+            und ohne Text daneben: bricht den gleichfoermigen Takt der
+            Abschnitte und zeigt etwas, das kein Baukasten mitliefert. */}
+        <figure className="mt-14">
+          <Image
+            src="/img/buero/th-logo.jpg"
+            alt="Das Zeichen der Generalvertretung Tim Haupt an der Bürowand in Erfurt"
+            width={1333}
+            height={2000}
+            sizes="(max-width: 640px) 100vw, 416px"
+            className="mx-auto w-full max-w-[26rem] rounded-md object-cover"
+          />
+        </figure>
       </Section>
 
       {/* Team */}
