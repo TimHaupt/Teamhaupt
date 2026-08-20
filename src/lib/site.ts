@@ -65,8 +65,8 @@ export const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encode
 export const schadenmanagerin = {
   name: "Swenja-Elisè Möller",
   role: "Ihre persönliche Schadenmanagerin",
-  phone: "0361 56 53 665",
-  phoneHref: "tel:+493615653665",
+  phone: "0361 56 53 672",
+  phoneHref: "tel:+493615653672",
   email: "Swenja.Moeller@hdi.de",
   emailHref: "mailto:Swenja.Moeller@hdi.de",
 } as const;
@@ -289,12 +289,14 @@ export const team: Member[] = [
     photo: "/img/team/swenja-moeller.jpg",
     booking: "https://cal.eu/swenja-elise-moller",
     email: "Swenja.Moeller@hdi.de",
-    phone: "0361 56 53 665",
+    phone: "0361 56 53 672",
   },
   {
     name: "Nancy Richter",
     role: "Büroleitung",
+    focus: "Kundenservice",
     photo: "/img/team/nancy-richter.jpg",
+    phone: "0361 56 53 664",
   },
   {
     name: "Kathrin Severin",
