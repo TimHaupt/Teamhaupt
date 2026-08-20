@@ -89,9 +89,10 @@ export function SiteHeader() {
           </span>
         </Link>
 
-        {/* Navigation – bei lg engere Abstaende, damit neben der ab lg
-            sichtbaren Telefonnummer nichts umbricht ("Ueber uns"). */}
-        <nav className="hidden items-center gap-4 lg:flex xl:gap-7">
+        {/* Navigation – sieben Punkte passen bei lg nur mit engen Abstaenden
+            in die Zeile; die Telefonnummer rechts kommt deshalb erst ab xl
+            dazu (siehe Aktionen). */}
+        <nav className="hidden items-center gap-3 lg:flex xl:gap-5">
           {nav.map((item) => {
             const active =
               item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
@@ -129,7 +130,8 @@ export function SiteHeader() {
           <a
             href={site.phoneHref}
             className={cn(
-              "hidden items-center gap-2 text-[14px] tabular-nums transition-colors lg:flex",
+              // Erst ab xl: bei lg braucht die siebenteilige Navigation den Platz.
+              "hidden items-center gap-2 text-[14px] tabular-nums transition-colors xl:flex",
               onDark ? "text-white/75 hover:text-white" : "text-muted-foreground hover:text-foreground",
             )}
           >

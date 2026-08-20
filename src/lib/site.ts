@@ -19,6 +19,7 @@ export const nav = [
   { label: "Leistungen", href: "/leistungen" },
   { label: "Kanzleien", href: "/kanzleien" },
   { label: "Heilberufe", href: "/heilberufe" },
+  { label: "Cyberschutz", href: "/cybersecurity" },
   { label: "Über uns", href: "/ueber-uns" },
   { label: "Kontakt", href: "/kontakt" },
 ] as const;
@@ -480,6 +481,43 @@ export const heilberufeBausteine: Baustein[] = [
   {
     title: "Team & betriebliche Vorsorge",
     text: "Gute MFA und Pflegekräfte sind rar. Betriebliche Altersvorsorge und Zusatzleistungen helfen, Ihr Team zu halten.",
+  },
+];
+
+/**
+ * Bausteine des HDI Cyberschutzes – Seite /cybersecurity.
+ *
+ * Quelle: HDI Versicherung AG, „Cyberversicherung Produktprofil" (Formular
+ * 7003001124-202406) und „Reale Sicherheit in der digitalen Welt"
+ * (7003001125-202210). Sublimits und Fristen bei neuer Bedingungsfassung
+ * nachziehen – die Seite nennt sie im Klartext.
+ */
+export const cyberBausteine: Baustein[] = [
+  {
+    title: "Prävention mit Perseus",
+    text: "Online-Trainings, simulierte Phishingmails und ein Sicherheits-Dashboard für Ihr Team. Für Kunden der Cyberversicherung kostenfrei enthalten – und der Hebel, mit dem Sie Ihren Selbstbehalt senken.",
+    highlight: "Kostenfrei enthalten",
+  },
+  {
+    title: "Soforthilfe im Notfall",
+    text: "Cyberschaden-Hotline rund um die Uhr, auch beim bloßen Verdacht. Die ersten 90 Minuten werden nicht auf den Selbstbehalt angerechnet, der IT-Sicherheitsdienstleister ist binnen 24 Stunden vor Ort.",
+    highlight: "24 / 7 / 365",
+  },
+  {
+    title: "Forensik & Krisenmanagement",
+    text: "Aufklärung des Vorfalls, Krisenkommunikation und PR, Benachrichtigung von Betroffenen und Datenschutzbehörden, Schwachstellenanalyse. Liegt am Ende gar kein Versicherungsfall vor, trägt die HDI die Kosten trotzdem.",
+  },
+  {
+    title: "Wiederherstellung",
+    text: "Daten, Software, Netzwerke und Webseiten wiederherstellen, Schadsoftware entfernen. Beschädigte oder zerstörte Hardware ist bis 250.000 Euro mitversichert.",
+  },
+  {
+    title: "Betriebsunterbrechung",
+    text: "Entgangener Betriebsgewinn und fortlaufende Kosten, wenn nichts mehr läuft – ab 12 Stunden Wartezeit, für längstens sechs Monate. Cloud-Ausfall und technische Störungen lassen sich zusätzlich einschließen.",
+  },
+  {
+    title: "Drittschäden",
+    text: "Prüfung, Abwehr und Regulierung der Ansprüche Dritter, Verteidigung im Datenschutzverfahren, Vertragsstrafen und Bußgelder wegen Datenschutzverletzungen bis 250.000 Euro.",
   },
 ];
 

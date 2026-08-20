@@ -71,6 +71,7 @@ export function GET() {
     `- [Leistungen](${BASE}/leistungen)`,
     `- [Für Kanzleien: Steuerberater und Rechtsanwälte](${BASE}/kanzleien)`,
     `- [Für Heilberufe: Ärzte, Praxen, Therapeuten](${BASE}/heilberufe)`,
+    `- [Cybersecurity: Cyberversicherung für Unternehmen](${BASE}/cybersecurity)`,
     `- [Über uns und Team](${BASE}/ueber-uns)`,
     `- [Kontakt, Terminbuchung, Schadenmeldung](${BASE}/kontakt)`,
     "",
