@@ -303,7 +303,7 @@ export const team: Member[] = [
     role: "Kundenberaterin",
     focus: "Heilberufe und Privatversicherungen",
     photo: "/img/team/kathrin-severin.jpg",
-    booking: "https://cal.com/kathrin-letsch",
+    booking: "https://cal.com/kathrin-severin",
   },
   {
     name: "Lisa Lübke",
