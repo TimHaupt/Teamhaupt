@@ -331,6 +331,7 @@ export const team: Member[] = [
     role: "Kundenberater",
     focus: "Privatversicherungen",
     photo: "/img/team/philip-schmidt.jpg",
+    phone: "0361 56 53 663",
   },
   {
     name: "Mira",
