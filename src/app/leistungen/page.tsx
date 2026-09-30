@@ -113,6 +113,19 @@ export default function LeistungenPage() {
                     ))}
                   </ul>
 
+                  {s.weiter && (
+                    <p className="mt-6 max-w-[38rem] text-[15.5px] leading-[1.75] text-muted-foreground">
+                      {s.weiter.text}{" "}
+                      <Link
+                        href={s.weiter.href}
+                        className="text-brand-text underline decoration-brand-text/35 underline-offset-4 transition-colors hover:decoration-brand-text"
+                      >
+                        {s.weiter.link}
+                      </Link>
+                      .
+                    </p>
+                  )}
+
                   <Link
                     href="/kontakt"
                     className="group mt-6 inline-flex items-center gap-2 text-[14.5px] text-brand-text"

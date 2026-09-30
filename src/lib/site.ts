@@ -80,6 +80,12 @@ export type Service = {
   teaser: string;
   bullets: string[];
   featured?: boolean;
+  /**
+   * Weiterfuehrender Satz mit Link auf eine eigene Themenseite, auf
+   * /leistungen unter den Stichpunkten. Ein Link im Fliesstext zaehlt fuer
+   * Suchmaschinen mehr als einer in Navigation oder Fusszeile.
+   */
+  weiter?: { text: string; link: string; href: string };
 };
 
 export const services: Service[] = [
@@ -110,6 +116,11 @@ export const services: Service[] = [
       "Betriebsunterbrechung",
       "Firmenrechtsschutz",
     ],
+    weiter: {
+      text: "Legt ein Cyberangriff Ihre IT lahm, steht auch der Betrieb still. Was dann passiert und was die Versicherung übernimmt, erklären wir unter",
+      link: "Cyberschutz für Unternehmen",
+      href: "/cybersecurity",
+    },
   },
   {
     slug: "vorsorge",
