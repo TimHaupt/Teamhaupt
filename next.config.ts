@@ -51,9 +51,10 @@ const nextConfig: NextConfig = {
         destination: "/leistungen#privat",
         permanent: true,
       },
+      // Seit 09/2026 gibt es eine eigene Cyberseite – vorher Leistungen.
       {
         source: "/cyber-security-2",
-        destination: "/leistungen#unternehmen",
+        destination: "/cybersecurity",
         permanent: true,
       },
       { source: "/hdi-compact", destination: "/leistungen", permanent: true },
@@ -78,6 +79,14 @@ const nextConfig: NextConfig = {
       { source: "/campaign/:slug*", destination: "/", permanent: true },
       { source: "/news-updates/:slug*", destination: "/", permanent: true },
       { source: "/uncategorized/:slug*", destination: "/", permanent: true },
+
+      // WordPress-Archivseiten. Standen nicht in der wp-sitemap, werden aber
+      // noch aufgerufen: /category/news-updates lief im 09/2026 auf 404
+      // (Vercel Analytics). /tag, /author und /feed sind dieselbe Sorte.
+      { source: "/category/:slug*", destination: "/", permanent: true },
+      { source: "/tag/:slug*", destination: "/", permanent: true },
+      { source: "/author/:slug*", destination: "/", permanent: true },
+      { source: "/feed/:slug*", destination: "/", permanent: true },
     ];
   },
 };

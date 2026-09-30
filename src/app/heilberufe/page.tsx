@@ -17,7 +17,7 @@ export const metadata: Metadata = pageMetadata({
   title: "Versicherung für Ärzte, Praxen & Therapeuten in Erfurt",
   absoluteTitle: true,
   description:
-    "Absicherung für Heilberufe in Erfurt und Thüringen: Berufshaftpflicht, Praxisinventar, Praxisausfall, Cyber-Schutz für Patientendaten und Vorsorge – mit fester Spezialistin als Ansprechpartnerin.",
+    "Absicherung für Praxen in Erfurt und Thüringen: Berufshaftpflicht, Praxisinventar, Praxisausfall und Cyber-Schutz – mit fester Spezialistin an Ihrer Seite.",
   path: "/heilberufe",
 });
 

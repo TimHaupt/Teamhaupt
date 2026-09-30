@@ -17,7 +17,7 @@ import { bookingUrl, cyberBausteine, site } from "@/lib/site";
 export const metadata: Metadata = pageMetadata({
   title: "Cyberversicherung für Unternehmen",
   description:
-    "Cyberangriffe verständlich erklärt – und was die HDI Cyberversicherung leistet: Soforthilfe rund um die Uhr, Betriebsunterbrechung, Drittschäden und kostenfreie Prävention mit Perseus. Beratung aus Erfurt.",
+    "Cyberangriffe verständlich erklärt und was die HDI Cyberversicherung leistet: Soforthilfe rund um die Uhr, Schutz bei Betriebsausfall, kostenfreie Prävention.",
   path: "/cybersecurity",
 });
 

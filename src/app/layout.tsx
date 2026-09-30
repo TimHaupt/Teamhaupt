@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     template: "%s | Tim Haupt · HDI Erfurt",
   },
   description:
-    "Ihre HDI Generalvertretung in Erfurt. Persönliche Beratung, ein festes Team mit IHK-Ausbildung und schnelle Schadenhilfe – für Privat, Unternehmen und Kanzleien.",
+    "HDI Generalvertretung in Erfurt: persönliche Beratung, ein festes Team mit IHK-Ausbildung und schnelle Schadenhilfe – für Privat, Unternehmen und Kanzleien.",
   keywords: [
     "Versicherung Erfurt",
     "HDI Erfurt",

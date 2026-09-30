@@ -17,7 +17,7 @@ export const metadata: Metadata = pageMetadata({
   title: "Versicherung für Steuerberater & Rechtsanwälte in Erfurt",
   absoluteTitle: true,
   description:
-    "Komplettabsicherung für Kanzleien in Erfurt und Thüringen: Berufshaftpflicht, Cyber, Inhalt und Rechtsschutz – mit Sonderkonditionen für DAV- und StbV-Mitglieder. Über 107 versicherte Berufsträger.",
+    "Kanzleiabsicherung in Erfurt und Thüringen: Berufshaftpflicht, Cyber, Inhalt, Rechtsschutz. Über 107 Berufsträger versichert, Sonderkonditionen für DAV & StbV.",
   path: "/kanzleien",
 });
 

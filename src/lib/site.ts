@@ -204,14 +204,14 @@ export const steps = [
 /**
  * Bewertungen bei ProvenExpert.
  *
- * ACHTUNG: Diese Werte sind eine Momentaufnahme (abgerufen am 09.08.2026) und
+ * ACHTUNG: Diese Werte sind eine Momentaufnahme (abgerufen am 30.09.2026) und
  * aktualisieren sich nicht von selbst. Bei neuen Bewertungen hier nachziehen,
  * sonst steht auf der Seite eine veraltete Zahl – das faellt Kunden auf, die
  * dem Link folgen. Quelle: das verlinkte Profil.
  */
 export const provenExpert = {
   rating: 4.89,
-  count: 207,
+  count: 208,
   /** Anteil der Kunden, die weiterempfehlen – gleiche Pflegepflicht wie rating/count. */
   recommendationRate: 99,
   profileUrl:
