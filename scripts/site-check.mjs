@@ -211,12 +211,12 @@ async function main() {
   for (const s of seiten) {
     if (s.status !== 200) bericht.probleme.push(`${s.route}: HTTP ${s.status}`);
     if (s.titleLen > LIMITS.title)
-      bericht.probleme.push(`${s.route}: Titel ${s.titleLen} Zeichen (max ${LIMITS.title})`);
+      bericht.probleme.push(`${s.route}: Titel ${s.titleLen} Zeichen (Google zeigt ${LIMITS.title})`);
     if (!s.description)
-      bericht.probleme.push(`${s.route}: keine Meta-Description`);
+      bericht.probleme.push(`${s.route}: keine Seitenbeschreibung`);
     else if (s.descriptionLen > LIMITS.description)
       bericht.probleme.push(
-        `${s.route}: Description ${s.descriptionLen} Zeichen (max ${LIMITS.description})`,
+        `${s.route}: Beschreibung ${s.descriptionLen} Zeichen (Google zeigt ${LIMITS.description})`,
       );
     if (s.h1 !== 1) bericht.probleme.push(`${s.route}: ${s.h1} H1-Überschriften`);
     if (!s.ogImage) bericht.probleme.push(`${s.route}: kein og:image`);
@@ -227,7 +227,7 @@ async function main() {
     const { rating, count } = provenExpert.aktuell;
     if (rating !== hinterlegt.rating || count !== hinterlegt.count)
       bericht.probleme.push(
-        `ProvenExpert im Code ${hinterlegt.rating}/${hinterlegt.count}, aktuell ${rating}/${count}`,
+        `ProvenExpert: auf der Seite ${hinterlegt.count} Bewertungen (${String(hinterlegt.rating).replace(".", ",")}), im Profil ${count} (${String(rating).replace(".", ",")})`,
       );
   }
 
