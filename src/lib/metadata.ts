@@ -16,6 +16,7 @@ export function pageMetadata({
   path,
   image,
   noindex,
+  absoluteTitle,
 }: {
   title: string;
   description: string;
@@ -24,11 +25,21 @@ export function pageMetadata({
   /** Abweichendes OG-Motiv; sonst das Team-Bild aus dem Layout. */
   image?: string;
   noindex?: boolean;
+  /**
+   * Titel ohne den Zusatz " | Tim Haupt · HDI Erfurt" ausgeben.
+   *
+   * Google zeigt rund 60 Zeichen, der Zusatz kostet allein 25. Auf Seiten,
+   * deren Suchbegriffe laenger sind (Kanzleien, Heilberufe), wuerde der
+   * Titel sonst mitten im Begriff abgeschnitten. Den Markennamen zeigt
+   * Google ohnehin separat ueber dem Titel (WebSite-Schema). Solche Titel
+   * nennen dafuer den Ort selbst.
+   */
+  absoluteTitle?: boolean;
 }): Metadata {
   const url = `${site.url}${path}`;
   // Das Layout-Template haengt " | Tim Haupt · HDI Erfurt" an – fuer OG gibt es
   // kein Template, der Zusatz muss hier also mitgeschrieben werden.
-  const ogTitle = `${title} | Tim Haupt · HDI Erfurt`;
+  const ogTitle = absoluteTitle ? title : `${title} | Tim Haupt · HDI Erfurt`;
   // Fallback-Bild aus dem Layout; ueberschreibbar per image-Parameter.
   // Der Team-Alt-Text gilt nur fuers Team-Bild – bei eigenem Motiv
   // beschreibt der Seitentitel das Bild besser als eine falsche Behauptung.
@@ -38,7 +49,7 @@ export function pageMetadata({
     : "Das Team der HDI Generalvertretung Tim Haupt in Erfurt";
 
   return {
-    title,
+    title: absoluteTitle ? { absolute: title } : title,
     description,
     alternates: { canonical: path },
     openGraph: {

@@ -14,7 +14,8 @@ import {
 import { bookingUrl, heilberufeBausteine, site } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Versicherung für Heilberufe – Ärzte, Praxen & Therapeuten",
+  title: "Versicherung für Ärzte, Praxen & Therapeuten in Erfurt",
+  absoluteTitle: true,
   description:
     "Absicherung für Heilberufe in Erfurt und Thüringen: Berufshaftpflicht, Praxisinventar, Praxisausfall, Cyber-Schutz für Patientendaten und Vorsorge – mit fester Spezialistin als Ansprechpartnerin.",
   path: "/heilberufe",

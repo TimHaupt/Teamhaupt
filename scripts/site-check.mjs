@@ -40,6 +40,20 @@ const LIMITS = { title: 60, description: 160 };
 const tag = (html, re) => (html.match(re)?.[1] ?? "").trim();
 
 /**
+ * HTML-Entitaeten zurueckwandeln, bevor gezaehlt wird. Sonst zaehlt "&" als
+ * "&amp;" fuenffach, und Titel mit "Steuerberater & Rechtsanwaelte" wirken
+ * vier Zeichen laenger, als Google sie anzeigt.
+ */
+const entschluesseln = (s) =>
+  s
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&#x27;|&#39;/g, "'")
+    .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(Number(n)));
+
+/**
  * Ohne Browser-Kennung liefern manche Seiten (ProvenExpert) eine abweichende
  * Fassung aus, in der die Gesamtzahlen fehlen.
  */
@@ -98,8 +112,8 @@ async function main() {
 
   for (const route of ROUTES) {
     const { status, ms, html } = await fetchPage(BASE + route);
-    const title = tag(html, /<title>([^<]*)<\/title>/);
-    const description = tag(html, /<meta name="description" content="([^"]*)"/);
+    const title = entschluesseln(tag(html, /<title>([^<]*)<\/title>/));
+    const description = entschluesseln(tag(html, /<meta name="description" content="([^"]*)"/));
     const ogImage = /property="og:image"/.test(html);
     const canonical = tag(html, /<link rel="canonical" href="([^"]*)"/);
     const h1 = (html.match(/<h1[\s>]/g) || []).length;

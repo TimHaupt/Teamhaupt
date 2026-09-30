@@ -14,7 +14,8 @@ import {
 import { kanzleiBausteine, bookingUrl, site } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Versicherung für Steuerberater & Rechtsanwälte",
+  title: "Versicherung für Steuerberater & Rechtsanwälte in Erfurt",
+  absoluteTitle: true,
   description:
     "Komplettabsicherung für Kanzleien in Erfurt und Thüringen: Berufshaftpflicht, Cyber, Inhalt und Rechtsschutz – mit Sonderkonditionen für DAV- und StbV-Mitglieder. Über 107 versicherte Berufsträger.",
   path: "/kanzleien",
