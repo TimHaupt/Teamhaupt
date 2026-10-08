@@ -297,7 +297,7 @@ export const team: Member[] = [
     name: "Swenja-Elisè Möller",
     role: "Schadenmanagerin",
     focus: "Kundenservice",
-    photo: "/img/team/swenja-moeller.jpg",
+    photo: "/img/team/swenja-moeller-2026.jpg",
     booking: "https://cal.eu/swenja-elise-moller",
     email: "Swenja.Moeller@hdi.de",
     phone: "0361 56 53 672",
