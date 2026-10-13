@@ -292,6 +292,7 @@ export const team: Member[] = [
     focus: "Firmen und Freiberufler",
     photo: "/img/team/tim-haupt.jpg",
     booking: "https://cal.com/tim-haupt",
+    phone: "0361 56 53 660",
   },
   {
     name: "Swenja-Elisè Möller",
@@ -315,6 +316,7 @@ export const team: Member[] = [
     focus: "Heilberufe und Privatversicherungen",
     photo: "/img/team/kathrin-severin.jpg",
     booking: "https://cal.com/kathrin-severin",
+    phone: "0361 56 53 676",
   },
   {
     name: "Lisa Lübke",
@@ -322,6 +324,7 @@ export const team: Member[] = [
     focus: "Vorsorge & Privatversicherungen",
     photo: "/img/team/lisa-luebke.jpg",
     booking: "https://cal.com/Lisa.Luebke",
+    phone: "0361 56 53 667",
   },
   {
     name: "Frederic Loll",
@@ -329,6 +332,7 @@ export const team: Member[] = [
     focus: "Vorsorge & Privatversicherungen",
     photo: "/img/team/frederic-loll.jpg",
     booking: "https://cal.com/frederic.loll",
+    phone: "0361 56 53 668",
   },
   {
     name: "Amanuel Tekeste",
@@ -336,6 +340,7 @@ export const team: Member[] = [
     focus: "Firmen und Privatversicherungen",
     photo: "/img/team/amanuel-tekeste.jpg",
     booking: "https://cal.com/amanueltekeste",
+    phone: "0361 56 53 674",
   },
   {
     name: "Philip Schmidt",
