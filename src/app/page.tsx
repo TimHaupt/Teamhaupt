@@ -30,6 +30,7 @@ import {
   phoneHoursCompact,
   schadenMelden,
   schadenmanagerin,
+  kundenserviceUrl,
   selfservice,
   services,
   bookingUrl,
@@ -107,6 +108,29 @@ export default function HomePage() {
                 </a>
               );
             })}
+          </div>
+          {/* Alle Services gesammelt auf der Kundenservice-Seite in Admiral */}
+          <div className="flex flex-col gap-4 border-t border-border py-5 sm:flex-row sm:items-center sm:justify-between">
+            <p className="max-w-[44rem] text-[14.5px] leading-relaxed text-muted-foreground">
+              <span className="block font-medium text-foreground">
+                Kundenservice unserer Agentur in Erfurt
+              </span>
+              Schäden melden, Daten ändern, Termin buchen oder mit uns chatten –
+              direkt bei uns, nicht über die zentrale{" "}
+              <span className="whitespace-nowrap">HDI-Hotline</span>.
+            </p>
+            <a
+              href={kundenserviceUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex shrink-0 items-center gap-2 self-start rounded-md border border-border px-5 py-3 text-[14px] font-medium text-foreground transition-colors hover:border-brand-text hover:text-brand-text sm:self-auto"
+            >
+              Zum Agentur-Kundenservice
+              <ArrowUpRight
+                className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                strokeWidth={1.8}
+              />
+            </a>
           </div>
         </div>
       </section>

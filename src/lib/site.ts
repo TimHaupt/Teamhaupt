@@ -242,6 +242,13 @@ export const schadenMelden = [
   { label: "Sonstiger Schaden", href: "https://api.flixcheck.com/api/v1/widget/HOsoegHQjiHUYOqANRvYftbjwzWBBYvk/transactions/redirect" },
 ] as const;
 
+/**
+ * Kundenservice-Seite in Admiral (Ersatz fuer Linktree): Schaden melden, Daten
+ * aendern, Termine, Chat. Gepflegt wird sie in Admiral unter Einstellungen ›
+ * Linkseite; die Website verlinkt nur dorthin.
+ */
+export const kundenserviceUrl = "https://admiral.tim-haupt.de/links";
+
 export const selfservice = [
   {
     icon: "FileWarning",
@@ -258,9 +265,11 @@ export const selfservice = [
   },
   {
     icon: "LayoutDashboard",
-    title: "Mein HDI",
+    // „Mein HDI“ heisst inzwischen „HDI Kundenwelt“; die alte Login-Adresse
+    // leitet nur noch auf eine Werbeseite um.
+    title: "HDI Kundenwelt",
     text: "Ihre Verträge und Dokumente im Kundenportal der HDI.",
-    href: "https://www.hdi.de/mein-hdi/login",
+    href: "https://www.hdi.de/kundenwelt",
   },
 ] as const;
 

@@ -135,8 +135,8 @@ export default function DatenschutzPage() {
                 Schadenmeldung und Änderungsmitteilungen
               </li>
               <li>
-                <span className="text-foreground">Mein HDI</span> – Kundenportal
-                der HDI
+                <span className="text-foreground">HDI Kundenwelt</span> –
+                Kundenportal der HDI
               </li>
               <li>
                 <span className="text-foreground">ProvenExpert</span> – unser
@@ -159,6 +159,98 @@ export default function DatenschutzPage() {
               <span className="text-foreground">nicht eingebettet</span>,
               sondern verlinkt, damit ohne Ihr Zutun keine Daten an diese
               Anbieter fließen.
+            </p>
+          </Block>
+
+          {/* Die Kundenservice-Seite in Admiral verweist fuer den Datenschutz auf
+              diese Seite; Stand der Angaben: Oktober 2026 (Admiral-Code,
+              Superchat-AVV vom 10.07.2026). */}
+          <Block title="Kundenservice-Seite und Online-Terminbuchung">
+            <p>
+              Unter admiral.tim-haupt.de betreiben wir unsere
+              Kundenservice-Seite und die Online-Terminbuchung einzelner
+              Teammitglieder. Beides läuft in unserer Agentursoftware auf
+              einem Server der Hetzner Online GmbH (Industriestr. 25, 91710
+              Gunzenhausen) im Rechenzentrum Nürnberg. Hetzner ist in unserem
+              Auftrag tätig (Art. 28 DSGVO).
+            </p>
+            <p>
+              Beim Aufruf verarbeitet der Server die technisch notwendigen
+              Daten wie oben beschrieben (IP-Adresse, Zeitpunkt, aufgerufene
+              Seite, Browser). Auf der Kundenservice-Seite zählen wir
+              lediglich, wie oft die Seite aufgerufen und welcher Link
+              angeklickt wird – als reine Tageszahlen,{" "}
+              <span className="text-foreground">
+                ohne IP-Adresse, ohne Cookies und ohne Bezug zu Ihrer Person
+              </span>
+              . Für die Darstellung legt die Seite technische Einstellungen im
+              Speicher Ihres Browsers ab, aber keine Angaben über Sie.
+              Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO.
+            </p>
+            <p>
+              Wenn Sie online einen Termin buchen, verarbeiten wir Ihre
+              Angaben aus dem Buchungsformular – Name, E-Mail-Adresse,
+              Mobilnummer, Terminwunsch und, falls Sie sie machen, Ihr
+              Anliegen, eine Adresse und Antworten auf Zusatzfragen – zur
+              Vereinbarung und Durchführung des Termins (Art. 6 Abs. 1 lit. b
+              DSGVO). Sie erhalten eine Bestätigung per E-Mail. Der Termin wird
+              mit diesen Angaben in den Google-Kalender der Beraterin bzw. des
+              Beraters eingetragen; dabei werden die Daten an Google Ireland
+              Limited (Gordon House, Barrow Street, Dublin 4, Irland)
+              übermittelt, bei Videoterminen erzeugt Google den Link zu Google
+              Meet. Google kann Daten auch in den USA verarbeiten; Google LLC
+              ist nach dem EU-US Data Privacy Framework zertifiziert.
+            </p>
+            <p>
+              Wir speichern Ihre Angaben, solange sie für den Termin und Ihre
+              Betreuung erforderlich sind, und löschen sie danach, soweit keine
+              gesetzlichen Aufbewahrungspflichten entgegenstehen.
+            </p>
+          </Block>
+
+          <Block title="Chat mit unserer digitalen Assistentin (Superchat)">
+            <p>
+              Auf der Kundenservice-Seite können Sie mit uns chatten. Dafür
+              nutzen wir den Webchat der SuperX GmbH (Superchat), Prenzlauer
+              Allee 242–247, 10405 Berlin, die in unserem Auftrag tätig ist
+              (Art. 28 DSGVO).
+            </p>
+            <p>
+              Der Chat wird{" "}
+              <span className="text-foreground">
+                erst geladen, wenn Sie auf „Chat starten“ klicken
+              </span>
+              ; vorher besteht keine Verbindung zu Superchat. Beim Start legt
+              der Chat eine Sitzungs- und Kontaktkennung im Speicher Ihres
+              Browsers ab, damit Ihr Gespräch fortgesetzt werden kann. Diese
+              Speicherung ist für den von Ihnen angeforderten Chat
+              erforderlich (§ 25 Abs. 2 Nr. 2 TDDDG).
+            </p>
+            <p>
+              Im Chat antwortet zunächst unsere digitale Assistentin Mira –
+              eine KI, kein Mensch. Ihre Antworten sind keine Beratung und keine
+              Deckungszusage; verbindlich ist nur, was Ihnen unser Team
+              bestätigt. Bitte teilen Sie im Chat keine Gesundheitsdaten mit.
+            </p>
+            <p>
+              Verarbeitet werden Ihre Nachrichten, die Angaben, die Sie im Chat
+              machen (zum Beispiel Name, Telefonnummer oder E-Mail-Adresse),
+              und technische Verbindungsdaten. Superchat speichert die Daten bei
+              Amazon Web Services in der EU. Für die Antworten der KI werden
+              Nachrichten an OpenAI Ireland Ltd. (Dublin) übermittelt; die
+              Abläufe der KI steuert die LangChain, Inc. (USA) mit
+              Datenhaltung in Deutschland. In Ausnahmefällen können Daten in
+              die USA übermittelt werden; Grundlage sind dann
+              Standardvertragsklauseln der EU-Kommission oder das EU-US Data
+              Privacy Framework.
+            </p>
+            <p>
+              Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, soweit Ihre
+              Anfrage einen Vertrag betrifft, im Übrigen unser berechtigtes
+              Interesse an der Beantwortung Ihrer Anfrage (Art. 6 Abs. 1 lit. f
+              DSGVO). Wir löschen Chatverläufe, sobald sie für die Bearbeitung
+              nicht mehr erforderlich sind und keine gesetzlichen
+              Aufbewahrungspflichten entgegenstehen.
             </p>
           </Block>
 
