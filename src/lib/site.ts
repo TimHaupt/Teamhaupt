@@ -274,8 +274,9 @@ export const selfservice = [
 ] as const;
 
 /**
- * Team – Namen und Buchungslinks aus cal.com. Fotos und Rollen bitte
- * ergaenzen; bis dahin werden Initialen angezeigt.
+ * Team – Buchungslinks fuehren auf die Terminseiten in Admiral
+ * (admiral.tim-haupt.de/termin/<name>). Kathrin hat dort noch keine aktive
+ * Terminseite und bucht bis dahin ueber cal.com.
  */
 export type Member = {
   name: string;
@@ -300,7 +301,7 @@ export const team: Member[] = [
     role: "Inhaber",
     focus: "Firmen und Freiberufler",
     photo: "/img/team/tim-haupt.jpg",
-    booking: "https://cal.com/tim-haupt",
+    booking: "https://admiral.tim-haupt.de/termin/tim-haupt",
     phone: "0361 56 53 660",
   },
   {
@@ -308,7 +309,7 @@ export const team: Member[] = [
     role: "Schadenmanagerin",
     focus: "Kundenservice",
     photo: "/img/team/swenja-moeller-2026b.jpg",
-    booking: "https://cal.eu/swenja-elise-moller",
+    booking: "https://admiral.tim-haupt.de/termin/swenja-elise-moeller",
     email: "Swenja.Moeller@hdi.de",
     phone: "0361 56 53 672",
   },
@@ -332,7 +333,7 @@ export const team: Member[] = [
     role: "Kundenberaterin",
     focus: "Vorsorge & Privatversicherungen",
     photo: "/img/team/lisa-luebke.jpg",
-    booking: "https://cal.com/Lisa.Luebke",
+    booking: "https://admiral.tim-haupt.de/termin/lisa-luebke",
     phone: "0361 56 53 667",
   },
   {
@@ -340,7 +341,7 @@ export const team: Member[] = [
     role: "Kundenberater",
     focus: "Vorsorge & Privatversicherungen",
     photo: "/img/team/frederic-loll.jpg",
-    booking: "https://cal.com/frederic.loll",
+    booking: "https://admiral.tim-haupt.de/termin/frederic-loll",
     phone: "0361 56 53 668",
   },
   {
@@ -348,7 +349,7 @@ export const team: Member[] = [
     role: "Kundenberater",
     focus: "Firmen und Privatversicherungen",
     photo: "/img/team/amanuel-tekeste.jpg",
-    booking: "https://cal.com/amanueltekeste",
+    booking: "https://admiral.tim-haupt.de/termin/amanuel-tekeste",
     phone: "0361 56 53 674",
   },
   {

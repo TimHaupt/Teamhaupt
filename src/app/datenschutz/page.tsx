@@ -127,8 +127,9 @@ export default function DatenschutzPage() {
             </p>
             <ul className="ml-5 list-disc space-y-2">
               <li>
-                <span className="text-foreground">cal.com und cal.eu</span> – Terminbuchung
-                bei einzelnen Teammitgliedern
+                <span className="text-foreground">cal.com</span> – Terminbuchung
+                bei einzelnen Teammitgliedern, die noch keine eigene Terminseite
+                bei uns haben
               </li>
               <li>
                 <span className="text-foreground">Flixcheck</span> –

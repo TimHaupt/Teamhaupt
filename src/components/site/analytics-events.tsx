@@ -4,7 +4,7 @@
 //
 // Ein globaler Listener statt onClick-Handler an jedem Link: So bleiben die
 // Seiten Server-Komponenten, und neue CTAs sind automatisch erfasst, solange
-// sie auf tel:, wa.me oder cal.com/cal.eu zeigen. Erfasst wird nur, WOHIN
+// sie auf tel:, wa.me, Admiral-Terminseiten oder cal.com zeigen. Erfasst wird nur, WOHIN
 // geklickt wurde und von welcher Seite – keine Personendaten, keine Cookies.
 
 import { useEffect } from "react";
@@ -24,10 +24,16 @@ export function AnalyticsEvents() {
         track("anruf_klick", { seite: pathname });
       } else if (href.includes("wa.me")) {
         track("whatsapp_klick", { seite: pathname });
-      } else if (href.includes("cal.com") || href.includes("cal.eu")) {
+      } else if (
+        href.includes("admiral.tim-haupt.de/termin") ||
+        href.includes("cal.com") ||
+        href.includes("cal.eu")
+      ) {
         // Kalender-Slug statt Name: identifiziert das gebuchte Teammitglied,
         // ohne hier Namen zu verdrahten.
-        const slug = new URL(href).pathname.replaceAll("/", "") || "unbekannt";
+        const slug =
+          new URL(href).pathname.replace(/^\/termin\//, "").replaceAll("/", "") ||
+          "unbekannt";
         track("buchung_klick", { seite: pathname, kalender: slug });
       }
     };
