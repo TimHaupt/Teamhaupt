@@ -132,10 +132,6 @@ export default function DatenschutzPage() {
                 bei uns haben
               </li>
               <li>
-                <span className="text-foreground">Flixcheck</span> –
-                Schadenmeldung und Änderungsmitteilungen
-              </li>
-              <li>
                 <span className="text-foreground">HDI Kundenwelt</span> –
                 Kundenportal der HDI
               </li>
