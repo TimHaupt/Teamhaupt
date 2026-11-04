@@ -28,6 +28,7 @@ import {
   faqs,
   provenExpert,
   phoneHoursCompact,
+  schadenArten,
   schadenMelden,
   schadenmanagerin,
   kundenserviceUrl,
@@ -339,18 +340,18 @@ export default function HomePage() {
           <div className="border-t border-white/12 pt-9 lg:border-l lg:border-t-0 lg:pl-16 lg:pt-0">
             <p className="eyebrow text-brand-bright">Schaden online melden</p>
             <p className="mt-4 text-[15px] leading-relaxed text-white/50">
-              Rund um die Uhr, ohne Anmeldung. Wählen Sie die passende Sparte:
+              {schadenMelden.text}.
             </p>
             <ul className="mt-8">
-              {schadenMelden.map((s) => (
-                <li key={s.label}>
+              {schadenArten.map((art) => (
+                <li key={art}>
                   <a
-                    href={s.href}
+                    href={schadenMelden.href}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group flex items-center justify-between border-b border-white/10 py-4 text-[15.5px] text-white/85 transition-colors hover:text-white"
                   >
-                    {s.label}
+                    {art}
                     <ArrowUpRight
                       className="h-4 w-4 text-white/35 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-white"
                       strokeWidth={1.6}

@@ -230,16 +230,23 @@ export const provenExpert = {
 } as const;
 
 /**
- * Selfservice – Links aus dem Linktree der Agentur, hier bewusst direkt
- * eingebunden statt über den Umweg einer Fremdplattform.
- * Die Flixcheck-Widget-URLs koennen sich aendern; bei Aenderung hier pflegen.
+ * Schadenmeldung ueber die eigene Strecke in Admiral: Sie fragt selbst ab, was
+ * passiert ist (Auto, Wasser, Sturm, Einbruch, Fahrrad, Haftpflicht,
+ * Sonstiges). Ersetzt die frueheren Flixcheck-Formulare, die je Aufruf Geld
+ * kosteten.
  */
-export const schadenMelden = [
-  { label: "Kfz-Schaden", href: "https://api.flixcheck.com/api/v1/widget/KKdvlJLRHCuCWtcIZjpNzdIzcRCohIAf/transactions/redirect" },
-  { label: "Privathaftpflicht", href: "https://api.flixcheck.com/api/v1/widget/VBejyOUQPyxETpLEizlLIjvuEsTpfhRp/transactions/redirect" },
-  { label: "Hausrat", href: "https://api.flixcheck.com/api/v1/widget/VrtwApdaTKQLMsCPgwCtDgUtYruKCWNE/transactions/redirect" },
-  { label: "Wohngebäude", href: "https://api.flixcheck.com/api/v1/widget/FlOLmDBjLHgEeostwaTprvNKajnzXoBI/transactions/redirect" },
-  { label: "Sonstiger Schaden", href: "https://api.flixcheck.com/api/v1/widget/HOsoegHQjiHUYOqANRvYftbjwzWBBYvk/transactions/redirect" },
+export const schadenMelden = {
+  href: "https://admiral.tim-haupt.de/schaden-melden",
+  text: "Schritt für Schritt, rund um die Uhr – mit Fotos und Sofort-Hilfe",
+} as const;
+
+/** Sparten fuer die Liste auf Start- und Kontaktseite – alle fuehren auf dieselbe Strecke. */
+export const schadenArten = [
+  "Kfz-Schaden",
+  "Privathaftpflicht",
+  "Hausrat",
+  "Wohngebäude",
+  "Sonstiger Schaden",
 ] as const;
 
 /**
@@ -260,8 +267,8 @@ export const selfservice = [
   {
     icon: "PencilLine",
     title: "Daten ändern",
-    text: "Neue Bankverbindung oder Anschrift in zwei Minuten mitteilen.",
-    href: "https://api.flixcheck.com/api/v1/widget/qwxjBtbxUsKJKafbTaFVlRyxCjJfvRzv/transactions/redirect",
+    text: "Umzug, neuer Name, neue Bankverbindung oder Kontaktdaten in zwei Minuten mitteilen.",
+    href: "https://admiral.tim-haupt.de/daten-aendern",
   },
   {
     icon: "LayoutDashboard",

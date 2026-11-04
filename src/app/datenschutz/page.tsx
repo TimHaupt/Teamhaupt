@@ -209,6 +209,26 @@ export default function DatenschutzPage() {
             </p>
           </Block>
 
+          <Block title="Online-Formulare: Schadenmeldung und Änderungsmitteilung">
+            <p>
+              Unsere Online-Formulare – Schadenmeldung, Änderungsmitteilung
+              (zum Beispiel Umzug, neuer Name, neue Bankverbindung) und
+              Betreuungskonzept – laufen über unser Kundensystem Admiral auf
+              unserem Server bei der Hetzner Online GmbH in Nürnberg
+              (Deutschland), siehe oben.
+            </p>
+            <p>
+              Ihre Angaben, hochgeladene Fotos und gegebenenfalls Ihre
+              Unterschrift speichern wir nur zur Bearbeitung Ihres Anliegens
+              und geben sie dafür an den zuständigen Versicherer weiter.
+              Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, soweit es um Ihren
+              Versicherungsvertrag geht, im Übrigen unser berechtigtes Interesse
+              an der Bearbeitung Ihrer Anfrage (Art. 6 Abs. 1 lit. f DSGVO). Wir
+              löschen die Daten, sobald sie nicht mehr erforderlich sind und
+              keine gesetzlichen Aufbewahrungspflichten entgegenstehen.
+            </p>
+          </Block>
+
           <Block title="Chat mit unserer digitalen Assistentin (Superchat)">
             <p>
               Auf der Kundenservice-Seite können Sie mit uns chatten. Dafür

@@ -18,6 +18,7 @@ import {
   openingHours,
   openingHoursNote,
   phoneHoursCompact,
+  schadenArten,
   schadenMelden,
   schadenmanagerin,
   site,
@@ -160,15 +161,15 @@ export default function KontaktPage() {
       >
         <div className="mt-8 grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:gap-14">
           <ul>
-            {schadenMelden.map((s) => (
-              <li key={s.label}>
+            {schadenArten.map((art) => (
+              <li key={art}>
                 <a
-                  href={s.href}
+                  href={schadenMelden.href}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex items-center justify-between border-b border-white/10 py-4 text-[15.5px] text-white/85 transition-colors hover:text-white"
                 >
-                  {s.label}
+                  {art}
                   <ArrowUpRight
                     className="h-4 w-4 text-white/35 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-white"
                     strokeWidth={1.6}
