@@ -144,34 +144,11 @@ export default function UeberUnsPage() {
       <Section
         id="team"
         tone="paper"
+        eyebrow="Das Team"
+        title="Menschen, keine Hotline"
+        lead="Unser Team am Standort Erfurt berät Sie in unterschiedlichen Themengebieten. Buchen Sie direkt im Kalender Ihres Ansprechpartners."
       >
-        {/* Kopf und Gruppenfoto als eine Zeile: Text links, das freigestellte
-            Team rechts. Beide sitzen auf der Oberkante der Teamkarten – das
-            Team "steht" darauf, statt frei ueber der Seite zu schweben. Die
-            seitlichen Schnittkanten (Arme am Fotorand) laufen weich aus. */}
-        <div className="grid items-end gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.35fr)] lg:gap-12">
-          <div className="lg:pb-16">
-            <p className="eyebrow">Das Team</p>
-            <h2 className="display mt-5 text-[clamp(1.65rem,2.9vw,2.35rem)] text-foreground">
-              Menschen, keine Hotline
-            </h2>
-            <p className="mt-5 text-[16.5px] leading-[1.75] text-muted-foreground">
-              Unser Team am Standort Erfurt berät Sie in unterschiedlichen
-              Themengebieten. Buchen Sie direkt im Kalender Ihres
-              Ansprechpartners.
-            </p>
-          </div>
-          <Image
-            src="/img/team-buero-2026-frei.png"
-            alt="Das Team der HDI Generalvertretung Tim Haupt in Erfurt"
-            width={1600}
-            height={1073}
-            sizes="(max-width: 1024px) 100vw, 680px"
-            className="mx-auto block w-full max-w-[680px] [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)] lg:mr-0"
-          />
-        </div>
-
-        <div className="grid grid-cols-1 gap-px bg-border sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid grid-cols-1 gap-px bg-border sm:grid-cols-2 lg:grid-cols-3">
           {team.map((m) => (
             <div key={m.name} className="flex flex-col bg-background">
               {/* Festes Seitenverhaeltnis: sonst richtet sich die Kachelhoehe
