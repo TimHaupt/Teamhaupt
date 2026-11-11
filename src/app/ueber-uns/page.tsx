@@ -149,12 +149,14 @@ export default function UeberUnsPage() {
         lead="Unser Team am Standort Erfurt berät Sie in unterschiedlichen Themengebieten. Buchen Sie direkt im Kalender Ihres Ansprechpartners."
       >
         <Image
-          src="/img/team-banner.jpg"
+          src="/img/team-buero-2026.jpg"
           alt="Das Team der HDI Generalvertretung Tim Haupt in Erfurt"
-          width={1794}
-          height={700}
+          width={2000}
+          height={1342}
           sizes="(max-width: 1240px) 100vw, 1160px"
-          className="mt-10 w-full rounded-lg bg-background"
+          // Flacher Streifen im Format des alten Banners: Koepfe und
+          // Oberkoerper bleiben drin, die Beine fallen weg.
+          className="mt-10 aspect-[1794/700] w-full rounded-lg bg-background object-cover object-[50%_20%]"
         />
 
         <div className="mt-10 grid grid-cols-1 gap-px bg-border sm:grid-cols-2 lg:grid-cols-3">

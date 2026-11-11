@@ -33,17 +33,20 @@ export function Hero() {
     <section className="relative isolate overflow-hidden bg-brand-ink">
       {/* Teamfoto: rechts angeschnitten, nach links in die Fläche verlaufend */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute inset-y-0 right-0 w-full lg:w-[64%]">
+        {/* Mobil nur das obere Drittel bis zur Haelfte: weniger Zoom, damit
+            neben Tim noch Amanuels Schulter ins Bild passt; unten weich
+            ausgeblendet. */}
+        <div className="absolute right-0 top-0 h-[60%] w-full [mask-image:linear-gradient(to_bottom,black_65%,transparent)] lg:inset-y-0 lg:h-auto lg:w-[64%] lg:[mask-image:none]">
           <Image
-            src="/img/team-dunkel.jpg"
+            src="/img/team-buero-2026.jpg"
             alt=""
             aria-hidden
             fill
             priority
             sizes="(max-width: 1024px) 100vw, 64vw"
-            // -translate-y hebt die Koepfe auf Desktop in die obere Herohaelfte;
-            // die Unterkante des Bildes verschwindet im Bodenverlauf darunter.
-            className="scale-110 object-cover object-[64%_center] opacity-70 lg:-translate-y-[12%] lg:object-[100%_center] lg:opacity-90"
+            // Gruppenfoto im hellen Buero (2026): leicht abgedunkelt, damit es in
+            // den dunklen Hero passt; das alte team-dunkel.jpg bleibt als Rueckfall.
+            className="object-cover object-[64%_center] opacity-60 brightness-[0.8] lg:object-[100%_20%] lg:opacity-85"
           />
         </div>
         {/* Verlauf: deckt die Textspalte ab, gibt die Gesichter rechts frei.

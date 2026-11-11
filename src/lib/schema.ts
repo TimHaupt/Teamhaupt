@@ -59,7 +59,7 @@ export function agencySchema() {
     alternateName: "Tim Haupt Versicherung Erfurt",
     url: BASE,
     logo: `${BASE}/img/logo-gruen.png`,
-    image: `${BASE}/img/team-banner.jpg`,
+    image: `${BASE}/img/team-buero-2026.jpg`,
     telephone: site.phoneHref.replace("tel:", ""),
     email: site.email,
     address: {
