@@ -155,8 +155,9 @@ export default function UeberUnsPage() {
           height={1342}
           sizes="(max-width: 1240px) 100vw, 1160px"
           // Flacher Streifen im Format des alten Banners: Koepfe und
-          // Oberkoerper bleiben drin, die Beine fallen weg.
-          className="mt-10 aspect-[1794/700] w-full rounded-lg bg-background object-cover object-[50%_20%]"
+          // Oberkoerper bleiben drin, die Beine fallen weg. Leicht aufgehellt,
+          // weil es auf dem hellen Seitengrund sonst dunkel wirkt.
+          className="mt-10 aspect-[1794/700] w-full rounded-lg bg-background object-cover object-[50%_20%] brightness-[1.12] contrast-[0.95]"
         />
 
         <div className="mt-10 grid grid-cols-1 gap-px bg-border sm:grid-cols-2 lg:grid-cols-3">
