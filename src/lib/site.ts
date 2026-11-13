@@ -282,8 +282,7 @@ export const selfservice = [
 
 /**
  * Team – Buchungslinks fuehren auf die Terminseiten in Admiral
- * (admiral.tim-haupt.de/termin/<name>). Kathrin hat dort noch keine aktive
- * Terminseite und bucht bis dahin ueber cal.com.
+ * (admiral.tim-haupt.de/termin/<name>).
  */
 export type Member = {
   name: string;
@@ -332,7 +331,7 @@ export const team: Member[] = [
     role: "Kundenberaterin",
     focus: "Heilberufe und Privatversicherungen",
     photo: "/img/team/kathrin-severin.jpg",
-    booking: "https://cal.com/kathrin-severin",
+    booking: "https://admiral.tim-haupt.de/termin/kathrin-severin",
     phone: "0361 56 53 676",
   },
   {
