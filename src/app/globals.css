@@ -218,3 +218,14 @@ body::before {
     scroll-behavior: auto !important;
   }
 }
+
+/* Kfz-Laufband (saisonal, siehe components/site/kfz-laufband.tsx):
+   Die Spur enthaelt den Text zweimal; -50 % ist genau eine Haelfte. */
+@keyframes laufband {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

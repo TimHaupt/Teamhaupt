@@ -4,7 +4,7 @@
 //
 // Ein globaler Listener statt onClick-Handler an jedem Link: So bleiben die
 // Seiten Server-Komponenten, und neue CTAs sind automatisch erfasst, solange
-// sie auf tel:, wa.me, Admiral-Terminseiten oder cal.com zeigen. Erfasst wird nur, WOHIN
+// sie auf tel:, wa.me, Admiral-Terminseiten, Admiral-Funnels oder cal.com zeigen. Erfasst wird nur, WOHIN
 // geklickt wurde und von welcher Seite – keine Personendaten, keine Cookies.
 
 import { useEffect } from "react";
@@ -35,6 +35,15 @@ export function AnalyticsEvents() {
           new URL(href).pathname.replace(/^\/termin\//, "").replaceAll("/", "") ||
           "unbekannt";
         track("buchung_klick", { seite: pathname, kalender: slug });
+      } else if (href.includes("admiral.tim-haupt.de/f/")) {
+        // Admiral-Funnels (z. B. Kfz-Wechsel); utm_medium sagt, welcher
+        // Baustein geklickt wurde (Laufband, Button ...).
+        const url = new URL(href);
+        track("funnel_klick", {
+          seite: pathname,
+          funnel: url.pathname.replace(/^\/f\//, "").replaceAll("/", ""),
+          baustein: url.searchParams.get("utm_medium") ?? "unbekannt",
+        });
       }
     };
 

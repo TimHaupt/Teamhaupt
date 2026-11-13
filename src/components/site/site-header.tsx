@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import { Menu, Phone, X } from "lucide-react";
 import { cn } from "@/components/lib/utils";
 import { nav, site } from "@/lib/site";
+import { KfzLaufband } from "@/components/site/kfz-laufband";
 
 export function SiteHeader() {
   const pathname = usePathname();
@@ -57,6 +58,9 @@ export function SiteHeader() {
         onDark ? "bg-transparent" : "border-b border-border bg-background/95 backdrop-blur",
       )}
     >
+      {/* Saisonales Laufband – nicht auf der Weiterleitungsseite des Funnels. */}
+      {pathname !== "/kfz-angebot" && <KfzLaufband eingeklappt={scrolled || open} />}
+
       <div className="mx-auto flex h-[72px] max-w-[1240px] items-center justify-between gap-8 px-6 lg:px-10">
         {/* Wortmarke */}
         <Link href="/" className="flex shrink-0 items-center gap-3">

@@ -57,7 +57,7 @@ export function Hero() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_16%_30%,rgba(104,160,64,0.15),transparent_52%)]" />
       </div>
 
-      <div className="relative mx-auto max-w-[1240px] px-6 pb-16 pt-28 sm:pb-20 sm:pt-32 lg:px-10 lg:pb-24 lg:pt-36">
+      <div className="relative mx-auto max-w-[1240px] px-6 pb-16 pt-32 sm:pb-20 sm:pt-36 lg:px-10 lg:pb-24 lg:pt-36">
         <div className="max-w-[38rem]">
           <p className={cn("eyebrow text-brand-bright", rise("delay-0"))}>
             HDI Generalvertretung · Erfurt
