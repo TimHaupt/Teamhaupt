@@ -72,6 +72,7 @@ export function GET() {
     `- [Für Kanzleien: Steuerberater und Rechtsanwälte](${BASE}/kanzleien)`,
     `- [Für Heilberufe: Ärzte, Praxen, Therapeuten](${BASE}/heilberufe)`,
     `- [Cybersecurity: Cyberversicherung für Unternehmen](${BASE}/cybersecurity)`,
+    `- [Kfz-Versicherung: Wechsel, Beitrag, Angebot anfordern](${BASE}/kfz-versicherung)`,
     `- [Über uns und Team](${BASE}/ueber-uns)`,
     `- [Kontakt, Terminbuchung, Schadenmeldung](${BASE}/kontakt)`,
     "",

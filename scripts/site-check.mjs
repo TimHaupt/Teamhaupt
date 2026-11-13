@@ -27,6 +27,7 @@ const ROUTES = [
   "/kanzleien",
   "/heilberufe",
   "/cybersecurity",
+  "/kfz-versicherung",
   "/ueber-uns",
   "/kontakt",
   "/impressum",

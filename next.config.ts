@@ -31,14 +31,10 @@ const nextConfig: NextConfig = {
       },
 
       // Produkte -> Leistungsbereiche (Anker = service-Slugs)
-      {
-        source: "/kfz-versicherung",
-        destination: "/leistungen#kfz",
-        permanent: true,
-      },
+      // /kfz-versicherung ist seit 11/2026 eine eigene Seite (kein Menuepunkt).
       {
         source: "/deine-kfz-versicherung",
-        destination: "/leistungen#kfz",
+        destination: "/kfz-versicherung",
         permanent: true,
       },
       {

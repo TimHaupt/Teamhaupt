@@ -144,6 +144,11 @@ export const services: Service[] = [
     teaser:
       "Faire Kfz-Tarife mit schneller Schadenhilfe. Wir finden den Schutz, der zu Ihrem Fahrzeug und Budget passt.",
     bullets: ["Haftpflicht", "Teil- & Vollkasko", "Schutzbrief", "Schnelle Schadenhilfe"],
+    weiter: {
+      text: "Wann sich ein Wechsel lohnt, was den Beitrag bestimmt und wie Sie in wenigen Minuten ein Angebot bekommen, steht auf unserer Seite zur",
+      link: "Kfz-Versicherung",
+      href: "/kfz-versicherung",
+    },
   },
   {
     slug: "gesundheit",
